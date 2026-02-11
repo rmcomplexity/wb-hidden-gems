@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Hidden Gems - Growing Local Businesses in Wells Branch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Primary Colors */
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --red-light: #eb1b30;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            
+            /* Neutrals */
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            max-height: 95px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--green-dark), var(--green-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--green-dark);
+        }
+
+        .logo-text span {
+            color: var(--yellow-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(32, 80, 12, 0.85) 0%, 
+                    rgba(32, 80, 12, 0.7) 30%,
+                    rgba(204, 128, 18, 0.6) 70%,
+                    rgba(204, 128, 18, 0.75) 100%),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            z-index: -1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(170, 214, 151, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(238, 201, 147, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            padding: 2rem;
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 .highlight {
+            color: var(--yellow-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow-dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.4);
+        }
+
+        .hero-cta:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
+        }
+
+        /* Announcements Section */
+        .announcements {
+            background: var(--green-dark);
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .announcements-track {
+            display: flex;
+            gap: 3rem;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .announcement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--white);
+            white-space: nowrap;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+        }
+
+        .announcement-item i {
+            color: var(--yellow-light);
+            font-size: 1.25rem;
+        }
+
+        .announcement-item span {
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--green-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .about h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+        }
+
+        .about h2 .accent {
+            color: var(--green-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-values {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateX(8px);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .value-icon.green {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        .value-icon.yellow {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+        }
+
+        .value-icon.blue {
+            background: rgba(21, 34, 168, 0.15);
+            color: var(--blue-dark);
+        }
+
+        .value-content h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+        }
+
+        .value-content p {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--off-white) 0%, var(--cream) 100%);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .process h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .process-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--green-dark), var(--yellow-dark), var(--blue-dark), var(--green-dark));
+            border-radius: 3px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .step-number.green { background: var(--green-dark); }
+        .step-number.yellow { background: var(--yellow-dark); }
+        .step-number.blue { background: var(--blue-dark); }
+
+        .step-body {
+            padding-top: 0.5rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .step-details {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .step-details ul {
+            list-style: none;
+        }
+
+        .step-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .step-details li:last-child {
+            border-bottom: none;
+        }
+
+        .step-details li i {
+            color: var(--green-dark);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .optional-tag {
+            display: inline-block;
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Schedule Section */
+        .schedule {
+            padding: 6rem 2rem;
+            background: var(--green-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(170, 214, 151, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .schedule-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .schedule h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .schedule p {
+            color: var(--green-light);
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .schedule-form {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        .footer-column h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--green-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .process-step {
+                grid-template-columns: 50px 1fr;
+                gap: 1.25rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .process-timeline::before {
+                left: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png"  alt="WB Hidden Gems"/>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="#"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="#"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="#"><i class="fas fa-briefcase"></i> Professional</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <span class="hero-badge">🏡 Proudly serving Wells Branch for 9 years</span>
+            <h1>Are You Struggling Getting More <span class="highlight">Customers Through the Door?</span></h1>
+            <p class="hero-subtitle">We help you grow your business in every neighbor's heart by increasing your presence and impact in the Wells Branch community.</p>
+            <a href="#schedule" class="hero-cta">
+                <i class="fas fa-calendar-check"></i>
+                Request a Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Announcements -->
+    <div class="announcements">
+        <div class="announcements-track">
+            <div class="announcement-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Now accepting new local businesses for 2026</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-star"></i>
+                <span>Free business profile article for all Wells Branch businesses</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-handshake"></i>
+                <span>Community partnership opportunities available</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-calendar"></i>
+                <span>Spring Market Event — Booth spaces opening soon</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-newspaper"></i>
+                <span>Featured: Maria's Bakery — Read their story</span>
+            </div>
+            <!-- Duplicate for seamless scroll -->
+            <div class="announcement-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Now accepting new local businesses for 2026</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-star"></i>
+                <span>Free business profile article for all Wells Branch businesses</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-handshake"></i>
+                <span>Community partnership opportunities available</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-calendar"></i>
+                <span>Spring Market Event — Booth spaces opening soon</span>
+            </div>
+            <div class="announcement-item">
+                <i class="fas fa-newspaper"></i>
+                <span>Featured: Maria's Bakery — Read their story</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <span class="section-label">Who We Are</span>
+            <h2>Your Neighbors, Helping <span class="accent">Your Business</span> Thrive</h2>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>WB Hidden Gems was born from a simple belief: every local business has a story worth telling, and every community is stronger when neighbors support neighbors.</p>
+                    <p>We're not a faceless agency sending generic recommendations from a downtown office. We live here. We shop here. We've been part of the Wells Branch community for 9 years, and we've seen firsthand how meaningful it is when a local business becomes a true neighborhood fixture.</p>
+                    <p>Our approach goes beyond likes and clicks. We focus on real connections—helping you become the business that neighbors recommend to each other, the place people mention at block parties, the name that comes up when someone asks "do you know anyone who does...?"</p>
+                </div>
+                
+                <div class="about-values">
+                    <div class="value-card">
+                        <div class="value-icon green">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Community-First Approach</h4>
+                            <p>We understand Wells Branch because we're part of it. Every strategy is tailored to our neighborhood's unique character.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon yellow">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Your Vision, Our Expertise</h4>
+                            <p>We work with your goals, not against them. Your business is yours—we're here to amplify what makes it special.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon blue">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Partnership, Not Contracts</h4>
+                            <p>Cancel anytime after 3 months. Everything we create for you—website, content, designs—is yours to keep.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="process-container">
+            <div class="process-header">
+                <span class="section-label">How We Work Together</span>
+                <h2>From Introduction to Impact</h2>
+                <p class="process-subtitle">A clear, collaborative process designed to grow your business thoughtfully and sustainably within our community.</p>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number green">1</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Introduction Meeting</h3>
+                            <p>We sit down together to understand your business, your story, and what success looks like for you.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Learn about your business journey and goals</li>
+                                <li><i class="fas fa-check"></i> Understand your vision for community impact</li>
+                                <li><i class="fas fa-check"></i> Identify your ideal customers in Wells Branch</li>
+                                <li><i class="fas fa-check"></i> Discuss what hasn't worked in the past</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number yellow">2</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Presence Audit</h3>
+                            <p>We take a comprehensive look at where you stand today—online and within the local community.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Review your Google Business Profile & local listings</li>
+                                <li><i class="fas fa-check"></i> Assess social media presence & engagement</li>
+                                <li><i class="fas fa-check"></i> Evaluate industry-specific platforms (Nextdoor, Angi, Houzz, etc.)</li>
+                                <li><i class="fas fa-check"></i> Analyze community visibility & word-of-mouth presence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number blue">3</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Growth Plan</h3>
+                            <p>Together, we craft a customized roadmap for growing your presence over the coming year.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Website & logo creation or refresh</li>
+                                <li><i class="fas fa-check"></i> Social account overhaul (up to 3 platforms)</li>
+                                <li><i class="fas fa-check"></i> Content strategy: posts, articles, & storytelling</li>
+                                <li><i class="fas fa-check"></i> In-person event planning & participation <span class="optional-tag">Optional</span></li>
+                                <li><i class="fas fa-check"></i> Custom merchandise design & sourcing <span class="optional-tag">Optional</span></li>
+                                <li><i class="fas fa-check"></i> Customer feedback campaigns <span class="optional-tag">Optional</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number green">4</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Execution & Growth</h3>
+                            <p>We put the plan into action with consistent communication and transparent reporting.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Weekly check-in meetings to review progress</li>
+                                <li><i class="fas fa-check"></i> Monthly performance reports with clear metrics</li>
+                                <li><i class="fas fa-check"></i> Ongoing content creation & community engagement</li>
+                                <li><i class="fas fa-check"></i> Flexible adjustments based on what's working</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="schedule-container">
+            <span class="section-label" style="color: var(--green-light);">Get Started</span>
+            <h2>Let's Talk About Your Business</h2>
+            <p>No pressure, no hard sells—just a friendly conversation about how we might help your business become a bigger part of our community.</p>
+            
+            <form class="schedule-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Maria Johnson" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" name="business" placeholder="Maria's Bakery" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="maria@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(512) 555-0123">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label for="category">Business Category</label>
+                        <select id="category" name="category">
+                            <option value="">Select your industry...</option>
+                            <option value="food">Food & Drink</option>
+                            <option value="shopping">Shopping & Retail</option>
+                            <option value="health">Health & Beauty</option>
+                            <option value="home">Home Services</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label for="message">Tell us a bit about your business and goals</label>
+                        <textarea id="message" name="message" placeholder="What would you like to achieve? What challenges are you facing? We'd love to hear your story..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">
+                    <i class="fas fa-paper-plane"></i> Schedule My Free Consultation
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">WB Hidden Gems</div>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-nextdoor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Featured Businesses</a></li>
+                        <li><a href="#">Local Stories</a></li>
+                        <li><a href="#">Community Events</a></li>
+                        <li><a href="#">Business Directory</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Free Business Profile</a></li>
+                        <li><a href="#">Growth Plans</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Event Coordination</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@wbhiddengems.com">hello@wbhiddengems.com</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="#schedule">Schedule a Call</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
