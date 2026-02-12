@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <link
+    rel="preload"
+    href="assets/images/logo/WBHG-logo-name.png"
+    as="image"/>
     <style>
         :root {
             /* Primary Colors */
@@ -17,6 +21,7 @@
             --yellow-light: #eec993;
             --red-dark: #8a0d1a;
             --red-light: #eb1b30;
+            --red-light-mute: #ea7782;
             --blue-dark: #08137a;
             --blue-light: #1522a8;
             
@@ -40,14 +45,14 @@
         }
 
         body {
-            font-family: 'Source Sans 3', sans-serif;
+            font-family: 'Sansation', sans-serif;
             color: var(--charcoal);
             line-height: 1.6;
             background-color: var(--off-white);
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Sansation', serif;
             font-weight: 500;
             line-height: 1.2;
         }
@@ -75,7 +80,7 @@
         }
 
         .logo img {
-            max-height: 95px;
+            max-height: 3.1rem;
         }
 
         .logo-icon {
@@ -91,10 +96,9 @@
         }
 
         .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--green-dark);
+            font-family: 'Sansation', serif;
+            font-size: 1rem;
+            color: var(--charcoal);
         }
 
         .logo-text span {
@@ -137,13 +141,22 @@
         .hero-bg {
             position: absolute;
             inset: 0;
+            /* 
+                    rgba(130, 162, 117, 0.85) 0%, 
+                    rgba(130, 162, 117, 0.7) 30%,
+                    rgba(237, 184, 110, 0.6) 70%,
+                    rgba(237, 184, 110, 0.75) 100%),
+                    */
             background: 
                 linear-gradient(135deg, 
-                    rgba(32, 80, 12, 0.85) 0%, 
+                    rgba(31, 80, 12, 0.85) 0%, 
                     rgba(32, 80, 12, 0.7) 30%,
                     rgba(204, 128, 18, 0.6) 70%,
                     rgba(204, 128, 18, 0.75) 100%),
-                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+                url('assets/images/logo/WBHG-logo-name.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
         }
 
@@ -160,7 +173,8 @@
             max-width: 900px;
             text-align: center;
             padding: 2rem;
-            color: var(--white);
+            color: var(--cream);
+            text-shadow: 1px 1px 2px black;
         }
 
         .hero-badge {
@@ -178,7 +192,7 @@
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             margin-bottom: 1.5rem;
-            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px black;
         }
 
         .hero h1 .highlight {
@@ -417,7 +431,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Sansation', serif;
             font-size: 1.75rem;
             font-weight: 600;
             color: var(--white);
@@ -626,7 +640,7 @@
 
         .footer-brand .logo-text {
             color: var(--white);
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
@@ -782,7 +796,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="assets/images/logo/WBHG-logo-name.png"  alt="WB Hidden Gems"/>
+                <img src="assets/images/logo/WBHG-logo.png"  alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#"><i class="fas fa-utensils"></i> Food & Drink</a></li>
