@@ -21,6 +21,7 @@
             --yellow-light: #eec993;
             --red-dark: #8a0d1a;
             --red-light: #eb1b30;
+            --red-light-mute: #ea7782;
             --blue-dark: #08137a;
             --blue-light: #1522a8;
             
@@ -79,7 +80,7 @@
         }
 
         .logo img {
-            max-height: 1.75rem;
+            max-height: 3.1rem;
         }
 
         .logo-icon {
@@ -140,9 +141,15 @@
         .hero-bg {
             position: absolute;
             inset: 0;
+            /* 
+                    rgba(130, 162, 117, 0.85) 0%, 
+                    rgba(130, 162, 117, 0.7) 30%,
+                    rgba(237, 184, 110, 0.6) 70%,
+                    rgba(237, 184, 110, 0.75) 100%),
+                    */
             background: 
                 linear-gradient(135deg, 
-                    rgba(32, 80, 12, 0.85) 0%, 
+                    rgba(31, 80, 12, 0.85) 0%, 
                     rgba(32, 80, 12, 0.7) 30%,
                     rgba(204, 128, 18, 0.6) 70%,
                     rgba(204, 128, 18, 0.75) 100%),
@@ -166,7 +173,8 @@
             max-width: 900px;
             text-align: center;
             padding: 2rem;
-            color: var(--white);
+            color: var(--cream);
+            text-shadow: 1px 1px 2px black;
         }
 
         .hero-badge {
@@ -184,7 +192,7 @@
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             margin-bottom: 1.5rem;
-            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px black;
         }
 
         .hero h1 .highlight {
@@ -632,7 +640,7 @@
 
         .footer-brand .logo-text {
             color: var(--white);
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
