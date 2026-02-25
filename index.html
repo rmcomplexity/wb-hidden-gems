@@ -366,6 +366,97 @@
             color: var(--gray);
         }
 
+        /* Ads Publication Section */
+        .ads-publication {
+            padding: 6rem 2rem;
+            background: #fce4e4;
+        }
+
+        .ads-publication-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .ads-publication .section-label {
+            color: var(--red-dark);
+        }
+
+        .ads-publication h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+        }
+
+        .ads-publication h2 .accent {
+            color: var(--red-dark);
+        }
+
+        .ads-publication-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .ads-publication-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .ads-publication-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .ads-publication-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .ads-feature-card {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .ads-feature-card:hover {
+            transform: translateX(8px);
+        }
+
+        .ads-feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            background: var(--red-light-mute);
+            color: var(--red-dark);
+        }
+
+        .ads-feature-content h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+        }
+
+        .ads-feature-content p {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 1024px) {
+            .ads-publication-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         /* Process Section */
         .process {
             padding: 6rem 2rem;
@@ -908,6 +999,54 @@
                         <div class="value-content">
                             <h4>Partnership, Not Contracts</h4>
                             <p>Cancel anytime after 3 months. Everything we create for you—website, content, designs—is yours to keep.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ads Publication Section -->
+    <section class="ads-publication" id="ads-publication">
+        <div class="ads-publication-container">
+            <span class="section-label">Ads Publication</span>
+            <h2>Get Your Business <span class="accent">In Front of Neighbors</span></h2>
+
+            <div class="ads-publication-grid">
+                <div class="ads-publication-text">
+                    <p>Our community publication reaches thousands of Wells Branch residents every month. Whether it's a featured article, a display ad, or a seasonal promotion, we make sure your business gets noticed by the people who matter most—your neighbors.</p>
+                    <p>We offer flexible ad placements across our digital newsletter, social media channels, and printed community flyers distributed throughout Wells Branch. Every ad is designed with care to match our community's warm, authentic tone.</p>
+                    <p>From grand openings to special offers, our ads publication service is the fastest way to put your business on the local map and drive real foot traffic through your door.</p>
+                </div>
+
+                <div class="ads-publication-features">
+                    <div class="ads-feature-card">
+                        <div class="ads-feature-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="ads-feature-content">
+                            <h4>Digital Newsletter Ads</h4>
+                            <p>Reach subscribers directly in their inbox with eye-catching placements in our weekly community newsletter.</p>
+                        </div>
+                    </div>
+
+                    <div class="ads-feature-card">
+                        <div class="ads-feature-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="ads-feature-content">
+                            <h4>Social Media Promotions</h4>
+                            <p>Amplify your message across our active social channels with targeted posts and stories for the Wells Branch audience.</p>
+                        </div>
+                    </div>
+
+                    <div class="ads-feature-card">
+                        <div class="ads-feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="ads-feature-content">
+                            <h4>Community Flyer Distribution</h4>
+                            <p>Get printed visibility at local hotspots, mailboxes, and community boards throughout the neighborhood.</p>
                         </div>
                     </div>
                 </div>
