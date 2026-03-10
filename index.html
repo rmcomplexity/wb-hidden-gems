@@ -12,6 +12,8 @@
     rel="preload"
     href="assets/images/logo/WBHG-logo-name.png"
     as="image"/>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
         :root {
             /* Primary Colors */
@@ -595,7 +597,8 @@
             padding: 6rem 2rem;
             background: var(--green-dark);
             position: relative;
-            overflow: hidden;
+            min-height: 700px;
+            /* overflow: hidden; */
         }
 
         .schedule::before {
@@ -615,6 +618,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            min-height: 700px;
         }
 
         .schedule h2 {
@@ -904,7 +908,12 @@
             <!-- <span class="hero-badge">🏡 Proudly serving Wells Branch for 9 years</span>  -->
             <h1>Are You Struggling Getting More <span class="highlight">Customers Through the Door?</span></h1>
             <p class="hero-subtitle">We help you grow your business in every neighbor's heart by increasing your presence and impact in the Wells Branch community.</p>
-            <a href="#schedule" class="hero-cta">
+
+            <!-- Calendly link widget begin -->
+<!-- Calendly link widget end -->
+
+
+            <a href="#schedule" class="hero-cta" id="schedule-a-call-link">
                 <i class="fas fa-calendar-check"></i>
                 Request a Free Consultation
             </a>
@@ -1015,6 +1024,11 @@
         <div class="ads-publication-container">
             <span class="section-label">Ads Publication</span>
             <h2>Get Your Business <span class="accent">In Front of Neighbors</span></h2>
+
+            <div style="display:inline-flex; align-items:center; gap:0.6rem; background:var(--red-dark); color:var(--white); padding:0.6rem 1.25rem; border-radius:50px; font-size:0.95rem; font-weight:600; margin-bottom:2rem;">
+                <i class="fas fa-clock"></i>
+                Publication will start circulating by end of May. Save your spot NOW!
+            </div>
 
             <div class="ads-publication-grid">
                 <div class="ads-publication-text">
@@ -1161,9 +1175,9 @@
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section class="schedule" id="schedule">
-        <div class="schedule-container">
+    <!-- Schedule Section 
+    <section class="schedule" id="schedule" data-resize="true">
+        <div class="schedule-container" id="schedule-container" data-resize="true">
             <span class="section-label" style="color: var(--green-light);">Get Started</span>
             <h2>Let's Talk About Your Business</h2>
             <p>No pressure, no hard sells—just a friendly conversation about how we might help your business become a bigger part of our community.</p>
@@ -1216,6 +1230,7 @@
             </form>
         </div>
     </section>
+    /Schedule A CAll Section -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -1254,7 +1269,7 @@
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:contact@wbhiddengems.com">hello@wbhiddengems.com</a></li>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
                         <li><a href="tel:+15126938679">+1 (512) 693 8679</li>
                         <li><a href="#">Wells Branch, TX</a></li>
                         <li><a href="#schedule">Schedule a Call</a></li>
@@ -1273,5 +1288,13 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript">
+        (function(){
+            const link = document.querySelector("#schedule-a-call-link");
+            link.addEventListener("click", (event) => {
+                Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
+            })
+        })();
+    </script>
 </body>
 </html>

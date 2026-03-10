@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
         :root {
             /* Primary Colors */
@@ -393,8 +395,8 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../index.html" class="logo">
-                <img src="../assets/images/logo/WBHG-logo.png" alt="WB Hidden Gems"/>
+            <a href="index.html" class="logo">
+                <img src="/assets/images/logo/WBHG-logo.png" alt="WB Hidden Gems"/>
                 <span class="logo-text">WB HIDDEN GEMS</span>
             </a>
             <ul class="nav-links">
@@ -447,7 +449,7 @@
                 </ul>
             </div>
 
-            <a href="../index.html" class="back-link">
+            <a href="index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i>
                 Back to Home
             </a>
@@ -472,7 +474,7 @@
                         <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
                         <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
                         <li><a href="#">Wells Branch, TX</a></li>
-                        <li><a href="../index.html#schedule">Schedule a Call</a></li>
+                        <li><a href="index.html#schedule" id="schedule-a-call-link">Schedule a Call</a></li>
                     </ul>
                 </div>
             </div>
@@ -487,6 +489,13 @@
             </div>
         </div>
     </footer>
-
+    <script type="text/javascript">
+        (function(){
+            const link = document.querySelector("#schedule-a-call-link");
+            link.addEventListener("click", (event) => {
+                Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
+            })
+        })();
+    </script>
 </body>
 </html>
