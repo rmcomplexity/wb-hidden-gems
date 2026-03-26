@@ -161,37 +161,6 @@
             flex-wrap: wrap;
         }
 
-        .search-input-wrap {
-            flex: 1;
-            min-width: 200px;
-            position: relative;
-        }
-
-        .search-input-wrap i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-        }
-
-        .search-input-wrap input {
-            width: 100%;
-            padding: 0.7rem 1rem 0.7rem 2.75rem;
-            border: 2px solid var(--light-gray);
-            border-radius: 10px;
-            font-family: 'Sansation', sans-serif;
-            font-size: 0.95rem;
-            color: var(--charcoal);
-            background: var(--off-white);
-            transition: border-color 0.3s ease;
-        }
-
-        .search-input-wrap input:focus {
-            outline: none;
-            border-color: var(--green-dark);
-        }
-
         .filter-pills {
             display: flex;
             gap: 0.5rem;
@@ -562,10 +531,6 @@
     <!-- Search & Filter Bar -->
     <div class="search-bar">
         <div class="search-bar-inner">
-            <div class="search-input-wrap">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search businesses, services, or keywords…">
-            </div>
             <div class="filter-pills">
                 <button class="filter-pill active"><i class="fas fa-th"></i> All</button>
                 <button class="filter-pill"><i class="fas fa-utensils"></i> Food</button>
