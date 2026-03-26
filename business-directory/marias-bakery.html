@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria's Bakery — WB Hidden Gems Business Directory</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Maria's Bakery in Wells Branch, TX — artisan breads, pastries, and custom cakes. Family-owned since 2018. Tue–Sun 7am–6pm. (512) 555-0142.">
+    <link rel="canonical" href="https://wbhiddengems.com/business-directory/marias-bakery.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Maria's Bakery — WB Hidden Gems">
+    <meta property="og:description" content="Artisan breads, pastries, and custom cakes. Family-owned bakery in Wells Branch, TX. Freshly baked every morning.">
+    <meta property="og:url" content="https://wbhiddengems.com/business-directory/marias-bakery.html">
+    <meta property="og:image" content="https://wbhiddengems.com/assets/images/businesses/marias-bakery-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="WB Hidden Gems">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Maria's Bakery — WB Hidden Gems">
+    <meta name="twitter:description" content="Artisan breads, pastries, and custom cakes. Family-owned bakery in Wells Branch, TX.">
+    <meta name="twitter:image" content="https://wbhiddengems.com/assets/images/businesses/marias-bakery-og.jpg">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Maria's Bakery",
+      "description": "Family-owned artisan bakery serving freshly baked breads, pastries, and custom cakes since 2018.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12430 Wells Port Dr",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78728",
+        "addressCountry": "US"
+      },
+      "telephone": "+15125550142",
+      "email": "hello@mariasbakery.com",
+      "openingHours": ["Tu-Fr 07:00-18:00", "Sa-Su 07:00-15:00"],
+      "priceRange": "$$",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 { font-family: 'Sansation', serif; font-weight: 500; line-height: 1.2; }
+
+        /* Navigation */
+        .navbar { background: var(--white); padding: 1rem 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo img { max-height: 3.1rem; }
+        .logo-text { font-family: 'Sansation', serif; font-size: 2rem; color: var(--charcoal); }
+        .logo-text span { color: var(--yellow-dark); }
+
+        .nav-links { display: flex; list-style: none; gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover { background: var(--green-light); color: var(--green-dark); }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--white);
+            border-bottom: 1px solid var(--light-gray);
+            padding: 0.75rem 2rem;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .breadcrumb a { color: var(--green-dark); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb i { font-size: 0.75rem; color: var(--light-gray); }
+
+        /* Business Hero Banner */
+        .business-hero {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6b12 100%);
+            padding: 3rem 2rem;
+            color: var(--white);
+        }
+
+        .business-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-info { flex: 1; }
+        .hero-info h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 0.5rem; }
+
+        .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.18);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .hero-tag.rating { background: rgba(204,128,18,0.7); }
+
+        /* Main Profile Layout */
+        .profile-wrap {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Left: Main content */
+        .profile-main {}
+
+        .profile-section {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i { color: var(--green-dark); }
+
+        .profile-description {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .profile-description p { margin-bottom: 1rem; }
+        .profile-description p:last-child { margin-bottom: 0; }
+
+        /* Logo display */
+        .logo-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .logo-placeholder-lg {
+            width: 200px;
+            height: 200px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--green-dark), #3a8a1e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: 0 8px 32px rgba(32,80,12,0.3);
+        }
+
+        /* Social Links */
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--light-gray);
+            color: var(--gray);
+        }
+
+        .social-link:hover { opacity: 0.8; transform: translateY(-2px); }
+        .social-link.facebook  { color: #1877f2; border-color: #1877f2; }
+        .social-link.instagram { color: #e1306c; border-color: #e1306c; }
+        .social-link.nextdoor  { color: #8bc34a; border-color: #8bc34a; }
+        .social-link.tiktok    { color: #010101; border-color: #333; }
+        .social-link.website   { color: var(--green-dark); border-color: var(--green-dark); }
+
+        /* Right Sidebar */
+        .profile-sidebar {}
+
+        .sidebar-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .sidebar-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-section-title i { color: var(--green-dark); }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-item i {
+            color: var(--green-dark);
+            margin-top: 0.2rem;
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-item .cl { font-weight: 600; color: var(--gray); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+        .hours-row .day { color: var(--gray); }
+        .hours-row .time { color: var(--charcoal); font-weight: 500; }
+        .hours-row .closed { color: var(--red-dark); }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.85rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.6rem;
+        }
+
+        .cta-btn.primary {
+            background: var(--green-dark);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(32,80,12,0.3);
+        }
+
+        .cta-btn.primary:hover { background: #2d6b12; transform: translateY(-2px); }
+
+        .cta-btn.secondary {
+            background: var(--off-white);
+            color: var(--charcoal);
+            border: 2px solid var(--light-gray);
+        }
+
+        .cta-btn.secondary:hover { border-color: var(--green-dark); color: var(--green-dark); }
+
+        /* Rating display */
+        .rating-display {
+            text-align: center;
+            padding: 0.5rem 0 1rem;
+        }
+
+        .rating-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--yellow-dark);
+            line-height: 1;
+        }
+
+        .rating-stars { color: var(--yellow-dark); font-size: 1.25rem; margin: 0.3rem 0; }
+
+        .rating-count { font-size: 0.85rem; color: var(--gray); }
+
+        /* Back link */
+        .back-to-dir {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--green-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .back-to-dir:hover { text-decoration: underline; }
+
+        /* Footer */
+        .footer { background: var(--charcoal); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo-text { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+
+        .footer-social { display: flex; gap: 0.75rem; }
+
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--green-dark); }
+
+        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.5rem; }
+        .footer-column ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--white); }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .profile-wrap { grid-template-columns: 1fr; }
+            .business-hero-inner { flex-direction: column; text-align: center; }
+            .hero-tags { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/WBHG-logo.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-store"></i> Directory</a></li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="#"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="#"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Automotive</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="../index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="index.html">Directory</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Maria's Bakery</span>
+        </div>
+    </div>
+
+    <!-- Business Hero -->
+    <div class="business-hero">
+        <div class="business-hero-inner">
+            <div class="hero-logo">MB</div>
+            <div class="hero-info">
+                <h1>Maria's Bakery</h1>
+                <p style="opacity:0.85; font-size:1rem;">12430 Wells Port Dr · Austin, TX 78728</p>
+                <div class="hero-tags">
+                    <span class="hero-tag"><i class="fas fa-utensils"></i> Food &amp; Drink</span>
+                    <span class="hero-tag rating"><i class="fas fa-star"></i> 4.9 · 87 reviews</span>
+                    <span class="hero-tag"><i class="fas fa-dollar-sign"></i> $$</span>
+                    <span class="hero-tag"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
+                    <span class="hero-tag"><i class="fas fa-heart"></i> Community Favorite</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="profile-wrap">
+        <!-- Main Column -->
+        <div class="profile-main">
+            <a href="index.html" class="back-to-dir"><i class="fas fa-arrow-left"></i> Back to Directory</a>
+
+            <!-- Logo -->
+            <div class="profile-section">
+                <div class="logo-display">
+                    <div class="logo-placeholder-lg">MB</div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="profile-section">
+                <h3 class="section-title"><i class="fas fa-info-circle"></i> About Maria's Bakery</h3>
+                <div class="profile-description">
+                    <p>A family-owned artisan bakery serving freshly baked breads, pastries, and custom cakes since 2018. Maria brings authentic recipes passed down three generations, crafting each item by hand every morning before sunrise so that the first customers always walk in to the smell of something extraordinary.</p>
+                    <p>Whether you're looking for a custom birthday cake, a weekly sourdough subscription, warm empanadas for your office team, or just a coffee and a croissant to start your day — Maria's Bakery is your go-to neighborhood spot.</p>
+                    <p>Located on Wells Port Dr, the bakery has become a true fixture of the Wells Branch community. Maria personally greets regulars, learns names, and often surprises loyal customers with samples of whatever she's experimenting with that week. It's not just a bakery — it's a warm place to belong.</p>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="profile-section">
+                <h3 class="section-title"><i class="fas fa-share-alt"></i> Find Us Online</h3>
+                <div class="social-row">
+                    <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
+                    <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+
+            <!-- Rating -->
+            <div class="sidebar-card">
+                <div class="sidebar-section-title"><i class="fas fa-star"></i> Rating</div>
+                <div class="rating-display">
+                    <div class="rating-number">4.9</div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="rating-count">Based on 87 community reviews</p>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="sidebar-card">
+                <div class="sidebar-section-title"><i class="fas fa-address-card"></i> Contact</div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div><span class="cl">Phone</span><a href="tel:+15125550142" style="color:inherit;text-decoration:none">(512) 555-0142</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div><span class="cl">Email</span><a href="mailto:hello@mariasbakery.com" style="color:inherit;text-decoration:none">hello@mariasbakery.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div><span class="cl">Address</span>12430 Wells Port Dr<br>Austin, TX 78728</div>
+                </div>
+                <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                    <a href="tel:+15125550142" class="cta-btn primary"><i class="fas fa-phone"></i> Call Now</a>
+                    <a href="mailto:hello@mariasbakery.com" class="cta-btn secondary"><i class="fas fa-envelope"></i> Send Email</a>
+                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="sidebar-card">
+                <div class="sidebar-section-title"><i class="fas fa-clock"></i> Hours of Operation</div>
+                <div class="hours-row"><span class="day">Monday</span><span class="closed">Closed</span></div>
+                <div class="hours-row"><span class="day">Tuesday</span><span class="time">7:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Wednesday</span><span class="time">7:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Thursday</span><span class="time">7:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Friday</span><span class="time">7:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Saturday</span><span class="time">7:00 AM – 3:00 PM</span></div>
+                <div class="hours-row"><span class="day">Sunday</span><span class="time">7:00 AM – 3:00 PM</span></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">WB Hidden Gems</div>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="../index.html#schedule">Schedule a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

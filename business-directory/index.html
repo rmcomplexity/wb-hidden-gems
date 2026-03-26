@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Directory — WB Hidden Gems</title>
+    <meta name="description" content="Discover local businesses in Wells Branch, TX. Find restaurants, shops, salons, auto shops, and more in your neighborhood.">
+    <meta property="og:title" content="Business Directory — WB Hidden Gems">
+    <meta property="og:description" content="Discover local businesses in Wells Branch, TX. Support your neighbors and shop local.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wbhiddengems.com/business-directory/">
+    <meta property="og:image" content="../assets/images/logo/WBHG-logo-name.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Business Directory — WB Hidden Gems">
+    <meta name="twitter:description" content="Discover local businesses in Wells Branch, TX. Support your neighbors and shop local.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --red-light: #eb1b30;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img { max-height: 3.1rem; }
+
+        .logo-text {
+            font-family: 'Sansation', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+        }
+
+        .logo-text span { color: var(--yellow-dark); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6b12 100%);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header .section-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header h1 .highlight { color: var(--yellow-light); }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search & Filter Bar */
+        .search-bar {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .search-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input-wrap {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-input-wrap i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .search-input-wrap input {
+            width: 100%;
+            padding: 0.7rem 1rem 0.7rem 2.75rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Sansation', sans-serif;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            background: var(--off-white);
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input-wrap input:focus {
+            outline: none;
+            border-color: var(--green-dark);
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--light-gray);
+            background: var(--off-white);
+            font-family: 'Sansation', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .filter-pill:hover, .filter-pill.active {
+            border-color: var(--green-dark);
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* Directory Container */
+        .directory {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .directory-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .directory-count {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .directory-count strong { color: var(--charcoal); }
+
+        /* Business Card */
+        .business-card {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            margin-bottom: 1.75rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .business-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .card-business-name {
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            font-weight: 700;
+        }
+
+        .card-view-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--green-dark);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.5rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .card-view-link:hover {
+            background: var(--yellow-dark);
+            transform: translateX(3px);
+        }
+
+        /* Card Meta Tags */
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--light-gray);
+            background: var(--cream);
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .card-tag.category  { background: rgba(32,80,12,0.12); color: var(--green-dark); }
+        .card-tag.rating    { background: rgba(204,128,18,0.12); color: var(--yellow-dark); }
+        .card-tag.price     { background: rgba(8,19,122,0.1); color: var(--blue-dark); }
+        .card-tag.status    { background: rgba(32,80,12,0.18); color: var(--green-dark); }
+        .card-tag.badge     { background: rgba(138,13,26,0.1); color: var(--red-dark); }
+
+        /* Card Body */
+        .card-body {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        /* Logo Area */
+        .card-logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .logo-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-width: 160px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+
+        .logo-placeholder.green  { background: linear-gradient(135deg, var(--green-dark), #3a8a1e); }
+        .logo-placeholder.yellow { background: linear-gradient(135deg, var(--yellow-dark), #e0a030); }
+        .logo-placeholder.blue   { background: linear-gradient(135deg, var(--blue-dark), var(--blue-light)); }
+        .logo-placeholder.red    { background: linear-gradient(135deg, var(--red-dark), #c42030); }
+
+        .logo-caption {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 0.97rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .card-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+        }
+
+        .card-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--charcoal);
+        }
+
+        .card-info-item i {
+            color: var(--green-dark);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+            width: 16px;
+        }
+
+        .card-info-item .label {
+            font-weight: 600;
+            color: var(--gray);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        /* Card Social Links */
+        .card-social {
+            display: flex;
+            gap: 0.6rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .card-social-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--light-gray);
+            color: var(--gray);
+        }
+
+        .social-link:hover { border-color: currentColor; opacity: 0.85; }
+        .social-link.facebook  { color: #1877f2; }
+        .social-link.instagram { color: #e1306c; }
+        .social-link.nextdoor  { color: #8bc34a; }
+        .social-link.tiktok    { color: #010101; }
+        .social-link.website   { color: var(--green-dark); }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+
+        .footer-social { display: flex; gap: 0.75rem; }
+
+        .footer-social a {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--green-dark); }
+
+        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
+
+        .footer-column ul { list-style: none; }
+
+        .footer-column ul li { margin-bottom: 0.5rem; }
+
+        .footer-column ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover { color: var(--white); }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        .footer-legal { display: flex; gap: 2rem; }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { justify-content: center; }
+            .card-body { grid-template-columns: 1fr; }
+            .card-logo-area { flex-direction: row; justify-content: flex-start; }
+            .logo-placeholder { max-width: 80px; aspect-ratio: 1; }
+            .card-info-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/WBHG-logo.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-store"></i> Directory</a></li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="#"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="#"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="#"><i class="fas fa-briefcase"></i> Professional</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="section-label">Wells Branch, TX</span>
+        <h1>Local Business <span class="highlight">Directory</span></h1>
+        <p>Support and get to know the hidden gems right in your neighborhood.</p>
+    </header>
+
+    <!-- Search & Filter Bar -->
+    <div class="search-bar">
+        <div class="search-bar-inner">
+            <div class="search-input-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search businesses, services, or keywords…">
+            </div>
+            <div class="filter-pills">
+                <button class="filter-pill active"><i class="fas fa-th"></i> All</button>
+                <button class="filter-pill"><i class="fas fa-utensils"></i> Food</button>
+                <button class="filter-pill"><i class="fas fa-spa"></i> Beauty</button>
+                <button class="filter-pill"><i class="fas fa-car"></i> Auto</button>
+                <button class="filter-pill"><i class="fas fa-home"></i> Home</button>
+                <button class="filter-pill"><i class="fas fa-briefcase"></i> Pro</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Directory Listing -->
+    <main class="directory">
+        <div class="directory-meta">
+            <p class="directory-count">Showing <strong>3</strong> local businesses</p>
+        </div>
+
+        <!-- ── Business Card 1: Maria's Bakery ── -->
+        <article class="business-card">
+            <div class="card-header">
+                <h2 class="card-business-name">Maria's Bakery</h2>
+                <a href="marias-bakery.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-utensils"></i> Food & Drink</span>
+                <span class="card-tag rating"><i class="fas fa-star"></i> 4.9</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
+                <span class="card-tag badge"><i class="fas fa-heart"></i> Community Favorite</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-logo-area">
+                    <div class="logo-placeholder green">MB</div>
+                    <p class="logo-caption">Maria's Bakery</p>
+                </div>
+                <div class="card-details">
+                    <p class="card-description">
+                        A family-owned artisan bakery serving freshly baked breads, pastries, and custom cakes since 2018.
+                        Maria brings authentic recipes passed down three generations, crafting each item by hand every morning.
+                        Whether you're looking for a birthday cake, daily sourdough, or a warm empanada, Maria's Bakery is your
+                        go-to spot in Wells Branch.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Tue–Fri 7am–6pm<br>Sat–Sun 7am–3pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                (512) 555-0142
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                hello@mariasbakery.com
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                12430 Wells Port Dr<br>Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
+                <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+        </article>
+
+        <!-- ── Business Card 2: Bloom & Glow Salon ── -->
+        <article class="business-card">
+            <div class="card-header">
+                <h2 class="card-business-name">Bloom &amp; Glow Salon</h2>
+                <a href="bloom-glow-salon.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-spa"></i> Health &amp; Beauty</span>
+                <span class="card-tag rating"><i class="fas fa-star"></i> 4.8</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$$</span>
+                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
+                <span class="card-tag badge"><i class="fas fa-award"></i> Woman-Owned</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-logo-area">
+                    <div class="logo-placeholder red">BG</div>
+                    <p class="logo-caption">Bloom &amp; Glow Salon</p>
+                </div>
+                <div class="card-details">
+                    <p class="card-description">
+                        A boutique beauty salon specializing in hair color, balayage, keratin treatments, and facials.
+                        Led by licensed cosmetologist Sofia Reyes, Bloom &amp; Glow creates a relaxing, spa-like experience
+                        right here in Wells Branch. Appointments available online, walk-ins welcome when space allows.
+                        Gift cards available for any occasion.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–7pm<br>Sun 10am–4pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                (512) 555-0287
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                bookings@bloomglow.com
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                13201 N Lamar Blvd, Ste 4<br>Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
+                <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+        </article>
+
+        <!-- ── Business Card 3: Peak Auto Care ── -->
+        <article class="business-card">
+            <div class="card-header">
+                <h2 class="card-business-name">Peak Auto Care</h2>
+                <a href="peak-auto-care.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-car"></i> Automotive</span>
+                <span class="card-tag rating"><i class="fas fa-star"></i> 4.7</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
+                <span class="card-tag badge"><i class="fas fa-shield-alt"></i> ASE Certified</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-logo-area">
+                    <div class="logo-placeholder blue">PA</div>
+                    <p class="logo-caption">Peak Auto Care</p>
+                </div>
+                <div class="card-details">
+                    <p class="card-description">
+                        A trusted, family-run auto repair shop serving Wells Branch and the 78728 zip code since 2014.
+                        ASE-certified technicians handle everything from oil changes and brake jobs to full engine diagnostics.
+                        Honest estimates, no surprise charges, and a commitment to getting you back on the road fast.
+                        Free courtesy inspection with every service.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Fri 7:30am–6pm<br>Sat 8am–3pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                (512) 555-0398
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                service@peakautocare.com
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                2350 Wells Branch Pkwy<br>Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
+                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">WB Hidden Gems</div>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="../index.html#schedule">Schedule a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter pills interaction
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
