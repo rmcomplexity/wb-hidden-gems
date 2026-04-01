@@ -1,0 +1,26 @@
+{
+  "name": "wb-hidden-gems",
+  "version": "1.0.0",
+  "description": "UI for WB Hidden Gems Website",
+  "homepage": "https://github.com/rmcomplexity/wb-hidden-gems#readme",
+  "bugs": {
+    "url": "https://github.com/rmcomplexity/wb-hidden-gems/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmcomplexity/wb-hidden-gems.git"
+  },
+  "license": "ISC",
+  "author": "WB Hidden Gems",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "list.js": "^2.3.1"
+  }
+}

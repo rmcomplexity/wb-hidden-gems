@@ -211,6 +211,62 @@
 
         .directory-count strong { color: var(--charcoal); }
 
+        /* Sort Button */
+        .sort-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--light-gray);
+            background: var(--off-white);
+            font-family: 'Sansation', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sort-btn:hover, .sort-btn.asc, .sort-btn.desc {
+            border-color: var(--green-dark);
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* Business List */
+        .business-list { list-style: none; }
+
+        .business-list.grid-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.75rem;
+        }
+
+        .business-list.grid-view .business-card {
+            margin-bottom: 0;
+        }
+
+        .business-list.grid-view .card-body {
+            grid-template-columns: 1fr;
+        }
+
+        .business-list.grid-view .card-logo-area {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .business-list.grid-view .logo-placeholder {
+            max-width: 80px;
+        }
+
+        .business-list.grid-view .card-info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 449px) {
+            .business-list.grid-view { grid-template-columns: 1fr; }
+        }
+
         /* Business Card */
         .business-card {
             background: var(--white);
@@ -493,10 +549,13 @@
             .card-body { grid-template-columns: 1fr; }
             .card-logo-area { flex-direction: row; justify-content: flex-start; }
             .logo-placeholder { max-width: 80px; aspect-ratio: 1; }
-            .card-info-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .footer-social { justify-content: center; }
+        }
+
+        @media (max-width: 449px) {
+            .card-info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -532,26 +591,36 @@
     <div class="search-bar">
         <div class="search-bar-inner">
             <div class="filter-pills">
-                <button class="filter-pill active"><i class="fas fa-th"></i> All</button>
-                <button class="filter-pill"><i class="fas fa-utensils"></i> Food</button>
-                <button class="filter-pill"><i class="fas fa-spa"></i> Beauty</button>
-                <button class="filter-pill"><i class="fas fa-car"></i> Auto</button>
-                <button class="filter-pill"><i class="fas fa-home"></i> Home</button>
-                <button class="filter-pill"><i class="fas fa-briefcase"></i> Pro</button>
+                <button class="filter-pill active" data-filter="all"><i class="fas fa-th"></i> All</button>
+                <button class="filter-pill" data-filter="food"><i class="fas fa-utensils"></i> Food</button>
+                <button class="filter-pill" data-filter="beauty"><i class="fas fa-spa"></i> Beauty</button>
+                <button class="filter-pill" data-filter="auto"><i class="fas fa-car"></i> Auto</button>
+                <button class="filter-pill" data-filter="home"><i class="fas fa-home"></i> Home</button>
+                <button class="filter-pill" data-filter="pro"><i class="fas fa-briefcase"></i> Pro</button>
             </div>
         </div>
     </div>
 
     <!-- Directory Listing -->
-    <main class="directory">
+    <main class="directory" id="business-directory">
         <div class="directory-meta">
-            <p class="directory-count">Showing <strong>3</strong> local businesses</p>
+            <p class="directory-count">Showing <strong id="business-count"></strong> local businesses</p>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+                <button class="sort-btn sort" data-sort="name" data-order="asc">
+                    <i class="fas fa-arrow-down-a-z"></i> Name <span class="sort-arrow">↑</span>
+                </button>
+                <button class="sort-btn" id="layout-toggle" title="Toggle grid view">
+                    <i class="fas fa-grip-horizontal"></i> Grid
+                </button>
+            </div>
         </div>
 
+        <ul class="business-list list">
+
         <!-- ── Business Card 1: Maria's Bakery ── -->
-        <article class="business-card">
+        <li class="business-card" data-category="food">
             <div class="card-header">
-                <h2 class="card-business-name">Maria's Bakery</h2>
+                <h2 class="card-business-name name">Maria's Bakery</h2>
                 <a href="marias-bakery.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
@@ -618,12 +687,12 @@
                 <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
                 <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
-        </article>
+        </li>
 
         <!-- ── Business Card 2: Bloom & Glow Salon ── -->
-        <article class="business-card">
+        <li class="business-card" data-category="beauty">
             <div class="card-header">
-                <h2 class="card-business-name">Bloom &amp; Glow Salon</h2>
+                <h2 class="card-business-name name">Bloom &amp; Glow Salon</h2>
                 <a href="bloom-glow-salon.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
@@ -690,12 +759,12 @@
                 <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
                 <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
-        </article>
+        </li>
 
         <!-- ── Business Card 3: Peak Auto Care ── -->
-        <article class="business-card">
+        <li class="business-card" data-category="auto">
             <div class="card-header">
-                <h2 class="card-business-name">Peak Auto Care</h2>
+                <h2 class="card-business-name name">Peak Auto Care</h2>
                 <a href="peak-auto-care.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
@@ -761,8 +830,9 @@
                 <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
                 <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
-        </article>
+        </li>
 
+        </ul>
     </main>
 
     <!-- Footer -->
@@ -798,12 +868,57 @@
         </div>
     </footer>
 
+    <script src="../vendor/list.min.js"></script>
     <script>
+        const businessList = new List('business-directory', {
+            listClass: 'list',
+            valueNames: ['name', { data: ['category'] }]
+        });
+
+        // Directory count
+        document.getElementById('business-count').textContent =
+            document.querySelectorAll('li.business-card').length;
+
+        // Default sort: name ascending
+        businessList.sort('name', { order: 'asc' });
+
+        // Sort button toggle
+        const sortBtn = document.querySelector('.sort-btn');
+        sortBtn.classList.add('asc');
+        sortBtn.addEventListener('click', () => {
+            const isAsc = sortBtn.classList.contains('asc');
+            const nextOrder = isAsc ? 'desc' : 'asc';
+            businessList.sort('name', { order: nextOrder });
+            sortBtn.classList.toggle('asc', !isAsc);
+            sortBtn.classList.toggle('desc', isAsc);
+            sortBtn.querySelector('.sort-arrow').textContent = isAsc ? '↓' : '↑';
+        });
+
+        // Layout toggle
+        const layoutToggle = document.getElementById('layout-toggle');
+        const businessListEl = document.querySelector('.business-list');
+        layoutToggle.addEventListener('click', () => {
+            const isGrid = businessListEl.classList.toggle('grid-view');
+            layoutToggle.innerHTML = isGrid
+                ? '<i class="fas fa-list"></i> List'
+                : '<i class="fas fa-grip-horizontal"></i> Grid';
+            layoutToggle.classList.toggle('asc', isGrid);
+        });
+
         // Filter pills interaction
         document.querySelectorAll('.filter-pill').forEach(pill => {
             pill.addEventListener('click', () => {
                 document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
+
+                const filterValue = pill.dataset.filter;
+                if (filterValue === 'all' || !filterValue) {
+                    businessList.filter();
+                } else {
+                    businessList.filter(item => item.values().category === filterValue);
+                }
+
+                document.getElementById('business-count').textContent = businessList.matchingItems.length;
             });
         });
     </script>
