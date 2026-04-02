@@ -246,19 +246,6 @@
             margin-bottom: 0;
         }
 
-        .business-list.grid-view .card-body {
-            grid-template-columns: 1fr;
-        }
-
-        .business-list.grid-view .card-logo-area {
-            flex-direction: row;
-            justify-content: flex-start;
-        }
-
-        .business-list.grid-view .logo-placeholder {
-            max-width: 80px;
-        }
-
         .business-list.grid-view .card-info-grid {
             grid-template-columns: 1fr;
         }
@@ -285,10 +272,29 @@
         /* Card Header */
         .card-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             padding: 1.25rem 1.5rem 1rem;
             border-bottom: 1px solid var(--light-gray);
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .card-view-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+        }
+
+        .card-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            min-width: 0;
         }
 
         .card-business-name {
@@ -298,18 +304,14 @@
         }
 
         .card-view-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
             background: var(--green-dark);
             color: var(--white);
             text-decoration: none;
-            padding: 0.5rem 1.1rem;
+            padding: 0.6rem 1.1rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            white-space: nowrap;
         }
 
         .card-view-link:hover {
@@ -345,40 +347,17 @@
 
         /* Card Body */
         .card-body {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 1.5rem;
             padding: 1.5rem;
         }
 
-        /* Logo Area */
-        .card-logo-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-
         .logo-placeholder {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            max-width: 160px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--white);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            letter-spacing: 1px;
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            object-fit: scale-down;
+            display: block;
+            flex-shrink: 0;
         }
-
-        .logo-placeholder.green  { background: linear-gradient(135deg, var(--green-dark), #3a8a1e); }
-        .logo-placeholder.yellow { background: linear-gradient(135deg, var(--yellow-dark), #e0a030); }
-        .logo-placeholder.blue   { background: linear-gradient(135deg, var(--blue-dark), var(--blue-light)); }
-        .logo-placeholder.red    { background: linear-gradient(135deg, var(--red-dark), #c42030); }
 
         .logo-caption {
             font-size: 0.8rem;
@@ -546,9 +525,6 @@
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 1rem; }
             .nav-links { justify-content: center; }
-            .card-body { grid-template-columns: 1fr; }
-            .card-logo-area { flex-direction: row; justify-content: flex-start; }
-            .logo-placeholder { max-width: 80px; aspect-ratio: 1; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .footer-social { justify-content: center; }
@@ -565,7 +541,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../assets/images/logo/WBHG-logo.png" alt="WB Hidden Gems"/>
+                <img src="../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
                 <span class="logo-text">WB HIDDEN GEMS</span>
             </a>
             <ul class="nav-links">
@@ -583,7 +559,10 @@
     <!-- Page Header -->
     <header class="page-header">
         <span class="section-label">Wells Branch, TX</span>
-        <h1>Local Business <span class="highlight">Directory</span></h1>
+        <h1>Local Business <span class="highlight">Directory</span> </h1>
+            <img class="logo-placeholder"
+            style="display:inline;"
+            src="../assets/images/logo_gems.png" />
         <p>Support and get to know the hidden gems right in your neighborhood.</p>
     </header>
 
@@ -592,11 +571,12 @@
         <div class="search-bar-inner">
             <div class="filter-pills">
                 <button class="filter-pill active" data-filter="all"><i class="fas fa-th"></i> All</button>
-                <button class="filter-pill" data-filter="food"><i class="fas fa-utensils"></i> Food</button>
-                <button class="filter-pill" data-filter="beauty"><i class="fas fa-spa"></i> Beauty</button>
+                <button class="filter-pill" data-filter="food"><i class="fas fa-utensils"></i> Food &amp; Drink</button>
+                <button class="filter-pill" data-filter="beauty"><i class="fas fa-spa"></i> Beauty &amp; Fitness</button>
+                <button class="filter-pill" data-filter="health"><i class="fas fa-house-medical"></i> Health</button>
                 <button class="filter-pill" data-filter="auto"><i class="fas fa-car"></i> Auto</button>
                 <button class="filter-pill" data-filter="home"><i class="fas fa-home"></i> Home</button>
-                <button class="filter-pill" data-filter="pro"><i class="fas fa-briefcase"></i> Pro</button>
+                <button class="filter-pill" data-filter="pro"><i class="fas fa-briefcase"></i> Pro Services</button>
             </div>
         </div>
     </div>
@@ -617,62 +597,51 @@
 
         <ul class="business-list list">
 
-        <!-- ── Business Card 1: Maria's Bakery ── -->
-        <li class="business-card" data-category="food">
+        <li class="business-card" data-category="home">
             <div class="card-header">
-                <h2 class="card-business-name name">Maria's Bakery</h2>
-                <a href="marias-bakery.html" class="card-view-link">
-                    View Full Profile <i class="fas fa-arrow-right"></i>
-                </a>
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/pamwachholz.webp" alt="Pam Wachholz Realtor">
+                    <h2 class="card-business-name name">Pam Wachholz</h2>
+                </div>
             </div>
 
             <div class="card-tags">
-                <span class="card-tag category"><i class="fas fa-utensils"></i> Food & Drink</span>
-                <span class="card-tag rating"><i class="fas fa-star"></i> 4.9</span>
+                <span class="card-tag category"><i class="fas fa-house"></i> Home</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
-                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
-                <span class="card-tag badge"><i class="fas fa-heart"></i> Community Favorite</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag rating"><img src="../assets/images/green_gem.png" width="35px" />Wells Branch Resident</span>
             </div>
 
             <div class="card-body">
-                <div class="card-logo-area">
-                    <div class="logo-placeholder green">MB</div>
-                    <p class="logo-caption">Maria's Bakery</p>
-                </div>
                 <div class="card-details">
                     <p class="card-description">
-                        A family-owned artisan bakery serving freshly baked breads, pastries, and custom cakes since 2018.
-                        Maria brings authentic recipes passed down three generations, crafting each item by hand every morning.
-                        Whether you're looking for a birthday cake, daily sourdough, or a warm empanada, Maria's Bakery is your
-                        go-to spot in Wells Branch.
+                        An Austinite since 1985, Pam is a dedicated, full-time Realtor® with a passion for serving others and a strong work ethic.
+                        Her excellent customer service skills have earned her many kudo's throughout the years.
+                        She spent 20 years in the insurance industry working closely with real estate agents,
+                        title and mortgage companies to assist their mutual clients throughout Central Texas.
+                        Seeking a change, she moved toward the nonprofit world as the Community Development Coordinator at the Statesman in
+                        2005 and helped Austin non-profits get their messages out to Statesman readers. 
                     </p>
                     <div class="card-info-grid">
                         <div class="card-info-item">
                             <i class="fas fa-clock"></i>
                             <div>
                                 <span class="label">Hours</span>
-                                Tue–Fri 7am–6pm<br>Sat–Sun 7am–3pm
+                                Tue–Fri 9am–5pm
                             </div>
                         </div>
                         <div class="card-info-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <span class="label">Phone</span>
-                                (512) 555-0142
+                                <a href="tel:+15129255309">+1 (512) 925 5309</a>
                             </div>
                         </div>
                         <div class="card-info-item">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <span class="label">Email</span>
-                                hello@mariasbakery.com
-                            </div>
-                        </div>
-                        <div class="card-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="label">Address</span>
-                                12430 Wells Port Dr<br>Austin, TX 78728
+                                <a href="mailto:pam@pamwachholzrealtor.com">pam@pamwachholzrealtor.com</a>
                             </div>
                         </div>
                     </div>
@@ -681,58 +650,72 @@
 
             <div class="card-social">
                 <span class="card-social-label">Find us on:</span>
-                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
-                <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
-                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="https://www.facebook.com/pam.kingwachholz" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/livingincentex/" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.zillow.com/profile/pamsellstxrealestate/" class="social-link zillow">
+                    <i class="fas fa-house"></i> Zillow
+                </a>
+                <a href="https://www.youtube.com/@AustinTXRealEstatewithPam" class="social-link youtube">
+                    <i class="fab fa-youtube"></i> Youtube
+                </a>
+                <a href="https://twitter.com/PamRealtorTX" class="social-link x">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.google.com/search?q=pam+wachholz%2C+real+estate+agent+-+gri%2C+sres%2C+abr%2C+mrp%2C+psa%2C+rene%2C+nhc%2C+ahwd&oq=Pam+wachholz&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYPDIGCAMQRRg8MgYIBBBFGDwyBggFEEUYQTIGCAYQRRhBMgYIBxBFGEHSAQg2Mjc0ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8" class="social-link google">
+                    <i class="fab fa-google"></i> Google
+                </a>
+                <a href="https://www.linkedin.com/in/pamelakingwachholz/" class="social-link linkedin">
+                    <i class="fab fa-linkedin"></i> Linkedin
+                </a>
+                <a href="https://pamwachholzrealtor.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
-        </li>
-
-        <!-- ── Business Card 2: Bloom & Glow Salon ── -->
-        <li class="business-card" data-category="beauty">
-            <div class="card-header">
-                <h2 class="card-business-name name">Bloom &amp; Glow Salon</h2>
-                <a href="bloom-glow-salon.html" class="card-view-link">
+            <div class="card-footer">
+                <a href="pam-wachholz-realtor.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+        </li>
+
+        <li class="business-card" data-category="pro">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/logo_gems.png" alt="Austin Print">
+                    <h2 class="card-business-name name">Austin Print</h2>
+                </div>
+            </div>
 
             <div class="card-tags">
-                <span class="card-tag category"><i class="fas fa-spa"></i> Health &amp; Beauty</span>
-                <span class="card-tag rating"><i class="fas fa-star"></i> 4.8</span>
-                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$$</span>
-                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
-                <span class="card-tag badge"><i class="fas fa-award"></i> Woman-Owned</span>
+                <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
             </div>
 
             <div class="card-body">
-                <div class="card-logo-area">
-                    <div class="logo-placeholder red">BG</div>
-                    <p class="logo-caption">Bloom &amp; Glow Salon</p>
-                </div>
                 <div class="card-details">
                     <p class="card-description">
-                        A boutique beauty salon specializing in hair color, balayage, keratin treatments, and facials.
-                        Led by licensed cosmetologist Sofia Reyes, Bloom &amp; Glow creates a relaxing, spa-like experience
-                        right here in Wells Branch. Appointments available online, walk-ins welcome when space allows.
-                        Gift cards available for any occasion.
+                        Print, mail, and promote. Digital color printing, offset printing, mailing, banners, signage and promotional products.
+                        The offical printer of the Wells Branch Newsletter
                     </p>
                     <div class="card-info-grid">
                         <div class="card-info-item">
                             <i class="fas fa-clock"></i>
                             <div>
                                 <span class="label">Hours</span>
-                                Mon–Sat 9am–7pm<br>Sun 10am–4pm
+                                Mon–Sat 9am–5pm
                             </div>
                         </div>
                         <div class="card-info-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <span class="label">Phone</span>
-                                (512) 555-0287
+                                <a href="tel:+15123021499">+1 (512) 302 1499</a>
                             </div>
                         </div>
+                        <!--
                         <div class="card-info-item">
                             <i class="fas fa-envelope"></i>
                             <div>
@@ -740,11 +723,12 @@
                                 bookings@bloomglow.com
                             </div>
                         </div>
+                        -->
                         <div class="card-info-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <span class="label">Address</span>
-                                13201 N Lamar Blvd, Ste 4<br>Austin, TX 78728
+                                Austin, TX 78728
                             </div>
                         </div>
                     </div>
@@ -753,58 +737,51 @@
 
             <div class="card-social">
                 <span class="card-social-label">Find us on:</span>
-                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
-                <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
-                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="www.austinprint.com" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
-        </li>
-
-        <!-- ── Business Card 3: Peak Auto Care ── -->
-        <li class="business-card" data-category="auto">
-            <div class="card-header">
-                <h2 class="card-business-name name">Peak Auto Care</h2>
-                <a href="peak-auto-care.html" class="card-view-link">
+            <div class="card-footer">
+                <a href="austin-print.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+        </li>
+
+        <li class="business-card" data-category="health">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/logo_gems.png" alt="Health Markets">
+                    <h2 class="card-business-name name">Health Markets</h2>
+                </div>
+            </div>
 
             <div class="card-tags">
-                <span class="card-tag category"><i class="fas fa-car"></i> Automotive</span>
-                <span class="card-tag rating"><i class="fas fa-star"></i> 4.7</span>
+                <span class="card-tag category"><i class="fas fa-house-medical"></i> Health</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
-                <span class="card-tag status"><i class="fas fa-circle" style="font-size:0.5rem"></i> Open Now</span>
-                <span class="card-tag badge"><i class="fas fa-shield-alt"></i> ASE Certified</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
             </div>
 
             <div class="card-body">
-                <div class="card-logo-area">
-                    <div class="logo-placeholder blue">PA</div>
-                    <p class="logo-caption">Peak Auto Care</p>
-                </div>
                 <div class="card-details">
                     <p class="card-description">
-                        A trusted, family-run auto repair shop serving Wells Branch and the 78728 zip code since 2014.
-                        ASE-certified technicians handle everything from oil changes and brake jobs to full engine diagnostics.
-                        Honest estimates, no surprise charges, and a commitment to getting you back on the road fast.
-                        Free courtesy inspection with every service.
+                        Health Markets. The smarter way to shop. <br/>
+                        Health, medicare, life insurance, supplemental, long-term care, retirement.
                     </p>
                     <div class="card-info-grid">
                         <div class="card-info-item">
                             <i class="fas fa-clock"></i>
                             <div>
                                 <span class="label">Hours</span>
-                                Mon–Fri 7:30am–6pm<br>Sat 8am–3pm
+                                Mon–Fri 9am–5pm
                             </div>
                         </div>
                         <div class="card-info-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <span class="label">Phone</span>
-                                (512) 555-0398
+                                <a href="tel:+15122461313">+1 (512) 246 1313</a>
                             </div>
                         </div>
+                        <!--
                         <div class="card-info-item">
                             <i class="fas fa-envelope"></i>
                             <div>
@@ -812,11 +789,87 @@
                                 service@peakautocare.com
                             </div>
                         </div>
+                        -->
                         <div class="card-info-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <span class="label">Address</span>
-                                2350 Wells Branch Pkwy<br>Austin, TX 78728
+                                3407 Wells Branch Parkway, Ste 850<br>Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
+                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            -->
+            <div class="card-footer">
+                <a href="health-markets.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="pro">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/cblessons.png" alt="Cassie Baker Drums And More">
+                    <h2 class="card-business-name name">Cassie Baker Drums &amp; More</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag rating"><img src="../assets/images/blue_gem.png" width="35px" />Wells Branch Resident</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                       <strong>Your Wells Branch Private Music Instructor</strong><br/>
+                       I've been privately teaching drum set, percussion, guitar, ukulele and digital audio production in Austin for over 6 years,
+                       and I still get a thrill out of seeing my students progress in their instruments.
+                       My young drummers who tried out for school band under my coaching are all performing in the percussion section.
+                       My students who picked up the sticks for the first time as an adult are now playing with other musicians,
+                       and drummers who have come to me to further their musical training have reached new heights.
+                       I feel lucky to say coaching others to be great musicians is actually my job! 
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15129008687">+1 (512) 900 8687</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:cassie@cassiebakermusic.com">cassie@cassiebakermusic.com</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                Austin, TX 78728
                             </div>
                         </div>
                     </div>
@@ -825,10 +878,680 @@
 
             <div class="card-social">
                 <span class="card-social-label">Find us on:</span>
-                <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" class="social-link nextdoor"><i class="fas fa-house-user"></i> Nextdoor</a>
-                <a href="#" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="https://www.facebook.com/cbdrumsatx" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="http://www.instagram.com/cassiebakermusic" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="http://www.youtube.com/cassiesticks" class="social-link youtube">
+                    <i class="fab fa-youtube"></i> Youtube
+                </a>
+                <a href="https://www.cblessons.com/about/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="cblessons.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="home">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/treescape_solutions.png" alt="Treescape Solutions">
+                    <h2 class="card-business-name name">Treescape Solutions</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-house"></i> Home</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        We provide expert tree care with safety, precision, and sustainability in mind.
+                        Our services include:
+                        <br><br>
+                        <strong>Precision Pruning</strong>:  We trim trees to exact specifications, using sanitized tools and applying pruning seal when needed.<br>
+                        <strong>Safe Tree Removal</strong>:  We safely remove high-risk trees with care and expertise.<br>
+                        <strong>Stump removal</strong>:  We dig out and remove stumps efficiently.<br>
+                        <strong>Eco-friendly Disposal</strong>:  All brush is recycled into mulch, and no part of the trees we trim go to waste.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+17372976260">+1 (737) 297 6260</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:handysmithatx@gmail.com">handysmithatx@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="http://www.facebook.com/treescapesolutions" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.treescapesolutions.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="cblessons.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="health">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/logo_gems.png" alt="Shannon Matsuno, PMHNP">
+                    <h2 class="card-business-name name">Shannon Matsuno, PMHNP</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-house-medical"></i> Health</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        Shannon Matsuno, MSN, RN, PMHNP-BC, is a Board-Certified Psychiatric Nurse Practitioner who embraces a holistic 
+                        and humanistic approach to healthcare. Shannon believes that the body and mind must be treated together as one. 
+                        She encompasses an approach toward wellness that must be individualized, and each person must be treated based off 
+                        their individual strengths, abilities, and treatment goals.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15125591984">+1 (512) 559 1984</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:smatsuno@thebrowncenter.health">smatsuno@thebrowncenter.health</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                4022 Menchaca <br/>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.instagram.com/gregorysbrownmd/" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.thebrowncenter.health/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="treescape-solutions.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="beauty">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/fpb.svg" alt="Fight Parkinson's Back">
+                    <h2 class="card-business-name name">Fight Parkingson's Back</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-spa"></i> Beauty &amp; Fitness</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        Boxing, movement, and community for people with Parkinson's Disease and other movement disorders in Austin, Texas.
+                        We empower your fight against Parkinson's Disease—physically, mentally, and emotionally.
+                        Through our boxing inspired fitness and purposeful training, we don't just exercise—we fight back. 
+                        Our community is built on strength, movement, and support; helping individuals reclaim confidence, mobility, and joy. 
+                        Together, we show up, rise up, and move forward with grit, grace, and determination.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15125760866">+1 (512) 576 0866</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:fightparkinsonsback@gmail.com">fightparkinsonsback@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                1779 Wells Branch Parkway, Ste 101 <br/>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.instagram.com/fightparkinsonsback/" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href=https://www.facebook.com/profile.php?id=61581555219971" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://fightparkinsonsback.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="fight-parkinsons-back.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="health">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/logo_gems.png" alt="Edwin G. Webb, D.D.S.">
+                    <h2 class="card-business-name name">Edwin G. Webb, D.D.S.</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-house-medical"></i> Health</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        You deserve dental care that has you smiling at the thought of a visit, and we strive to make it happen. 
+                        Please contact our dental office in Austin, TX, to schedule a visit for yourself or a loved one. 
+                        We serve the greater south Austin area, including Round Rock, Cedar Park, Pflugerville, and Leander.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15122511274">+1 (512) 251 1274</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="edwebbdds@hotmail.com">edwebbdds@hotmail.com</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                2013 Wells Branch Parkway, Ste 101 <br/>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.dredwinwebb.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="dredwinwebb.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="home">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/next_level_home_solutions.jpg" alt="Next Level Home Solutions">
+                    <h2 class="card-business-name name">Next Level Home Solutions</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-house"></i> Home</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15126090281">+1 (512) 609 0281</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:support@nextlevelhomesolutions.us">support@nextlevelhomesolutions.us</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://instagram.com/nextlevelhomesolutionsatx" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://facebook.com/879905708535935" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.nextlevelhomesolutions.us/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="nextlevelhs.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="pro">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/logo_gems.png" alt="Sukyee Woo">
+                    <h2 class="card-business-name name">Sukyee Woo</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        Sukyee Woo is a professional teacher with over 25 years of teaching experience. 
+                        She has her Bachelor of Music, Master of Music, and Doctor of Musical Arts degrees from The University of Texae at Austin, 
+                        where she was a teaching assistant for 4 years. 
+                        She is a member of the National Guild of Piano Teachers (faculty member), 
+                        the Music Teachers National Association, the Texas Music Teachers Association, and the Austin District Music Teachers Association. 
+                        Sukyee was recognized  for her teaching excellency and received the 
+                        2010-2011 Pre-Collegiate Teacher of the Year Award from the Austin District Music Teachers Association. 
+                        She served in the Executive Board of ADMTA, chaired competitions, and is now chairing piano festivals.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15125670072">+1 (512) 567 0072</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <!--
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:support@nextlevelhomesolutions.us">support@nextlevelhomesolutions.us</a>
+                            </div>
+                            -->
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="http://www.sukyeewoopianostudio.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="sukyeewoo.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+        
+        <li class="business-card" data-category="home">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/bad-at-it.jpg" alt="Bad At It">
+                    <h2 class="card-business-name name">Bad At It</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-house"></i> Home</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag status"><img src="../assets/images/logo_gems.png" width="35px" />Wells Branch Recommended</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        We are your resource for landscape design, patios, decking, concrete, masonry and custom woodwork in Central Texas.
+                        Our team operates out of Round Rock, TX serving Austin and the surrounding areas.
+                        10+ years in design, construction and landscaping equip us with the experience and expertise you can count on. 
+                        Sweat and determination see every project through to completion. With our team you get precision craftsmanship that is built-to-last.
+                        Free Consultations and Quotes – Always.
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15128848856">+1 (512) 884 8856</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:contact@bad-at-it.com">contact@bad-at-it.com.</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.instagram.com/bad_at_it/" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.bad-at-it.com/contact/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="bad-at-it.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="pro">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/statefarm.png" alt="Marijane Billington, State Farm Agent">
+                    <h2 class="card-business-name name">Marijane Billington, State Farm Agent</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        Welcome to the Marijane Billington State Farm Insurance Agency in Austin, Texas, proudly serving Austin, 
+                        Wells Branch, North Austin, Round Rock, Pflugerville, Hutto, Jarrell, and Cedar Park. 
+                        As a local State Farm agent in Austin, TX, I’m passionate about helping families, homeowners, and drivers throughout 
+                        Travis and Williamson counties cover what matters most. 
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15122513473">+1 (512) 251 3473</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <!--
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:support@nextlevelhomesolutions.us">support@nextlevelhomesolutions.us</a>
+                            </div>
+                            -->
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                2013 Wells Branch Parkway, Ste 1078 <br/>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.facebook.com/101282302191826" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/mjbillingtonsf/" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/marijane-billington-016265146" class="social-link linkedin">
+                    <i class="fab fa-linkedin"></i> Linkedin
+                </a>
+                <a href="https://twitter.com/mjbillingtonSF" class="social-link x">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://mjbillington.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="marijane-billington.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </li>
+
+        <li class="business-card" data-category="food">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <img class="logo-placeholder" src="../assets/images/businesses/malonecoffee.png" alt="Malone Coffee">
+                    <h2 class="card-business-name name">Malone Coffee</h2>
+                </div>
+            </div>
+
+            <div class="card-tags">
+                <span class="card-tag category"><i class="fas fa-utensils"></i> Food &amp; Drink</span>
+                <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
+                <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag status"><img src="../assets/images/logo_gems.png" width="35px" />Wells Branch Recommended</span>
+            </div>
+
+            <div class="card-body">
+                <div class="card-details">
+                    <p class="card-description">
+                        Our mission is simple… to introduce people to coffee so good you can drink it black. 
+                        At all of our 4 Austin locations, we offer delicious signature lattes, espresso, drip brew, nitro cold brew, 
+                        and butter coffee along with breakfast sandwiches, smoothies, bagels, and muffins. All of our coffee drinks 
+                        are delicious but some of our top sellers are our Nitro Cold Brew, our single origin drip brews, 
+                        our Austin Dream (a super delicious mocha), and our Southside Caramel (a cinnamon infused caramel latte). 
+                        We hope to see you at one of our locations soon, but if you don’t live in the Austin area you can also order 
+                        our fresh roasted coffee to be shipped to you. 
+                    </p>
+                    <div class="card-info-grid">
+                        <div class="card-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="label">Hours</span>
+                                Mon–Sat 9am–5pm
+                            </div>
+                        </div>
+                        <!--
+                        <div class="card-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <a href="tel:+15122513473">+1 (512) 251 3473</a>
+                            </div>
+                        </div>
+                        -->
+                        <div class="card-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <a href="mailto:info@malonecoffee.com">info@malonecoffee.com</a>
+                            </div>
+                        </div>
+                        <div class="card-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Address</span>
+                                14735 Bratton Ln, Suite 210 <br/>
+                                Austin, TX 78728
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-social">
+                <span class="card-social-label">Find us on:</span>
+                <a href="https://www.facebook.com/MaloneCoffee/" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="http://instagram.com/malonecoffee" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.linkedin.com/company/malone-specialty-coffee" class="social-link linkedin">
+                    <i class="fab fa-linkedin"></i> Linkedin
+                </a>
+                <a href="https://www.youtube.com/channel/UCDKvtqjA5HFxoDPCmZyK_6w" class="social-link youtube">
+                    <i class="fab fa-youtube"></i> Youtube
+                </a>
+                <a href="https://malonecoffee.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+            </div>
+            <div class="card-footer">
+                <a href="malonecoffee.html" class="card-view-link">
+                    View Full Profile <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </li>
 
