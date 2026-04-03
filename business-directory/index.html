@@ -533,6 +533,44 @@
         @media (max-width: 449px) {
             .card-info-grid { grid-template-columns: 1fr; }
         }
+
+        /* Badges Legend */
+        .badges-legends {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem 0.5rem;
+            font-size: small;
+        }
+
+        .badges-legends-title {
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .badge-row:last-child { border-bottom: none; }
+
+        .badge-meaning {
+            text-align: right;
+            color: var(--gray);
+            flex: 1;
+        }
+
+        @media (max-width: 600px) {
+            .badge-row { flex-direction: column; align-items: flex-start; }
+            .badge-meaning { text-align: left; }
+        }
     </style>
 </head>
 <body>
@@ -563,10 +601,31 @@
             <img class="logo-placeholder"
             style="display:inline;"
             src="../assets/images/logo_gems.png" />
-        <p>Support and get to know the hidden gems right in your neighborhood.</p>
+        <p>Get to know and support the Hidden Gems in and around Wells Branch.
+        </p>
     </header>
 
     <!-- Search & Filter Bar -->
+    <div class="badges-legends">
+        <p class="badges-legends-title">Wells Branch badges meaning:</p>
+        <div class="badge-row">
+            <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+            <span class="badge-meaning">Business advertises in WBNA Newsletter</span>
+        </div>
+        <div class="badge-row">
+            <span class="card-tag status"><img src="../assets/images/logo_gems.png" width="35px" />Wells Branch Recommended</span>
+            <span class="badge-meaning">The Wells Branch community recommends this business but it might not have a physical location in Wells Branch.</span>
+        </div>
+        <div class="badge-row">
+            <span class="card-tag rating"><img src="../assets/images/blue_gem.png" width="35px" />Wells Branch Resident</span>
+            <span class="badge-meaning">A Wells Branch resident owns this business</span>
+        </div>
+        <div class="badge-row">
+            <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
+            <span class="badge-meaning">Business has a physical location within Wells Branch</span>
+        </div>
+        <p><br/><i class="fas fa-info-circle"></i> Use the category filters to narrow down your search</p>
+    </div>
     <div class="search-bar">
         <div class="search-bar-inner">
             <div class="filter-pills">
@@ -737,7 +796,7 @@
 
             <div class="card-social">
                 <span class="card-social-label">Find us on:</span>
-                <a href="www.austinprint.com" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="https://www.austinprint.com" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
             <div class="card-footer">
                 <a href="austin-print.html" class="card-view-link">
@@ -830,6 +889,7 @@
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
                 <span class="card-tag rating"><img src="../assets/images/blue_gem.png" width="35px" />Wells Branch Resident</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -887,7 +947,7 @@
                 <a href="http://www.youtube.com/cassiesticks" class="social-link youtube">
                     <i class="fab fa-youtube"></i> Youtube
                 </a>
-                <a href="https://www.cblessons.com/about/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="https://www.cblessons.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
             <div class="card-footer">
                 <a href="cblessons.html" class="card-view-link">
@@ -962,7 +1022,7 @@
                 <a href="https://www.treescapesolutions.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
             <div class="card-footer">
-                <a href="cblessons.html" class="card-view-link">
+                <a href="treescape-solutions.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -1032,7 +1092,7 @@
                 <a href="https://www.thebrowncenter.health/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
             <div class="card-footer">
-                <a href="treescape-solutions.html" class="card-view-link">
+                <a href="shannon-matsuno.html" class="card-view-link">
                     View Full Profile <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -1050,6 +1110,7 @@
                 <span class="card-tag category"><i class="fas fa-spa"></i> Beauty &amp; Fitness</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -1124,6 +1185,7 @@
                 <span class="card-tag category"><i class="fas fa-house-medical"></i> Health</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -1152,7 +1214,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <span class="label">Email</span>
-                                <a href="edwebbdds@hotmail.com">edwebbdds@hotmail.com</a>
+                                <a href="mailto:edwebbdds@hotmail.com">edwebbdds@hotmail.com</a>
                             </div>
                         </div>
                         <div class="card-info-item">
@@ -1190,6 +1252,7 @@
                 <span class="card-tag category"><i class="fas fa-house"></i> Home</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -1258,6 +1321,8 @@
                 <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag rating"><img src="../assets/images/orange_gem.png" width="35px" />Wells Branch Resident</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -1380,7 +1445,7 @@
                 <a href="https://www.instagram.com/bad_at_it/" class="social-link instagram">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
-                <a href="https://www.bad-at-it.com/contact/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
+                <a href="https://www.bad-at-it.com/" class="social-link website"><i class="fas fa-globe"></i> Website</a>
             </div>
             <div class="card-footer">
                 <a href="bad-at-it.html" class="card-view-link">
@@ -1401,6 +1466,7 @@
                 <span class="card-tag category"><i class="fas fa-briefcase"></i> Professional Services</span>
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
@@ -1483,6 +1549,7 @@
                 <span class="card-tag price"><i class="fas fa-dollar-sign"></i> $$</span>
                 <span class="card-tag badge"><i class="fas fa-newspaper"></i>WBNA Newsletter</span>
                 <span class="card-tag status"><img src="../assets/images/logo_gems.png" width="35px" />Wells Branch Recommended</span>
+                <span class="card-tag price"><img src="../assets/images/bucket_gems.png" width="35px" />Wells Branch Local</span>
             </div>
 
             <div class="card-body">
