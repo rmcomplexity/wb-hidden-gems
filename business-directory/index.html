@@ -584,12 +584,12 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#" class="active"><i class="fas fa-store"></i> Directory</a></li>
-                <li><a href="#"><i class="fas fa-utensils"></i> Food & Drink</a></li>
-                <li><a href="#"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
-                <li><a href="#"><i class="fas fa-spa"></i> Health & Beauty</a></li>
-                <li><a href="#"><i class="fas fa-home"></i> Home Services</a></li>
-                <li><a href="#"><i class="fas fa-car"></i> Automotive</a></li>
-                <li><a href="#"><i class="fas fa-briefcase"></i> Professional</a></li>
+                <li><a href="index.html#food"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="index.html"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="index.html#beauty"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="index.html#home"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="index.html#auto"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="index.html#pro"><i class="fas fa-briefcase"></i> Professional</a></li>
             </ul>
         </div>
     </nav>
@@ -1711,6 +1711,16 @@
                 document.getElementById('business-count').textContent = businessList.matchingItems.length;
             });
         });
+
+        // Apply filter from URL hash
+        function applyHashFilter() {
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            const pill = document.querySelector(`.filter-pill[data-filter="${hash}"]`);
+            if (pill) pill.click();
+        }
+
+        applyHashFilter();
+        window.addEventListener('hashchange', applyHashFilter);
     </script>
 </body>
 </html>
