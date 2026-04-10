@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WB Hidden Gems — Media Kit 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
@@ -239,6 +241,34 @@
             margin-top: 15px;
             display: inline-block;
         }
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .info-block {
+            border:1px solid black;
+            padding:.5em;
+        }
+
+        .info-block h4 {
+            color: var(--green-dark);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-block p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
 
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 1rem; }
@@ -296,7 +326,49 @@
             .plan-price { font-size: 2rem; }
         }
 
+        /* Floating CTA button */
+        .floating-cta {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: var(--yellow-dark);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            padding: 0.85rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            font-family: 'Sansation', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
+        }
+
+        .floating-cta .cta-emoji {
+            font-size: 1.75rem;
+            line-height: 1;
+        }
+
+        .floating-cta .cta-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
         @media print {
+            .floating-cta { display: none; }
             .navbar, .site-footer { display: none; }
             .page { padding: 40px; page-break-after: always; }
         }
@@ -437,29 +509,6 @@
             display: block;
             margin-top: 10px;
             font-size: 0.85rem;
-        }
-
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .info-block h4 {
-            color: var(--green-dark);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-block p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
         }
 
         /* CPM Comparison Visual */
@@ -672,7 +721,7 @@
 <!-- COVER PAGE -->
 <div class="page cover">
     <h1>WB HIDDEN GEMS</h1>
-    <p class="tagline">Community-First Advertisement & Marketing</p>
+    <p class="tagline">Community-First Advertisement & Marketing. <br /> Serving Wells Branch and surrounding 78728 zip code area.</p>
     
     <div class="media-kit-label">Media Kit</div>
     
@@ -819,11 +868,11 @@
 <div class="page">
     <div class="section-header">
         <div class="section-number">3</div>
-        <h2>Meta Carousel Ads: The Digital Boost</h2>
+        <h2>Meta Carousel Paid Ads: The Digital Boost</h2>
     </div>
 
     <p style="font-size: 1.05rem; margin-bottom: 25px;">
-        Every WB Hidden Gems plan includes targeted Meta (Facebook & Instagram) carousel ads. 
+        Every WB Hidden Gems plan includes targeted Meta (Facebook & Instagram) carousel paid ads. 
         Your business appears alongside up to 7 other complementary local businesses. Reach your customers while they scroll.
     </p>
 
@@ -886,7 +935,7 @@
     </div>
 
     <p style="font-size: 1.05rem; margin-bottom: 25px;">
-        <strong>CPM (Cost Per Mille)</strong> measures what you pay to reach 1,000 people. Let's compare WB Hidden Gems to running Meta ads on your own.
+        <strong>CPM (Cost Per Mille)</strong> measures what you pay to reach 1,000 people. Let's compare WB Hidden Gems to running Meta paid ads on your own.
     </p>
 
     <table class="comparison-table">
@@ -952,7 +1001,7 @@
     <p class="text-small">*CPM calculated on print reach only. Digital impressions may vary depending on the platform.</p>
 
     <div class="cpm-visual">
-        <h4 style="margin-bottom: 20px; color: var(--green-dark);">CPM Comparison: WB Hidden Gems vs. Meta Ads Alone</h4>
+        <h4 style="margin-bottom: 20px; color: var(--green-dark);">CPM Comparison: WB Hidden Gems vs. Meta Paid Ads Alone</h4>
         
         <div class="cpm-bar">
             <div class="cpm-label">WB Hidden Gems Starter</div>
@@ -1005,7 +1054,7 @@
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
             <div class="icon">📱</div>
-            <div class="label">Meta Carousel</div>
+            <div class="label">Meta Carousel Paid Ad</div>
         </div>
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
@@ -1015,7 +1064,7 @@
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
             <div class="icon">📊</div>
-            <div class="label">Full Metrics</div>
+            <div class="label">Monthly Metrics</div>
         </div>
     </div>
 </div>
@@ -1040,7 +1089,7 @@
             <div class="plan-price">$350<span>/month</span></div>
             <ul class="plan-features">
                 <li><strong>1/8 Page</strong> in printed publication</li>
-                <li><strong>7 days</strong> of Meta carousel ads</li>
+                <li><strong>7 days</strong> of Meta carousel paid ads</li>
                 <li>Free QR code linking to your landing page</li>
                 <li>Free custom landing page with Open Graph tags</li>
                 <li>Free Landing page & carousel metrics</li>
@@ -1058,7 +1107,7 @@
             <div class="plan-price">$550<span>/month</span></div>
             <ul class="plan-features">
                 <li><strong>1/4 Page</strong> in printed publication</li>
-                <li><strong>10 days</strong> of Meta carousel ads</li>
+                <li><strong>10 days</strong> of Meta carousel paid ads</li>
                 <li>QR code linking to your landing page</li>
                 <li>Free custom landing page with Open Graph tags</li>
                 <li>Landing page & carousel metrics</li>
@@ -1076,7 +1125,7 @@
             <div class="plan-price">$850<span>/month</span></div>
             <ul class="plan-features">
                 <li><strong>1/2 Page</strong> in printed publication</li>
-                <li><strong>15 days</strong> of Meta carousel ads</li>
+                <li><strong>15 days</strong> of Meta carousel paid ads</li>
                 <li>QR code linking to your landing page</li>
                 <li>Free custom landing page with Open Graph tags</li>
                 <li>Landing page & carousel metrics</li>
@@ -1094,7 +1143,7 @@
             <div class="plan-price">$1,150<span>/month</span></div>
             <ul class="plan-features">
                 <li><strong>Full Page</strong> in printed publication</li>
-                <li><strong>20 days</strong> of Meta carousel ads</li>
+                <li><strong>20 days</strong> of Meta carousel paid ads</li>
                 <li>QR code linking to your landing page</li>
                 <li>Free custom landing page with Open Graph tags</li>
                 <li>Landing page & carousel metrics</li>
@@ -1109,10 +1158,10 @@
         <h3>All Plans Include</h3>
         <p style="max-width: 600px; margin: 0 auto;">
             ✓ Monthly printed publication to 15,209 addresses<br>
-            ✓ Geo-targeted Meta carousel ads (Facebook & Instagram)<br>
+            ✓ Geo-targeted Meta carousel paid ads (Facebook & Instagram)<br>
             ✓ Custom landing page with shareable Open Graph tags<br>
             ✓ QR code for print-to-digital tracking<br>
-            ✓ Performance metrics dashboard<br>
+            ✓ Monthly performance metrics<br>
             ✓ Social media amplification through our accounts<br>
             ✓ Early access to local community partnership opportunities
         </p>
@@ -1199,6 +1248,18 @@
         </div>
     </div>
 </footer>
+
+
+    <button class="floating-cta" id="floating-call-btn">
+        <i class="fa fa-calendar-days"></i>
+        <span class="cta-label">Schedule a call now!</span>
+    </button>
+
+    <script type="text/javascript">
+        document.getElementById('floating-call-btn').addEventListener('click', function() {
+            Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
+        });
+    </script>
 
 </body>
 </html>
