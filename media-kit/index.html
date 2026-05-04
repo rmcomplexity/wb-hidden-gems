@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WB Hidden Gems — Media Kit 2026</title>
+    <title>WB Hidden Gems — Advertising Plans 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -24,6 +24,7 @@
             --yellow-light: #eec993;
             --red-dark: #8a0d1a;
             --red-light: #eb1b30;
+            --red-light-mute: #ea7782;
             --blue-dark: #08137a;
             --blue-light: #1522a8;
             --white: #fefefe;
@@ -32,16 +33,13 @@
             --charcoal: #2d2d2d;
             --gray: #6b6b6b;
             --light-gray: #e8e8e8;
-            /* Aliases for legacy references */
             --text-dark: var(--charcoal);
             --text-muted: var(--gray);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Sansation', sans-serif;
@@ -53,6 +51,7 @@
         h1, h2, h3, h4 {
             font-family: 'Sansation', serif;
             font-weight: 500;
+            line-height: 1.2;
         }
 
         /* Navbar */
@@ -65,27 +64,95 @@
         .nav-links { display: flex; list-style: none; gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; }
         .nav-links a { text-decoration: none; color: var(--charcoal); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
         .nav-links a:hover { background: var(--green-light); color: var(--green-dark); }
-        .nav-links a.active { background: var(--green-light); color: var(--green-dark); }
 
-        /* Footer */
-        .site-footer { background: var(--charcoal); color: var(--white); padding: 3rem 2rem 1.5rem; margin-top: 0; }
-        .footer-container { max-width: 1400px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .footer-brand .logo-text { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); }
-        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
-        .footer-social { display: flex; gap: 0.75rem; }
-        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: background 0.3s ease; }
-        .footer-social a:hover { background: var(--green-dark); }
-        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 0.5rem; }
-        .footer-column ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
-        .footer-column ul li a:hover { color: var(--white); }
-        .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
-        .footer-legal { display: flex; gap: 2rem; }
-        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
-        .footer-legal a:hover { color: var(--white); }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg,
+                    rgba(12, 57, 80, 0.85) 0%,
+                    rgba(12, 57, 80, 0.7) 30%,
+                    rgba(17, 83, 109, 0.85) 70%,
+                    rgba(17, 83, 109, 0.7) 100%),
+                url('../assets/images/logo/WBHG-logo-name.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(170, 214, 151, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(238, 201, 147, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            padding: 2rem;
+            color: var(--cream);
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-light); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow-dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.4);
+        }
+
+        .hero-cta:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
+        }
+
+        /* Page / Content Sections */
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px;
+        }
 
         /* Stats Grid */
         .stats-grid {
@@ -103,18 +170,12 @@
             text-align: center;
         }
 
-        .stat-card.alt {
-            background: linear-gradient(135deg, var(--yellow-dark) 0%, #d99420 100%);
-        }
-
-        .stat-card.alt2 {
-            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-light) 100%);
-        }
+        .stat-card.alt { background: linear-gradient(135deg, var(--yellow-dark) 0%, #d99420 100%); }
+        .stat-card.alt2 { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-light) 100%); }
 
         .stat-number {
             font-size: 2.8rem;
             font-weight: 700;
-            font-family: 'Playfair Display', serif;
             line-height: 1;
             margin-bottom: 8px;
         }
@@ -126,14 +187,194 @@
             letter-spacing: 1px;
         }
 
-        .page {
-            max-width: 850px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 60px;
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--green-dark);
         }
 
-        /* Pricing Cards */
+        .section-header h2 { font-size: 1.8rem; color: var(--green-dark); }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: var(--green-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .info-block {
+            border: 1px solid black;
+            padding: .5em;
+        }
+
+        .info-block h4 {
+            color: var(--green-dark);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-block p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: #f8f8f8;
+            border-left: 4px solid var(--green-dark);
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .quote-source {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            background: var(--green-dark);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .comparison-table tr:nth-child(even) { background: #f9f9f9; }
+        .comparison-table .highlight { background: var(--green-light) !important; font-weight: 600; }
+        .comparison-table .winner { color: var(--green-dark); font-weight: 700; }
+
+        /* CPM Visual */
+        .cpm-visual {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .cpm-bar {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .cpm-label { width: 180px; font-weight: 500; font-size: 0.9rem; }
+
+        .cpm-bar-container {
+            flex: 1;
+            height: 35px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .cpm-bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 5px;
+        }
+
+        .cpm-bar-fill.green { background: linear-gradient(90deg, var(--green-dark), #3d8018); }
+        .cpm-bar-fill.red { background: linear-gradient(90deg, var(--red-dark), #a82030); }
+
+        /* Carousel Info */
+        .carousel-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .carousel-info h4 { color: var(--blue-dark); margin-bottom: 15px; }
+
+        .carousel-stats { display: flex; gap: 30px; flex-wrap: wrap; }
+
+        .carousel-stat { flex: 1; min-width: 180px; }
+        .carousel-stat .number { font-size: 1.8rem; font-weight: 700; color: var(--blue-dark); }
+        .carousel-stat .desc { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Bundle Visual */
+        .bundle-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .bundle-item {
+            background: white;
+            border: 2px solid var(--green-dark);
+            padding: 20px 25px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .bundle-item .icon { font-size: 2rem; margin-bottom: 8px; }
+        .bundle-item .label { font-weight: 600; font-size: 0.9rem; color: var(--green-dark); }
+        .bundle-plus { font-size: 1.5rem; font-weight: 700; color: var(--yellow-dark); }
+
+        /* Callout */
+        .callout {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .callout h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .callout p { opacity: 0.95; line-height: 1.7; }
+
+        /* Pricing */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -176,6 +417,17 @@
             margin-bottom: 5px;
         }
 
+        .plan-ad-size {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            background: var(--cream);
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
         .plan-discount-badge {
             display: inline-block;
             background: var(--red-dark);
@@ -195,9 +447,7 @@
             margin-bottom: 2px;
         }
 
-        .plan-original-price span {
-            font-size: 0.85rem;
-        }
+        .plan-original-price span { font-size: 0.85rem; }
 
         .plan-price {
             font-size: 2.5rem;
@@ -206,11 +456,7 @@
             margin: 4px 0 10px;
         }
 
-        .plan-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--gray);
-        }
+        .plan-price span { font-size: 1rem; font-weight: 400; color: var(--gray); }
 
         .plan-features {
             list-style: none;
@@ -233,6 +479,29 @@
             font-weight: 700;
         }
 
+        .plan-features li.free-item {
+            font-weight: 600;
+        }
+
+        .plan-features li.free-item::before {
+            content: '★';
+            color: var(--yellow-dark);
+        }
+
+        .free-tag {
+            display: inline-block;
+            background: var(--green-dark);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
         .plan-highlight {
             background: var(--yellow-light);
             padding: 8px 12px;
@@ -241,92 +510,92 @@
             margin-top: 15px;
             display: inline-block;
         }
-        
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 30px 0;
-        }
 
-        .info-block {
-            border:1px solid black;
-            padding:.5em;
-        }
-
-        .info-block h4 {
-            color: var(--green-dark);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+        /* No hidden costs banner */
+        .trust-banner {
+            background: var(--cream);
+            border: 2px solid var(--green-dark);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin: 25px 0;
             display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            min-width: 160px;
         }
 
-        .info-block p {
-            color: var(--text-muted);
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--green-dark);
+        }
+
+        .trust-item strong {
             font-size: 0.95rem;
-            line-height: 1.7;
+            color: var(--charcoal);
         }
 
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            .nav-links { justify-content: center; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .footer-social { justify-content: center; }
-            .page { padding: 30px 20px; }
-
-            /* Stats grid: 2 columns on tablet */
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-
-            /* Pricing and info grids: single column */
-            .pricing-grid { grid-template-columns: 1fr; }
-            .info-grid { grid-template-columns: 1fr; }
-
-            /* Tables: horizontally scrollable */
-            .comparison-table {
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                white-space: nowrap;
-            }
-            .comparison-table th,
-            .comparison-table td { white-space: normal; min-width: 120px; }
-
-            /* CPM bar label narrower */
-            .cpm-label { width: 120px; font-size: 0.82rem; }
-
-            /* Cover page */
-            .cover h1 { font-size: 2.2rem; }
-            .cover .tagline { font-size: 1.05rem; }
-            .cover .year { font-size: 3rem; }
-
-            /* Section header */
-            .section-header h2 { font-size: 1.4rem; }
-
-            /* Bundle items wrap tighter */
-            .bundle-item { min-width: 110px; padding: 14px 16px; }
+        .trust-item span {
+            font-size: 0.8rem;
+            color: var(--gray);
         }
 
-        @media (max-width: 480px) {
-            /* Stats grid: single column on phones */
-            .stats-grid { grid-template-columns: 1fr; }
-            .stat-number { font-size: 2.1rem; }
-
-            /* CPM bar label even narrower */
-            .cpm-label { width: 80px; font-size: 0.78rem; }
-
-            /* Carousel stats stack */
-            .carousel-stats { flex-direction: column; gap: 15px; }
-
-            .cover h1 { font-size: 1.8rem; }
-            .cover .year { font-size: 2rem; }
-            .plan-price { font-size: 2rem; }
+        /* Utility */
+        .text-small { font-size: 0.8rem; color: var(--text-muted); }
+        .badge {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--green-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Floating CTA button */
+        /* Contact Footer */
+        .media-kit-footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px solid #e5e5e5;
+            margin-top: 40px;
+        }
+
+        .media-kit-footer h3 { color: var(--green-dark); font-size: 1.5rem; margin-bottom: 15px; }
+
+        .contact-info { color: var(--text-muted); font-size: 1rem; }
+        .contact-info a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+
+        /* Site Footer */
+        .site-footer { background: var(--charcoal); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand .logo-text { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: background 0.3s ease; }
+        .footer-social a:hover { background: var(--green-dark); }
+        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.5rem; }
+        .footer-column ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--white); }
+        .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Floating CTA */
         .floating-cta {
             position: fixed;
             bottom: 24px;
@@ -355,354 +624,120 @@
             box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
         }
 
-        .floating-cta .cta-emoji {
-            font-size: 1.75rem;
-            line-height: 1;
+        .floating-cta .cta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
+            .page { padding: 30px 20px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .comparison-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .comparison-table th, .comparison-table td { white-space: normal; min-width: 120px; }
+            .cpm-label { width: 120px; font-size: 0.82rem; }
+            .section-header h2 { font-size: 1.4rem; }
         }
 
-        .floating-cta .cta-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-number { font-size: 2.1rem; }
+            .cpm-label { width: 80px; font-size: 0.78rem; }
+            .carousel-stats { flex-direction: column; gap: 15px; }
+            .plan-price { font-size: 2rem; }
+            .trust-banner { flex-direction: column; align-items: center; }
+        }
+
+        /* Photo Strip */
+        .photo-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .photo-strip-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .photo-strip-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .photo-strip-item .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 1rem 0.75rem 0.6rem;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        /* Photo Row (2-up) */
+        .photo-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .photo-row-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-row-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-row-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Photo caption */
+        .photo-caption {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .photo-strip { grid-template-columns: 1fr 1fr; height: 320px; }
+            .photo-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .photo-strip { grid-template-columns: 1fr 1fr; height: 240px; }
         }
 
         @media print {
             .floating-cta { display: none; }
             .navbar, .site-footer { display: none; }
             .page { padding: 40px; page-break-after: always; }
-        }
-
-        /* Cover Page */
-        .cover {
-            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cover::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(170,214,151,0.1) 0%, transparent 70%);
-        }
-
-        .cover h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .cover .tagline {
-            font-size: 1.3rem;
-            font-weight: 300;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cover .media-kit-label {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            padding: 15px 40px;
-            border: 2px solid rgba(255,255,255,0.5);
-            margin-top: 40px;
-        }
-
-        .cover .year {
-            font-size: 5rem;
-            font-weight: 700;
-            opacity: 0.15;
-            position: absolute;
-            bottom: 30px;
-            right: 40px;
-        }
-
-        /* Section Headers */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 40px 0 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--green-dark);
-        }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: var(--green-dark);
-        }
-
-        .section-number {
-            width: 40px;
-            height: 40px;
-            background: var(--green-dark);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-
-        /* Comparison Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-        }
-
-        .comparison-table th {
-            background: var(--green-dark);
-            color: white;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        .comparison-table .highlight {
-            background: var(--green-light) !important;
-            font-weight: 600;
-        }
-
-        .comparison-table .winner {
-            color: var(--green-dark);
-            font-weight: 700;
-        }
-
-
-        /* Quote Box */
-        .quote-box {
-            background: #f8f8f8;
-            border-left: 4px solid var(--green-dark);
-            padding: 20px 25px;
-            margin: 25px 0;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        .quote-source {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--text-dark);
-            display: block;
-            margin-top: 10px;
-            font-size: 0.85rem;
-        }
-
-        /* CPM Comparison Visual */
-        .cpm-visual {
-            background: #f5f5f5;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .cpm-bar {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-        }
-
-        .cpm-label {
-            width: 180px;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .cpm-bar-container {
-            flex: 1;
-            height: 35px;
-            background: #e0e0e0;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .cpm-bar-fill {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding-left: 10px;
-            color: white;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border-radius: 5px;
-        }
-
-        .cpm-bar-fill.green {
-            background: linear-gradient(90deg, var(--green-dark), #3d8018);
-        }
-
-        .cpm-bar-fill.red {
-            background: linear-gradient(90deg, var(--red-dark), #a82030);
-        }
-
-        /* Bundle Visual */
-        .bundle-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .bundle-item {
-            background: white;
-            border: 2px solid var(--green-dark);
-            padding: 20px 25px;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 150px;
-        }
-
-        .bundle-item .icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .bundle-item .label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--green-dark);
-        }
-
-        .bundle-plus {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--yellow-dark);
-        }
-
-        /* Callout Box */
-        .callout {
-            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .callout h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .callout p {
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        .media-kit-footer {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 2px solid #e5e5e5;
-            margin-top: 40px;
-        }
-
-        .media-kit-footer h3 {
-            color: var(--green-dark);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .contact-info a {
-            color: var(--green-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Utility */
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-20 {
-            margin-top: 20px;
-        }
-
-        .mb-20 {
-            margin-bottom: 20px;
-        }
-
-        .text-small {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--green-light);
-            color: var(--green-dark);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Carousel Info Section */
-        .carousel-info {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-        }
-
-        .carousel-info h4 {
-            color: var(--blue-dark);
-            margin-bottom: 15px;
-        }
-
-        .carousel-stats {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .carousel-stat {
-            flex: 1;
-            min-width: 180px;
-        }
-
-        .carousel-stat .number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--blue-dark);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .carousel-stat .desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
         }
     </style>
 </head>
@@ -718,26 +753,51 @@
         </div>
     </nav>
 
-<!-- COVER PAGE -->
-<div class="page cover">
-    <h1>WB HIDDEN GEMS</h1>
-    <p class="tagline">Community-First Advertisement & Marketing. <br /> Serving Wells Branch and surrounding 78728 zip code area.</p>
-    
-    <div class="media-kit-label">Media Kit</div>
-    
-    <div class="year">2026</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <h1>Your community.<span class="highlight"> Your customers</span></h1>
+            <p class="hero-subtitle">Our monthly magazine reaches every home in Wells Branch and the 78728 zip code. Every plan comes with a free landing page and free paid ads on Facebook and Instagram. No hidden costs, no surprises.</p>
+            <a href="#" class="hero-cta" id="hero-call-btn">
+                <i class="fas fa-calendar-days"></i>
+                Schedule a Call Now!
+            </a>
+        </div>
+    </section>
+
+<!-- Photo Strip -->
+<div class="photo-strip">
+    <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=320&fit=crop&q=80" alt="Local business owner helping a customer" loading="lazy" />
+        <div class="photo-label">Local Business</div>
+    </div>
+    <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?w=500&h=320&fit=crop&q=80" alt="Business meeting in the community" loading="lazy" />
+        <div class="photo-label">Community First</div>
+    </div>
+    <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=320&fit=crop&q=80" alt="Cozy neighborhood restaurant and local shop" loading="lazy" />
+        <div class="photo-label">Neighborhood Gems</div>
+    </div>
+    <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=320&fit=crop&q=80" alt="Small business owner proud of their work" loading="lazy" />
+        <div class="photo-label">Your Business</div>
+    </div>
 </div>
 
-<!-- PAGE 2: ABOUT & REACH -->
+<!-- PAGE 1: REACH -->
 <div class="page">
     <div class="section-header">
         <div class="section-number">1</div>
-        <h2>Hands-off, Multi-channel Marketing Campaigns</h2>
+        <h2>Your Ad. Every Mailbox in Wells Branch.</h2>
     </div>
 
     <p style="font-size: 1.1rem; margin-bottom: 30px;">
-        We deliver your ad or promotion directly to <strong>every mailbox</strong> in the 78728 zip code, 
-        plus we extend your reach through targeted digital advertising, and contribute to your SEO with custom landing pages.
+        Our monthly printed magazine is delivered via <a href="https://www.usps.com/business/every-door-direct-mail.htm" target="_blank">USPS Every Door Direct Mail</a> to
+        <strong>every address</strong> in the 78728 zip code. Your ad space in the magazine is the core of every plan,
+        and we extend that reach further with a free landing page and free paid ads on social media.
     </p>
 
     <div class="stats-grid">
@@ -757,42 +817,38 @@
 
     <div class="info-grid">
         <div class="info-block">
-            <h4>📬 Print Distribution</h4>
-            <p>Monthly magazine delivered via <a href="https://www.usps.com/business/every-door-direct-mail.htm" target="_blank">EDDM (USPS)</a> 
-                to homes, apartments, and businesses throughout Wells Branch and 78728 zip code. 
-                Your business will reach the local community directly.</p>
+            <h4>📰 Ad Space in the Monthly Magazine</h4>
+            <p>Your ad runs every month in our printed magazine, delivered to every home and apartment in Wells Branch and the 78728 zip code. Choose the size that fits your budget.</p>
         </div>
         <div class="info-block">
-            <h4>📱 Digital Amplification</h4>
-            <p>You'll have a slide on a carousel paid Ad that we'll run with complementary businesses targeting local communities and similar audiences.</p>
+            <h4>🔗 Free Landing Page <span style="background: var(--green-dark); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; vertical-align: middle;">FREE</span></h4>
+            <p>Every advertiser gets a custom landing page that expands on their ad optimized for SEO and ready for social sharing with Open Graph tags. Up to 3 revisions per month at no extra cost.</p>
         </div>
         <div class="info-block">
-            <h4>🔗 Custom Landing Pages</h4>
-            <p>Every advertiser gets a free landing page with their ad/coupon, optimized for social sharing with custom Open Graph tags and images. <br />
-            Free landing pages are customizable up to 3 revisions per month.</p>
+            <h4>📱 Paid Ads on Facebook & Instagram <span style="background: var(--green-dark); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; vertical-align: middle;">FREE</span></h4>
+            <p>Every plan includes 7 or more days of geo-targeted carousel paid ads on Meta (Facebook & Instagram), reaching local customers while they scroll, at no extra charge.</p>
         </div>
         <div class="info-block">
             <h4>📊 Real Metrics</h4>
-            <p>Track landing page visits, ad impressions, clicks, and engagement. Know exactly how your investment is performing.<br />
-            Monthly reports for all traffic measured via digital ads, and custom landing pages or redirects.</p>
+            <p>Monthly reports covering landing page visits, ad impressions, and clicks so you always know how your investment is performing.</p>
         </div>
     </div>
 
     <div class="callout">
-        <h3>The WB HIDDEN GEMS Difference</h3>
-        <p>Hands off multi-channel campaigns. You focus on your business and vision. We work within your budget.</p>
+        <h3>Simple, All-Inclusive Pricing</h3>
+        <p>Every plan includes your magazine ad space, a free landing page, and free paid social ads. No hidden fees. No add-ons required. Contracts start at 3 months.</p>
     </div>
 </div>
 
-<!-- PAGE 3: WHY PRINT + DIGITAL -->
+<!-- PAGE 2: WHY PRINT + DIGITAL -->
 <div class="page">
     <div class="section-header">
         <div class="section-number">2</div>
-        <h2>Why Print + Digital Works</h2>
+        <h2>Why a Printed Magazine Ad Works</h2>
     </div>
 
     <p style="font-size: 1.05rem; margin-bottom: 25px;">
-        Print marketing has a high impact on potential customers. Here's what the research shows:
+        Print marketing is more effective than ever especially when paired with digital. Here's what the research shows:
     </p>
 
     <div class="quote-box">
@@ -818,7 +874,7 @@
                 <td><strong>Response Rate</strong></td>
                 <td class="winner">5.3%</td>
                 <td>0.6%</td>
-                <td>0.1-0.5%</td>
+                <td>0.1–0.5%</td>
             </tr>
             <tr class="highlight">
                 <td><strong>First-Time Customers</strong></td>
@@ -836,19 +892,26 @@
     </table>
     <p class="text-small">Sources: Data & Marketing Association, USPS Research, Marketing Sherpa</p>
 
+    <div class="photo-row">
+        <div class="photo-row-item">
+            <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=600&h=280&fit=crop&q=80" alt="Person reading a local magazine at home" loading="lazy" />
+        </div>
+        <div class="photo-row-item">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=280&fit=crop&q=80" alt="Neighbors talking and sharing recommendations" loading="lazy" />
+        </div>
+    </div>
+
     <div class="quote-box">
         "Coordinating digital and direct mail increased response rate by 63%, website visits by 68%, and leads by 53%."
         <span class="quote-source">— <a href="https://www.postalytics.com/direct-mail-statistics/" target="_blank">InfoTrends / Postalytics</a></span>
     </div>
 
     <h3 style="margin-top: 30px; color: var(--green-dark);">More Key Statistics</h3>
-    
+
     <div class="info-grid" style="margin-top: 20px;">
         <div class="info-block">
             <h4>💰 29% ROI</h4>
-            <p>Direct mail delivers a median ROI of 29% and an average response rate of 5.3% 
-                for house lists and 2.9% for prospect lists — outperforming email, paid search, 
-                and online display on response rate.</p>
+            <p>Direct mail delivers a median ROI of 29% and an average response rate of 5.3% for house lists and 2.9% for prospect lists, outperforming email, paid search, and online display on response rate.</p>
             <p class="text-small">Source: ANA Response Rate Report, 2023; DMA, 2024</p>
         </div>
         <div class="info-block">
@@ -864,16 +927,16 @@
     </div>
 </div>
 
-<!-- PAGE 4: CAROUSEL ADS -->
+<!-- PAGE 3: FREE SOCIAL ADS -->
 <div class="page">
     <div class="section-header">
         <div class="section-number">3</div>
-        <h2>Meta Carousel Paid Ads: The Digital Boost</h2>
+        <h2>Free with Every Plan: Paid Ads on Facebook & Instagram</h2>
     </div>
 
     <p style="font-size: 1.05rem; margin-bottom: 25px;">
-        Every WB Hidden Gems plan includes targeted Meta (Facebook & Instagram) carousel paid ads. 
-        Your business appears alongside up to 7 other complementary local businesses. Reach your customers while they scroll.
+        Every WB Hidden Gems plan includes 7 or more days of geo-targeted Meta (Facebook & Instagram) carousel paid ads at no extra cost.
+        Your business appears alongside complementary local businesses in a shared carousel, reaching your actual customers while they scroll.
     </p>
 
     <div class="carousel-info">
@@ -901,41 +964,41 @@
     </div>
 
     <h3 style="margin-top: 30px; color: var(--green-dark);">How It Works</h3>
-    
+
     <div class="info-grid" style="margin-top: 20px;">
         <div class="info-block">
             <h4>🎠 Shared Carousel</h4>
-            <p>Up to 8 businesses in each carousel, each with their own slide linking to their landing page or website. You benefit from collective engagement.</p>
+            <p>Up to 8 businesses per carousel, each with their own slide. You benefit from collective engagement and a lower cost per impression.</p>
         </div>
         <div class="info-block">
             <h4>📍 Geo-Targeted</h4>
-            <p>Ads are targeted specifically to Wells Branch and surrounding areas to improve budget and target your <strong>actual</strong> customers.</p>
+            <p>Ads target Wells Branch and surrounding areas so your budget goes toward reaching your actual customers.</p>
         </div>
         <div class="info-block">
             <h4>🔗 Your Link</h4>
-            <p>Each slide links directly to your custom landing page, your own website, or custom redirect. You control where your customers go.</p>
+            <p>Each slide links to your free custom landing page, your own website, or a custom redirect. Your choice.</p>
         </div>
         <div class="info-block">
             <h4>📈 Tracked Results</h4>
-            <p>We provide metrics on impressions, clicks, and engagement so you can see exactly how your digital ads performed.</p>
+            <p>Monthly metrics on impressions, clicks, and engagement included in every plan.</p>
         </div>
     </div>
 
     <div class="callout" style="background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-light) 100%);">
-        <h3>The Carousel Advantage for Local Businesses</h3>
-        <p>When neighbors see your business alongside other trusted local shops and services, it creates instant credibility. The carousel format encourages exploration — users naturally swipe to discover what else is available. Your business benefits from the curiosity sparked by the entire collection.</p>
+        <h3>Local Credibility Through Association</h3>
+        <p>When neighbors see your business alongside other trusted local shops and services, it builds instant credibility. Users naturally swipe to discover what's available. Your business benefits from every swipe.</p>
     </div>
 </div>
 
-<!-- PAGE 5: CPM COMPARISON -->
+<!-- PAGE 4: CPM COMPARISON -->
 <div class="page">
     <div class="section-header">
         <div class="section-number">4</div>
-        <h2>Cost Comparison: The Real Value</h2>
+        <h2>The Real Value: What You're Getting</h2>
     </div>
 
     <p style="font-size: 1.05rem; margin-bottom: 25px;">
-        <strong>CPM (Cost Per Mille)</strong> measures what you pay to reach 1,000 people. Let's compare WB Hidden Gems to running Meta paid ads on your own.
+        <strong>CPM (Cost Per Mille)</strong> is what you pay to reach 1,000 people. Here's how our plans compare to running Meta paid ads on your own. Before accounting for the free social ads included in every plan.
     </p>
 
     <table class="comparison-table">
@@ -943,100 +1006,82 @@
             <tr>
                 <th>Plan</th>
                 <th>Price</th>
-                <th>Print Reach</th>
+                <th>Magazine Reach</th>
                 <th>Print CPM</th>
-                <th>Digital Days</th>
+                <th>Free Social Ads</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><strong>Starter (1/8 Page)</strong></td>
-                <td><span style="text-decoration: line-through">$450</span><br />
-                    $350/mo</td>
-                <td>30,400+ readers <br/>5,000+ digital impressions</td>
-                <td class="winner">
-                    <span style="text-decoration: line-through">$12.00</span><br />
-                    $9.00
-                </td>
-                <td>7 days</td>
+                <td><span style="text-decoration: line-through">$450</span><br/>$350/mo</td>
+                <td>30,400+ readers<br/>5,000+ digital impressions</td>
+                <td class="winner"><span style="text-decoration: line-through">$12.00</span><br/>$9.00</td>
+                <td>7+ days</td>
             </tr>
             <tr>
                 <td><strong>Growth (1/4 Page)</strong></td>
-                <td><span style="text-decoration: line-through">$650</span><br />
-                    $550/mo</td>
-                <td>30,400+ readers <br/>
-                    7,000+ digital impressions</td>
-                <td class="winner">
-                    <span style="text-decoration: line-through">$14.00</span><br />
-                    $12.00
-                </td>
-                <td>10 days</td>
+                <td><span style="text-decoration: line-through">$650</span><br/>$550/mo</td>
+                <td>30,400+ readers<br/>7,000+ digital impressions</td>
+                <td class="winner"><span style="text-decoration: line-through">$14.00</span><br/>$12.00</td>
+                <td>10+ days</td>
             </tr>
             <tr class="highlight">
                 <td><strong>Impact (1/2 Page)</strong></td>
-                <td><span style="text-decoration: line-through">$950</span><br />
-                    $850/mo</td>
-                <td>30,400+ readers <br />
-                10,000+ digital impressions</td>
-                <td class="winner">
-                    <span style="text-decoration: line-through">$23.00</span><br />
-                    $21.00
-                </td>
-                <td>15 days</td>
+                <td><span style="text-decoration: line-through">$950</span><br/>$850/mo</td>
+                <td>30,400+ readers<br/>10,000+ digital impressions</td>
+                <td class="winner"><span style="text-decoration: line-through">$23.00</span><br/>$21.00</td>
+                <td>15+ days</td>
             </tr>
             <tr>
                 <td><strong>Champion (Full Page)</strong></td>
-                <td><span style="text-decoration: line-through">$1350</span><br />
-                    $1,150/mo</td>
-                <td>30,400+ readers <br />
-                15,000+ digital impressions</td>
-                <td class="winner">
-                    <span style="text-decoration: line-through">$29.00</span><br />
-                    $25.00
-                </td>
-                <td>20 days</td>
+                <td><span style="text-decoration: line-through">$1,350</span><br/>$1,150/mo</td>
+                <td>30,400+ readers<br/>15,000+ digital impressions</td>
+                <td class="winner"><span style="text-decoration: line-through">$29.00</span><br/>$25.00</td>
+                <td>20+ days</td>
             </tr>
         </tbody>
     </table>
     <p class="text-small">*CPM calculated on print reach only. Digital impressions may vary depending on the platform.</p>
 
     <div class="cpm-visual">
-        <h4 style="margin-bottom: 20px; color: var(--green-dark);">CPM Comparison: WB Hidden Gems vs. Meta Paid Ads Alone</h4>
-        
+        <h4 style="margin-bottom: 20px; color: var(--green-dark);">CPM Comparison: WB Hidden Gems vs. Running Meta Ads Alone</h4>
+
         <div class="cpm-bar">
-            <div class="cpm-label">WB Hidden Gems Starter</div>
+            <div class="cpm-label">WB HG Starter</div>
             <div class="cpm-bar-container">
                 <div class="cpm-bar-fill green" style="width: 45%;">$12.00</div>
             </div>
         </div>
-        
+
         <div class="cpm-bar">
-            <div class="cpm-label">WB Hidden Gems Growth</div>
+            <div class="cpm-label">WB HG Growth</div>
             <div class="cpm-bar-container">
                 <div class="cpm-bar-fill green" style="width: 55%;">$14.00</div>
             </div>
         </div>
-        
+
         <div class="cpm-bar">
-            <div class="cpm-label">Meta Ads (US Average)</div>
+            <div class="cpm-label">Meta Ads (US Avg)</div>
             <div class="cpm-bar-container">
-                <div class="cpm-bar-fill red" style="width: 65%;">$15.00 - $20.00</div>
+                <div class="cpm-bar-fill red" style="width: 65%;">$15.00–$20.00</div>
             </div>
         </div>
-        
+
         <div class="cpm-bar">
-            <div class="cpm-label">WB Hidden Gems Impact</div>
+            <div class="cpm-label">WB HG Impact</div>
             <div class="cpm-bar-container">
                 <div class="cpm-bar-fill green" style="width: 70%;">$29.00</div>
             </div>
         </div>
-        
+
         <p class="text-small" style="margin-top: 20px;">
-            Meta Ads US CPM averaged $15-20 in 2025, with Q4 peaks reaching $25+.
-             Sources: <a href="https://affectgroup.com/blog/meta-ads-cpm-in-the-us-2025-benchmarks-for-facebook-and-instagram/#traffic-engagement" target="_blank">Affect Group</a>
-             <a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille" target="_blank">Superads</a>,
-             <a href="https://insights.vaizle.com/facebook-ads-cost/#How-Facebook-Ad-Costs-in-2025-Compare-to-2024?" target="_blank">Vaizle</a>,
-             <a href="https://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks" target="_blank">WordStream</a>.</p>
+            Meta Ads US CPM averaged $15–20 in 2025, with Q4 peaks reaching $25+.
+            Sources: <a href="https://affectgroup.com/blog/meta-ads-cpm-in-the-us-2025-benchmarks-for-facebook-and-instagram/#traffic-engagement" target="_blank">Affect Group</a>,
+            <a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille" target="_blank">Superads</a>,
+            <a href="https://insights.vaizle.com/facebook-ads-cost/#How-Facebook-Ad-Costs-in-2025-Compare-to-2024?" target="_blank">Vaizle</a>,
+            <a href="https://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks" target="_blank">WordStream</a>.
+        </p>
     </div>
 
     <div class="quote-box">
@@ -1044,22 +1089,22 @@
         <span class="quote-source">— Affect Group / Superads, 2025</span>
     </div>
 
-    <h3 style="margin-top: 30px; color: var(--green-dark);">What You Get That Meta Alone Can't Deliver</h3>
-    
+    <h3 style="margin-top: 30px; color: var(--green-dark);">What You Get vs. Meta Ads Alone</h3>
+
     <div class="bundle-visual">
         <div class="bundle-item">
             <div class="icon">📰</div>
-            <div class="label">Printed Ad</div>
+            <div class="label">Magazine Ad Space</div>
         </div>
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
             <div class="icon">📱</div>
-            <div class="label">Meta Carousel Paid Ad</div>
+            <div class="label">Free Paid Social Ads</div>
         </div>
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
             <div class="icon">🔗</div>
-            <div class="label">Landing Page</div>
+            <div class="label">Free Landing Page</div>
         </div>
         <span class="bundle-plus">+</span>
         <div class="bundle-item">
@@ -1069,30 +1114,60 @@
     </div>
 </div>
 
-<!-- PAGE 6: PRICING -->
-<div class="page">
+<!-- PAGE 5: PRICING -->
+<div class="page" id="plans">
     <div class="section-header">
         <div class="section-number">5</div>
-        <h2>Choose Your Plan</h2>
+        <h2>Choose Your Ad Space</h2>
     </div>
 
-    <p style="font-size: 1.05rem; margin-bottom: 30px; text-align: center;">
-        Every plan includes <strong>print, digital, landing page, metrics, and community perks</strong>.
+    <p style="font-size: 1.05rem; margin-bottom: 20px; text-align: center;">
+        Every plan is built around your <strong>ad space in the monthly magazine</strong>.<br>
+        The free landing page and free paid social ads come with all of them.
     </p>
+
+    <div class="trust-banner">
+        <div class="trust-item">
+            <i class="fas fa-newspaper"></i>
+            <strong>Magazine Ad Space</strong>
+            <span>Core of every plan</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-globe"></i>
+            <strong>Free Landing Page</strong>
+            <span>SEO + social sharing</span>
+        </div>
+        <div class="trust-item">
+            <i class="fab fa-meta"></i>
+            <strong>Free 7+ Paid Social Ads</strong>
+            <span>Facebook & Instagram</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-shield-halved"></i>
+            <strong>No Hidden Costs</strong>
+            <span>What you see is what you pay</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-calendar-check"></i>
+            <strong>3-Month Minimum</strong>
+            <span>Cancel after 3 months</span>
+        </div>
+    </div>
 
     <div class="pricing-grid">
         <!-- Starter -->
         <div class="pricing-card">
             <div class="plan-name">Starter</div>
+            <div class="plan-ad-size">📰 1/8 Page Magazine Ad</div>
             <div class="plan-discount-badge">Save $100.00</div>
             <div class="plan-original-price">$450<span>/month</span></div>
             <div class="plan-price">$350<span>/month</span></div>
             <ul class="plan-features">
-                <li><strong>1/8 Page</strong> in printed publication</li>
-                <li><strong>7 days</strong> of Meta carousel paid ads</li>
-                <li>Free QR code linking to your landing page</li>
-                <li>Free custom landing page with Open Graph tags</li>
-                <li>Free Landing page & carousel metrics</li>
+                <li><strong>1/8 Page ad</strong> in monthly magazine</li>
+                <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                <li class="free-item">7+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
+                <li>QR code linking to your landing page</li>
+                <li>Monthly performance metrics</li>
                 <li>Social media reposts from our accounts</li>
                 <li>Early access to community opportunities</li>
             </ul>
@@ -1102,15 +1177,16 @@
         <!-- Growth -->
         <div class="pricing-card featured">
             <div class="plan-name">Growth</div>
+            <div class="plan-ad-size">📰 1/4 Page Magazine Ad</div>
             <div class="plan-discount-badge">Save $100.00</div>
             <div class="plan-original-price">$650<span>/month</span></div>
             <div class="plan-price">$550<span>/month</span></div>
             <ul class="plan-features">
-                <li><strong>1/4 Page</strong> in printed publication</li>
-                <li><strong>10 days</strong> of Meta carousel paid ads</li>
+                <li><strong>1/4 Page ad</strong> in monthly magazine</li>
+                <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                <li class="free-item">10+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
                 <li>QR code linking to your landing page</li>
-                <li>Free custom landing page with Open Graph tags</li>
-                <li>Landing page & carousel metrics</li>
+                <li>Monthly performance metrics</li>
                 <li>Social media reposts from our accounts</li>
                 <li>Early access to community opportunities</li>
             </ul>
@@ -1120,15 +1196,16 @@
         <!-- Impact -->
         <div class="pricing-card">
             <div class="plan-name">Impact</div>
+            <div class="plan-ad-size">📰 1/2 Page Magazine Ad</div>
             <div class="plan-discount-badge">Save $100.00</div>
             <div class="plan-original-price">$950<span>/month</span></div>
             <div class="plan-price">$850<span>/month</span></div>
             <ul class="plan-features">
-                <li><strong>1/2 Page</strong> in printed publication</li>
-                <li><strong>15 days</strong> of Meta carousel paid ads</li>
+                <li><strong>1/2 Page ad</strong> in monthly magazine</li>
+                <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                <li class="free-item">15+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
                 <li>QR code linking to your landing page</li>
-                <li>Free custom landing page with Open Graph tags</li>
-                <li>Landing page & carousel metrics</li>
+                <li>Monthly performance metrics</li>
                 <li>Social media reposts from our accounts</li>
                 <li>Early access to community opportunities</li>
             </ul>
@@ -1138,46 +1215,57 @@
         <!-- Champion -->
         <div class="pricing-card">
             <div class="plan-name">Champion</div>
+            <div class="plan-ad-size">📰 Full Page Magazine Ad</div>
             <div class="plan-discount-badge">Save $200.00</div>
             <div class="plan-original-price">$1,350<span>/month</span></div>
             <div class="plan-price">$1,150<span>/month</span></div>
             <ul class="plan-features">
-                <li><strong>Full Page</strong> in printed publication</li>
-                <li><strong>20 days</strong> of Meta carousel paid ads</li>
+                <li><strong>Full Page ad</strong> in monthly magazine</li>
+                <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                <li class="free-item">20+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
                 <li>QR code linking to your landing page</li>
-                <li>Free custom landing page with Open Graph tags</li>
-                <li>Landing page & carousel metrics</li>
-                <li>Early access to community opportunities</li>
+                <li>Monthly performance metrics</li>
                 <li>Social media reposts from our accounts</li>
+                <li>Early access to community opportunities</li>
             </ul>
             <div class="plan-highlight">Best for: Maximum visibility</div>
         </div>
     </div>
 
     <div class="callout" style="text-align: center; margin-top: 30px;">
-        <h3>All Plans Include</h3>
+        <h3>Every Plan Includes</h3>
         <p style="max-width: 600px; margin: 0 auto;">
-            ✓ Monthly printed publication to 15,209 addresses<br>
-            ✓ Geo-targeted Meta carousel paid ads (Facebook & Instagram)<br>
-            ✓ Custom landing page with shareable Open Graph tags<br>
+            ✓ Ad space in the monthly printed magazine (15,209 addresses)<br>
+            ✓ FREE custom landing page. Ready for SEO and social sharing<br>
+            ✓ FREE geo-targeted paid ads on Facebook & Instagram<br>
             ✓ QR code for print-to-digital tracking<br>
             ✓ Monthly performance metrics<br>
             ✓ Social media amplification through our accounts<br>
-            ✓ Early access to local community partnership opportunities
+            ✓ No hidden costs. 3-month minimum contract
         </p>
     </div>
 </div>
 
-<!-- PAGE 7: CONTACT -->
+<!-- PAGE 6: CONTACT -->
 <div class="page">
     <div class="section-header">
         <div class="section-number">6</div>
-        <h2>Let's Grow Your Business Together</h2>
+        <h2>Ready to Grow? Let's Talk.</h2>
     </div>
+
+    <div class="photo-row" style="margin-bottom: 0;">
+        <div class="photo-row-item">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=280&fit=crop&q=80" alt="Local business team collaborating" loading="lazy" />
+        </div>
+        <div class="photo-row-item">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=280&fit=crop&q=80" alt="Local restaurant and neighborhood dining" loading="lazy" />
+        </div>
+    </div>
+    <p class="photo-caption" style="margin-bottom: 20px;">Wells Branch is home to hundreds of local businesses ready to grow.</p>
 
     <div style="text-align: center; padding: 40px 0;">
         <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;">
-            Ready to reach every household in Wells Branch? Let's talk about which plan is right for your business.
+            Pick your ad size, and we'll handle the rest: printed magazine, landing page, and paid social ads, every month.
         </p>
 
         <div class="stats-grid" style="max-width: 600px; margin: 30px auto;">
@@ -1187,7 +1275,7 @@
             </div>
             <div class="stat-card alt">
                 <div class="stat-number">Print+Digital</div>
-                <div class="stat-label">Full Bundle</div>
+                <div class="stat-label">All-Inclusive</div>
             </div>
             <div class="stat-card alt2">
                 <div class="stat-number">Local</div>
@@ -1207,15 +1295,14 @@
 
     <div style="text-align: center; margin-top: 40px; padding: 20px; background: var(--off-white); border-radius: 12px;">
         <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 10px;">
-            <strong>Sources Cited in This Media Kit:</strong>
+            <strong>Sources Cited:</strong>
         </p>
         <p class="text-small">
-            USPS Research (2025) • Data & Marketing Association • Postalytics • InfoTrends • NerdWallet<br>
+            USPS Research (2025) • Data & Marketing Association • Postalytics • InfoTrends<br>
             Lebesgue • Confect.io • Superads • Vaizle • WordStream • Marketing Sherpa
         </p>
     </div>
-
-</div><!-- end PAGE 7 -->
+</div>
 
 <footer class="site-footer">
     <div class="footer-container">
@@ -1249,14 +1336,9 @@
     </div>
 </footer>
 
-
-    <button class="floating-cta" id="floating-call-btn">
-        <i class="fa fa-calendar-days"></i>
-        <span class="cta-label">Schedule a call now!</span>
-    </button>
-
     <script type="text/javascript">
-        document.getElementById('floating-call-btn').addEventListener('click', function() {
+        document.getElementById('hero-call-btn').addEventListener('click', function(e) {
+            e.preventDefault();
             Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
         });
     </script>
