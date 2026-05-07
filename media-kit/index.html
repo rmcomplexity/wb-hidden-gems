@@ -14,7 +14,14 @@
     <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
     <script>
         window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-        plausible.init()
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.com')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
     </script>
     <style>
         :root {
@@ -739,6 +746,77 @@
             .navbar, .site-footer { display: none; }
             .page { padding: 40px; page-break-after: always; }
         }
+
+        /* Value Props Section */
+        .value-props {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
+            padding: 64px 2rem;
+        }
+
+        .value-props-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props-headline {
+            text-align: center;
+            color: var(--white);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .value-props-subheadline {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 44px;
+        }
+
+        .value-props-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .value-prop-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 30px 22px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .value-prop-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.18);
+        }
+
+        .value-prop-icon {
+            font-size: 2.4rem;
+            color: var(--yellow-light);
+            margin-bottom: 18px;
+        }
+
+        .value-prop-text {
+            color: rgba(255,255,255,0.95);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        .value-prop-text strong {
+            color: var(--yellow-light);
+        }
+
+        @media (max-width: 900px) {
+            .value-props-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .value-props-grid { grid-template-columns: 1fr; }
+            .value-props { padding: 40px 1.25rem; }
+        }
     </style>
 </head>
 <body>
@@ -786,6 +864,32 @@
         <div class="photo-label">Your Business</div>
     </div>
 </div>
+
+<!-- Selling Points / Value Props -->
+<section class="value-props">
+    <div class="value-props-container">
+        <h2 class="value-props-headline">How We Grow Your Business</h2>
+        <p class="value-props-subheadline">A multi-channel approach that keeps your business front and center in the community</p>
+        <div class="value-props-grid">
+            <div class="value-prop-card">
+                <div class="value-prop-icon"><i class="fas fa-bullhorn"></i></div>
+                <p class="value-prop-text">We keep your business front and center by reaching your community using <strong>different channels</strong> — print, digital, and social, all working together.</p>
+            </div>
+            <div class="value-prop-card">
+                <div class="value-prop-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <p class="value-prop-text">We get your business directly to your community's hands with a <strong>printed Ad delivered via USPS EDDM</strong> to every address, every month.</p>
+            </div>
+            <div class="value-prop-card">
+                <div class="value-prop-icon"><i class="fas fa-globe"></i></div>
+                <p class="value-prop-text">We bridge the gap between print and digital by expanding your offer with a <strong>FREE custom landing page</strong> that amplifies your Ad online.</p>
+            </div>
+            <div class="value-prop-card">
+                <div class="value-prop-icon"><i class="fab fa-meta"></i></div>
+                <p class="value-prop-text">We keep your business top of mind by running your Ad as a <strong>paid Social Media ad for FREE</strong>, targeting your actual customers alongside complementary businesses.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- PAGE 1: REACH -->
 <div class="page">
