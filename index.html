@@ -18,7 +18,14 @@
     <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
     <script>
         window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-        plausible.init()
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        } 
     </script>
     <style>
         :root {
@@ -885,6 +892,73 @@
                 text-align: center;
             }
         }
+        /* ── How It Works ── */
+        .how-it-works {
+            background: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .how-it-works-container {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: var(--charcoal);
+            margin-bottom: 3rem;
+        }
+
+        .how-it-works h2 .accent {
+            color: var(--green-dark);
+        }
+
+        .how-it-works-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hiw-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hiw-step-icon {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+        }
+
+        .hiw-step-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .hiw-step-sub {
+            font-size: 0.92rem;
+            color: var(--gray);
+            max-width: 380px;
+            line-height: 1.6;
+            margin-top: 0.2rem;
+        }
+
+        .hiw-connector {
+            width: 2px;
+            height: 2.5rem;
+            background: linear-gradient(to bottom, var(--green-light), var(--green-dark));
+            margin: 0.5rem 0;
+            border-radius: 2px;
+        }
+
+        .hiw-step-final .hiw-step-text {
+            font-size: 1.25rem;
+            color: var(--green-dark);
+        }
     </style>
 </head>
 <body>
@@ -923,6 +997,54 @@
                 <i class="fas fa-circle-info"></i>
                 Schedule a call with us Today!
             </a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="how-it-works-container">
+            <h2>How It <span class="accent">Works</span></h2>
+            <div class="how-it-works-steps">
+
+                <div class="hiw-step">
+                    <img class="hiw-step-icon" src="assets/images/arrow_icon.png" alt="Send us your ad">
+                    <span class="hiw-step-text">Send us your Ad or Offer</span>
+                    <span class="hiw-step-sub">Share your promotion, deal, or announcement. We can also help you create one. We'll take it from there.</span>
+                </div>
+
+                <div class="hiw-connector"></div>
+
+                <div class="hiw-step">
+                    <img class="hiw-step-icon" src="assets/images/newspaper_icon.png" alt="Delivered to mailbox">
+                    <span class="hiw-step-text">Your Ad delivered to your customer's mailbox</span>
+                    <span class="hiw-step-sub">Your ad shows on WB Hidden Gems Monthly. A printed magazine sent directly to +15K addresses every month.</span>
+                </div>
+
+                <div class="hiw-connector"></div>
+
+                <div class="hiw-step">
+                    <img class="hiw-step-icon" src="assets/images/phone_icon.png" alt="Shown on devices">
+                    <span class="hiw-step-text">Your Ad shows on your customer's devices</span>
+                    <span class="hiw-step-sub">Bridge the gap between printed and digital media with a FREE landing page for your Ad.</span>
+                </div>
+
+                <div class="hiw-connector"></div>
+
+                <div class="hiw-step">
+                    <img class="hiw-step-icon" src="assets/images/laptop_icon.png" alt="Shown in feed">
+                    <span class="hiw-step-text">Your Ad shows in your customer's feed</span>
+                    <span class="hiw-step-sub">We run paid ads in Facebook and Instagram to target your customers.</span>
+                </div>
+
+                <div class="hiw-connector"></div>
+
+                <div class="hiw-step hiw-step-final">
+                    <img class="hiw-step-icon" src="assets/images/community_icon.png" alt="More customers">
+                    <span class="hiw-step-text">You get more customers!</span>
+                    <span class="hiw-step-sub">Keep your business top of mind with your local community.</span>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -976,54 +1098,6 @@
             -->
         </div>
     </div>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-container">
-            <span class="section-label">Who We Are</span>
-            <h2>Your Neighbors, Helping <span class="accent">Your Business</span> Thrive</h2>
-            
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>WB Hidden Gems was born from a simple belief: every local business has a story worth telling, and every community is stronger when neighbors support neighbors.</p>
-                    <p>We're not a faceless agency sending generic recommendations from a downtown office. We live here. We shop here. We've been part of the Wells Branch community for 9 years, and we've seen firsthand how meaningful it is when a local business becomes a true neighborhood fixture.</p>
-                    <p>Our approach goes beyond likes and clicks. We focus on real connections—helping you become the business that neighbors recommend to each other, the place people mention at block parties, the name that comes up when someone asks "do you know anyone who does...?"</p>
-                </div>
-                
-                <div class="about-values">
-                    <div class="value-card">
-                        <div class="value-icon green">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="value-content">
-                            <h4>Community-First Approach</h4>
-                            <p>We understand Wells Branch because we're part of it. Every strategy is tailored to our neighborhood's unique character.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon yellow">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="value-content">
-                            <h4>Your Vision, Our Expertise</h4>
-                            <p>We work with your goals, not against them. Your business is yours—we're here to amplify what makes it special.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon blue">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="value-content">
-                            <h4>Partnership, Not Contracts</h4>
-                            <p>Cancel anytime after 3 months. Everything we create for you—website, content, designs—is yours to keep.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Ads Publication Section -->
     <section class="ads-publication" id="ads-publication">
@@ -1111,100 +1185,51 @@
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process">
-        <div class="process-container">
-            <div class="process-header">
-                <span class="section-label">How We Work Together</span>
-                <h2>From Introduction to Impact</h2>
-                <p class="process-subtitle">A clear, collaborative process designed to grow your business thoughtfully and sustainably within our community.</p>
-            </div>
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <span class="section-label">Who We Are</span>
+            <h2>Your Neighbors, Helping <span class="accent">Your Business</span> Thrive</h2>
 
-            <div class="process-timeline">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="step-number green">1</div>
-                    <div class="step-body">
-                        <div class="step-content">
-                            <h3>Introduction Meeting</h3>
-                            <p>We sit down together to understand your business, your story, and what success looks like for you.</p>
-                        </div>
-                        <div class="step-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Learn about your business journey and goals</li>
-                                <li><i class="fas fa-check"></i> Understand your vision for community impact</li>
-                                <li><i class="fas fa-check"></i> Identify your ideal customers in Wells Branch</li>
-                                <li><i class="fas fa-check"></i> Discuss what hasn't worked in the past</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>WB Hidden Gems was born from a simple belief: every local business has a story worth telling, and every community is stronger when neighbors support neighbors.</p>
+                    <p>We're not a faceless agency sending generic recommendations from a downtown office. We live here. We shop here. We've been part of the Wells Branch community for 9 years, and we've seen firsthand how meaningful it is when a local business becomes a true neighborhood fixture.</p>
+                    <p>Our approach goes beyond likes and clicks. We focus on real connections—helping you become the business that neighbors recommend to each other, the place people mention at block parties, the name that comes up when someone asks "do you know anyone who does...?"</p>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="step-number yellow">2</div>
-                    <div class="step-body">
-                        <div class="step-content">
-                            <h3>Presence Audit</h3>
-                            <p>We take a comprehensive look at where you stand today—online and within the local community.</p>
+                <div class="about-values">
+                    <div class="value-card">
+                        <div class="value-icon green">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div class="step-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Review your Google Business Profile & local listings</li>
-                                <li><i class="fas fa-check"></i> Assess social media presence & engagement</li>
-                                <li><i class="fas fa-check"></i> Evaluate industry-specific platforms (Nextdoor, Angi, Houzz, etc.)</li>
-                                <li><i class="fas fa-check"></i> Analyze community visibility & word-of-mouth presence</li>
-                            </ul>
+                        <div class="value-content">
+                            <h4>Community-First Approach</h4>
+                            <p>We understand Wells Branch because we're part of it. Every strategy is tailored to our neighborhood's unique character.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="step-number blue">3</div>
-                    <div class="step-body">
-                        <div class="step-content">
-                            <h3>Growth Plan</h3>
-                            <p>Together, we craft a customized roadmap for growing your presence over the coming year.</p>
+                    <div class="value-card">
+                        <div class="value-icon yellow">
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <div class="step-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Website & logo creation or refresh</li>
-                                <li><i class="fas fa-check"></i> Social account overhaul (up to 3 platforms)</li>
-                                <li><i class="fas fa-check"></i> Content strategy: posts, articles, & storytelling</li>
-                                <li><i class="fas fa-check"></i> In-person event planning & participation <span class="optional-tag">Optional</span></li>
-                                <li><i class="fas fa-check"></i> Custom merchandise design & sourcing <span class="optional-tag">Optional</span></li>
-                                <li><i class="fas fa-check"></i> Customer feedback campaigns <span class="optional-tag">Optional</span></li>
-                            </ul>
+                        <div class="value-content">
+                            <h4>Your Vision, Our Expertise</h4>
+                            <p>We work with your goals, not against them. Your business is yours—we're here to amplify what makes it special.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="step-number green">4</div>
-                    <div class="step-body">
-                        <div class="step-content">
-                            <h3>Execution & Growth</h3>
-                            <p>We put the plan into action with consistent communication and transparent reporting.</p>
+                    <div class="value-card">
+                        <div class="value-icon blue">
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <div class="step-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Weekly check-in meetings to review progress</li>
-                                <li><i class="fas fa-check"></i> Monthly performance reports with clear metrics</li>
-                                <li><i class="fas fa-check"></i> Ongoing content creation & community engagement</li>
-                                <li><i class="fas fa-check"></i> Flexible adjustments based on what's working</li>
-                            </ul>
+                        <div class="value-content">
+                            <h4>Partnership, Not Contracts</h4>
+                            <p>Cancel anytime after 3 months. Everything we create for you—website, content, designs—is yours to keep.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div style="text-align:center; margin-top: 2.5rem;">
-            <a href="/wbna-sacc-apply" class="hero-cta">
-                <i class="fas fa-circle-info"></i>
-                More Information
-            </a>
         </div>
     </section>
 

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reputation Management — WB Hidden Gems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
+    </script>
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --blue-dark: #08137a;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img { max-height: 3.1rem; }
+
+        .logo-text {
+            font-family: 'Sansation', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+        }
+
+        .logo-text span { color: var(--yellow-dark); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, #0a3d5c 0%, #0e5273 50%, #0a3d5c 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--white); }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-light); }
+
+        .hero-sub {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Section label */
+        .section-label {
+            display: inline-block;
+            color: var(--green-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--off-white) 0%, var(--cream) 100%);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .process h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .process-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--green-dark), var(--yellow-dark), var(--blue-dark), var(--green-dark));
+            border-radius: 3px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sansation', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .step-number.green { background: var(--green-dark); }
+        .step-number.yellow { background: var(--yellow-dark); }
+        .step-number.blue { background: var(--blue-dark); }
+
+        .step-body { padding-top: 0.5rem; }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .step-details {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .step-details ul { list-style: none; }
+
+        .step-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .step-details li:last-child { border-bottom: none; }
+
+        .step-details li i {
+            color: var(--green-dark);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .optional-tag {
+            display: inline-block;
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-row {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow-dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.4);
+        }
+
+        .cta-button:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            display: block;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social { display: flex; gap: 1rem; }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--green-light); color: var(--green-dark); }
+
+        .footer-column h4 { font-weight: 600; margin-bottom: 1.25rem; font-size: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+        .footer-column a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column a:hover { color: var(--green-light); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { justify-content: center; }
+
+            .process-step {
+                grid-template-columns: 50px 1fr;
+                gap: 1.25rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .process-timeline::before { left: 24px; }
+
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../business-directory/index.html#food"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="../business-directory/index.html"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="../business-directory/index.html#beauty"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="../business-directory/index.html#home"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="../business-directory/index.html#auto"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="../business-directory/index.html#pro"><i class="fas fa-briefcase"></i> Professional</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <a href="/" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>Reputation <span class="highlight">Management</span></h1>
+        <p class="hero-sub">A clear, collaborative process designed to grow your business thoughtfully and sustainably within the Wells Branch community.</p>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="process-container">
+            <div class="process-header">
+                <span class="section-label">How We Work Together</span>
+                <h2>From Introduction to Impact</h2>
+                <p class="process-subtitle">A clear, collaborative process designed to grow your business thoughtfully and sustainably within our community.</p>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number green">1</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Introduction Meeting</h3>
+                            <p>We sit down together to understand your business, your story, and what success looks like for you.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Learn about your business journey and goals</li>
+                                <li><i class="fas fa-check"></i> Understand your vision for community impact</li>
+                                <li><i class="fas fa-check"></i> Identify your ideal customers in Wells Branch</li>
+                                <li><i class="fas fa-check"></i> Discuss what hasn't worked in the past</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number yellow">2</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Presence Audit</h3>
+                            <p>We take a comprehensive look at where you stand today—online and within the local community.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Review your Google Business Profile & local listings</li>
+                                <li><i class="fas fa-check"></i> Assess social media presence & engagement</li>
+                                <li><i class="fas fa-check"></i> Evaluate industry-specific platforms (Nextdoor, Angi, Houzz, etc.)</li>
+                                <li><i class="fas fa-check"></i> Analyze community visibility & word-of-mouth presence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number blue">3</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Growth Plan</h3>
+                            <p>Together, we craft a customized roadmap for growing your presence over the coming year.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Website & logo creation or refresh</li>
+                                <li><i class="fas fa-check"></i> Social account overhaul (up to 3 platforms)</li>
+                                <li><i class="fas fa-check"></i> Content strategy: posts, articles, & storytelling</li>
+                                <li><i class="fas fa-check"></i> In-person event planning & participation <span class="optional-tag">Optional</span></li>
+                                <li><i class="fas fa-check"></i> Custom merchandise design & sourcing <span class="optional-tag">Optional</span></li>
+                                <li><i class="fas fa-check"></i> Customer feedback campaigns <span class="optional-tag">Optional</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number green">4</div>
+                    <div class="step-body">
+                        <div class="step-content">
+                            <h3>Execution & Growth</h3>
+                            <p>We put the plan into action with consistent communication and transparent reporting.</p>
+                        </div>
+                        <div class="step-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Weekly check-in meetings to review progress</li>
+                                <li><i class="fas fa-check"></i> Monthly performance reports with clear metrics</li>
+                                <li><i class="fas fa-check"></i> Ongoing content creation & community engagement</li>
+                                <li><i class="fas fa-check"></i> Flexible adjustments based on what's working</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cta-row">
+            <a href="/wbna-sacc-apply" class="cta-button">
+                <i class="fas fa-circle-info"></i>
+                More Information
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">WB Hidden Gems</span>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="/#schedule">Schedule a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
