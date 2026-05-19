@@ -21,6 +21,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "jquery": "^4.0.0",
     "list.js": "^2.3.1"
   }
 }

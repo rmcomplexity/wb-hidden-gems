@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booth Sign Up — Children's Day · WB Hidden Gems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../../vendor/include.js"></script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
+    </script>
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --red-light-mute: #ea7782;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* ── Navigation ── */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img { max-height: 3.1rem; }
+
+        .logo-text {
+            font-family: 'Sansation', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(160deg, #cfe9f7 0%, #a8d4ee 50%, #b8ddf5 100%);
+            padding: 4.5rem 2rem 3.5rem;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.8);
+            color: #0a4a6e;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0.45rem 1.25rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            color: #0a3d5c;
+            max-width: 760px;
+            margin: 0 auto 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: #0a3d5c;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-dark); }
+
+        .hero-sub {
+            color: #1a5a7a;
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0.5rem auto 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #0a4a6e;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            opacity: 0.75;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover { opacity: 1; }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            background: var(--yellow-dark);
+            color: var(--white);
+            padding: 1rem 2.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.35);
+        }
+
+        .hero-cta:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.45);
+        }
+
+        /* ── Intro + Rules ── */
+        .intro-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .intro-container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--green-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+
+        .intro-section h2 .accent { color: var(--green-dark); }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 720px;
+            line-height: 1.85;
+            margin-bottom: 3rem;
+        }
+
+        /* Availability pills */
+        .availability-row {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .availability-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .availability-pill.green {
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        .availability-pill.blue {
+            background: rgba(21,34,168,0.12);
+            color: var(--blue-dark);
+        }
+
+        .availability-pill i { font-size: 1.1rem; }
+
+        /* Rules grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .rule-card {
+            display: flex;
+            gap: 1.1rem;
+            padding: 1.4rem 1.5rem;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .rule-card:hover { transform: translateY(-4px); }
+
+        .rule-card.info  { background: var(--cream); }
+        .rule-card.warn  { background: #fff4e0; }
+        .rule-card.alert { background: #fce4e4; }
+        .rule-card.tip   { background: #e4f3e4; }
+
+        .rule-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .rule-card.info  .rule-icon { background: rgba(21,34,168,0.14); color: var(--blue-dark); }
+        .rule-card.warn  .rule-icon { background: var(--yellow-light);   color: var(--yellow-dark); }
+        .rule-card.alert .rule-icon { background: var(--red-light-mute); color: var(--red-dark); }
+        .rule-card.tip   .rule-icon { background: var(--green-light);    color: var(--green-dark); }
+
+        .rule-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+            font-size: 0.97rem;
+        }
+
+        .rule-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ── Signup Form ── */
+        .signup-section {
+            padding: 6rem 2rem;
+            background: var(--green-dark);
+            position: relative;
+        }
+
+        .signup-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(170,214,151,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .signup-container {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .signup-section .section-label { color: var(--green-light); }
+
+        .signup-section h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .signup-section > .signup-container > p {
+            color: var(--green-light);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signup-form {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.75rem 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group { text-align: left; }
+
+        .form-group.full { grid-column: span 2; }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.45rem;
+            color: var(--charcoal);
+            font-size: 0.88rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.97rem;
+            color: var(--charcoal);
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-dark);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* type selector tabs */
+        .type-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .type-tab input[type="radio"] { display: none; }
+
+        .type-tab label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: var(--gray);
+            transition: all 0.25s ease;
+            background: var(--off-white);
+            user-select: none;
+        }
+
+        .type-tab input[type="radio"]:checked + label {
+            border-color: var(--green-dark);
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        .type-tab label:hover {
+            border-color: var(--green-dark);
+            color: var(--green-dark);
+        }
+
+        .form-divider {
+            height: 1px;
+            background: var(--light-gray);
+            margin: 1.75rem 0;
+        }
+
+        .form-section-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray);
+            margin-bottom: 1.1rem;
+        }
+
+        .form-submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand-name {
+            display: block;
+            font-family: 'Sansation', serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social { display: flex; gap: 1rem; }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--green-light); color: var(--green-dark); }
+
+        .footer-column h4 { font-weight: 600; margin-bottom: 1.25rem; font-size: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+        .footer-column a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column a:hover { color: var(--green-light); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { justify-content: center; }
+
+            .form-row { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+
+            .signup-form { padding: 2rem 1.5rem; }
+
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="../../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../business-directory/index.html#food"><i class="fas fa-utensils"></i> Food & Drink</a></li>
+                <li><a href="../../business-directory/index.html"><i class="fas fa-shopping-bag"></i> Shopping</a></li>
+                <li><a href="../../business-directory/index.html#beauty"><i class="fas fa-spa"></i> Health & Beauty</a></li>
+                <li><a href="../../business-directory/index.html#home"><i class="fas fa-home"></i> Home Services</a></li>
+                <li><a href="../../business-directory/index.html#auto"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="../../business-directory/index.html#pro"><i class="fas fa-briefcase"></i> Professional</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <a href="../" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Children's Day
+        </a>
+        <p class="hero-tagline">Come celebrate kids of all ages with the Wells Branch Community!</p>
+        <h1>Booth <span class="highlight">Sign Up</span></h1>
+        <p class="hero-sub">June 14, 2026 &bull; 4:00 – 6:00 PM &bull; Chuck Pavilion, Katherine Fleischer Park</p>
+        <a href="#signup" class="hero-cta">
+            <i class="fas fa-store"></i>
+            Sign Up for a Booth
+            <i class="fas fa-arrow-down"></i>
+        </a>
+    </section>
+
+    <!-- Intro + Rules -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <span class="section-label">Who Can Participate</span>
+            <h2>Join Us at <span class="accent">Children's Day</span></h2>
+
+            <p class="intro-text">
+                Local businesses and non-profits located within Wells Branch and the 78728 zip code are invited to join us
+                in this celebration. There are only <strong>5 business booths</strong> and <strong>5 non-profit booths</strong>
+                available. Each booth consists of one 4&times;4 ft table, white cloth, and two chairs. Let us know if you need
+                anything else and we'll make our best to facilitate it for you or let you know otherwise. This event is aimed
+                at families and kids — <strong>make your booth fun!</strong> The site does not have any electric power and
+                there are <strong>NO monetary transactions</strong> allowed at the event. The booth must be for information only.
+            </p>
+
+            <!-- Availability -->
+            <div class="availability-row">
+                <div class="availability-pill green">
+                    <i class="fas fa-store"></i>
+                    5 Business Booths
+                </div>
+                <div class="availability-pill blue">
+                    <i class="fas fa-hands-holding-heart"></i>
+                    5 Non-Profit Booths
+                </div>
+            </div>
+
+            <!-- Rules cards -->
+            <div class="rules-grid">
+                <div class="rule-card info">
+                    <div class="rule-icon"><i class="fas fa-table"></i></div>
+                    <div class="rule-content">
+                        <h4>Booth Setup</h4>
+                        <p>One 4&times;4 ft table, white cloth, and two chairs provided. Need something extra? Let us know and we'll do our best.</p>
+                    </div>
+                </div>
+                <div class="rule-card warn">
+                    <div class="rule-icon"><i class="fas fa-bolt-slash"></i></div>
+                    <div class="rule-content">
+                        <h4>No Electric Power</h4>
+                        <p>The venue does not have electrical outlets. Plan your booth without any powered equipment.</p>
+                    </div>
+                </div>
+                <div class="rule-card alert">
+                    <div class="rule-icon"><i class="fas fa-ban"></i></div>
+                    <div class="rule-content">
+                        <h4>No Sales or Transactions</h4>
+                        <p>Monetary transactions of any kind are not allowed at the event. Booths are for information and community connection only.</p>
+                    </div>
+                </div>
+                <div class="rule-card tip">
+                    <div class="rule-icon"><i class="fas fa-child-reaching"></i></div>
+                    <div class="rule-content">
+                        <h4>Make It Kid-Friendly</h4>
+                        <p>This event is for families and kids of all ages. Get creative — bring games, activities, or giveaways to make your booth a hit!</p>
+                    </div>
+                </div>
+                <div class="rule-card info">
+                    <div class="rule-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="rule-content">
+                        <h4>Wells Branch & 78728 Only</h4>
+                        <p>Participation is open to businesses and non-profits located within Wells Branch or the 78728 zip code.</p>
+                    </div>
+                </div>
+                <div class="rule-card tip">
+                    <div class="rule-icon"><i class="fas fa-hourglass-half"></i></div>
+                    <div class="rule-content">
+                        <h4>Limited Spots</h4>
+                        <p>Only 5 spots per category. Sign up early — spots are filled on a first-come, first-served basis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Form -->
+    <section class="signup-section" id="signup">
+        <div class="signup-container">
+            <span class="section-label">Reserve Your Spot</span>
+            <h2>Sign Up for a Booth</h2>
+            <p>Fill out the form below and we'll confirm your spot. We'll reach out if we need anything else from you.</p>
+<script>window.enableEventObserver=true</script>
+<script>window.enableRenameUploadFile=false</script>
+<script>window.enableDateFieldSelectInputs=false</script>
+<script>window.CDN="https://cdn.jotfor.ms/"</script>
+<script>window.umdRootPath="https://cdn.jotfor.ms/s/umd/3011a869e03/"</script>
+<script>window.staticRootPath="https://cdn.jotfor.ms/s/static/3011a869e03/"</script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/static/jotform.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/js/punycode-1.4.1.min.js" type="text/javascript" defer></script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/js/vendor/maskedinput_5.0.9.min.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/s/umd/3011a869e03/for-aria-notify-polyfill.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/js/vendor/smoothscroll.min.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/s/static/3011a869e03/js/errorNavigation.js" type="text/javascript"></script>
+<script type="text/javascript">	JotForm.newDefaultTheme = true;
+	JotForm.extendsNewTheme = false;
+	// {GPT_APP_SCRIPT}
+	JotForm.singleProduct = false;
+	JotForm.newPaymentUIForNewCreatedForms = false;
+	JotForm.texts = {"confirmEmail":"E-mail does not match","pleaseWait":"Please wait...","validateEmail":"You need to validate this e-mail","confirmClearForm":"Are you sure you want to clear the form","lessThan":"Your score should be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","required":"This field is required.","requireOne":"At least one field required.","requireEveryRow":"Every row is required.","requireEveryCell":"Every cell is required.","email":"Enter a valid e-mail address","alphabetic":"This field can only contain letters","numeric":"This field can only contain numeric values","alphanumeric":"This field can only contain letters and numbers.","cyrillic":"This field can only contain cyrillic characters","url":"This field can only contain a valid URL","currency":"This field can only contain currency values.","fillMask":"Field value must fill mask.","uploadExtensions":"You can only upload following files:","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","gradingScoreError":"Score total should only be less than or equal to","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","maxDigitsError":"The maximum digits allowed is","minCharactersError":"The number of characters should not be less than the minimum value:","maxCharactersError":"The number of characters should not be more than the maximum value:","freeEmailError":"Free email accounts are not allowed","minSelectionsError":"The minimum required number of selections is ","maxSelectionsError":"The maximum number of selections allowed is ","pastDatesDisallowed":"Date must not be in the past.","dateLimited":"This date is unavailable.","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","ageVerificationError":"You must be older than {minAge} years old to submit this form.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","chooseAFile_infoMessage":"Choose a file","maxFileSize_infoMessage":"Max. file size","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","ccInvalidNumber":"Credit Card Number is invalid.","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccMissingDetails":"Please fill up the credit card details.","ccMissingProduct":"Please select at least one product.","ccMissingDonation":"Please enter numeric values for donation amount.","disallowDecimals":"Please enter a whole number.","restrictedDomain":"This domain is not allowed","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","requiredLegend":"All fields marked with * are required and must be filled.","geoPermissionTitle":"Permission Denied","geoPermissionDesc":"Check your browser's privacy settings.","geoNotAvailableTitle":"Position Unavailable","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoTimeoutTitle":"Timeout","geoTimeoutDesc":"Please check your internet connection and try again.","selectedTime":"Selected Time","formerSelectedTime":"Former Time","cancelAppointment":"Cancel Appointment","cancelSelection":"Cancel Selection","confirmSelection":"Confirm Selection","noSlotsAvailable":"No slots available","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","multipleError":"There are {count} errors on this page. Please correct them before moving on.","oneError":"There is {count} error on this page. Please correct it before moving on.","doneMessage":"Well done! All errors are fixed.","invalidTime":"Enter a valid time","doneButton":"Done","reviewSubmitText":"Review and Submit","nextButtonText":"Next","prevButtonText":"Previous","seeErrorsButton":"See Errors","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","soldOut":"Sold Out","justSoldOut":"Just Sold Out","selectionSoldOut":"Selection Sold Out","subProductItemsLeft":"({count} items left)","startButtonText":"START","submitButtonText":"Submit","submissionLimit":"Sorry! Only one entry is allowed. <br> Multiple submissions are disabled for this form.","reviewBackText":"Back to Form","seeAllText":"See All","progressMiddleText":"of","fieldError":"field has an error.","error":"Error"};
+	JotForm.newPaymentUI = true;
+	JotForm.originalLanguage = "en";
+	JotForm.isFormViewTrackingAllowed = true;
+	JotForm.replaceTagTest = true;
+	JotForm.activeRedirect = "thankurl";
+	JotForm.uploadServerURL = "https://upload.jotform.com/upload";
+	JotForm.clearFieldOnHide="disable";
+	JotForm.submitError="jumpToFirstError";
+	JotForm.isFullSource = true;
+
+	JotForm.init(function(){
+	/*INIT-START*/
+if (window.JotForm && JotForm.accessible) $('input_2').setAttribute('tabindex',0);
+      JotForm.setPhoneMaskingValidator( 'input_5_full', '\u0028\u0023\u0023\u0023\u0029 \u0023\u0023\u0023\u002d\u0023\u0023\u0023\u0023' );
+if (window.JotForm && JotForm.accessible) $('input_7').setAttribute('tabindex',0);
+      JotForm.setCustomHint( 'input_7', 'Type \"Nothing\" If you\'re all good!' );
+if (window.JotForm && JotForm.accessible) $('input_6').setAttribute('tabindex',0);
+      JotForm.alterTexts({"ageVerificationError":"You must be older than {minAge} years old to submit this form.","alphabetic":"This field can only contain letters","alphanumeric":"This field can only contain letters and numbers.","cancelAppointment":"Cancel Appointment","cancelSelection":"Cancel Selection","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccInvalidNumber":"Credit Card Number is invalid.","ccMissingDetails":"Please fill up the credit card details.","ccMissingDonation":"Please enter numeric values for donation amount.","ccMissingProduct":"Please select at least one product.","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","chooseAFile_infoMessage":"Choose a file","confirmClearForm":"Are you sure you want to clear the form","confirmEmail":"E-mail does not match","confirmSelection":"Confirm Selection","currency":"This field can only contain currency values.","cyrillic":"This field can only contain cyrillic characters","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","dateLimited":"This date is unavailable.","disallowDecimals":"Please enter a whole number.","doneButton":"Done","doneMessage":"Well done! All errors are fixed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","email":"Enter a valid e-mail address","error":"Error","fieldError":"field has an error.","fillMask":"Field value must fill mask.","formerSelectedTime":"Former Time","freeEmailError":"Free email accounts are not allowed","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoNotAvailableTitle":"Position Unavailable","geoPermissionDesc":"Check your browser's privacy settings.","geoPermissionTitle":"Permission Denied","geoTimeoutDesc":"Please check your internet connection and try again.","geoTimeoutTitle":"Timeout","gradingScoreError":"Score total should only be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","invalidTime":"Enter a valid time","justSoldOut":"Just Sold Out","lessThan":"Your score should be less than or equal to","maxCharactersError":"The number of characters should not be more than the maximum value:","maxDigitsError":"The maximum digits allowed is","maxFileSize_infoMessage":"Max. file size","maxSelectionsError":"The maximum number of selections allowed is ","minCharactersError":"The number of characters should not be less than the minimum value:","minSelectionsError":"The minimum required number of selections is ","multipleError":"There are {count} errors on this page. Please correct them before moving on.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","nextButtonText":"Next","noSlotsAvailable":"No slots available","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","numeric":"This field can only contain numeric values","oneError":"There is {count} error on this page. Please correct it before moving on.","pastDatesDisallowed":"Date must not be in the past.","pleaseWait":"Please wait...","prevButtonText":"Previous","progressMiddleText":"of","required":"This field is required.","requiredLegend":"All fields marked with * are required and must be filled.","requireEveryCell":"Every cell is required.","requireEveryRow":"Every row is required.","requireOne":"At least one field required.","restrictedDomain":"This domain is not allowed","reviewBackText":"Back to Form","reviewSubmitText":"Review and Submit","seeAllText":"See All","seeErrorsButton":"See Errors","selectedTime":"Selected Time","selectionSoldOut":"Selection Sold Out","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","soldOut":"Sold Out","startButtonText":"START","submissionLimit":"Sorry! Only one entry is allowed. &lt;br&gt; Multiple submissions are disabled for this form.","submitButtonText":"Submit","subProductItemsLeft":"({count} items left)","uploadExtensions":"You can only upload following files:","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","url":"This field can only contain a valid URL","validateEmail":"You need to validate this e-mail","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is"});
+	/*INIT-END*/
+	});
+
+   setTimeout(function() {
+JotForm.paymentExtrasOnTheFly([null,null,{"description":"","name":"q2_textbox0","qid":"2","subLabel":"","text":"Association \u002F Business Name","type":"control_textbox"},{"description":"","name":"q3_fullname1","qid":"3","text":"Point of Contact Full Name","type":"control_fullname"},{"description":"","name":"q4_email2","qid":"4","subLabel":"example@example.com","text":"Contact Email","type":"control_email"},{"description":"","name":"q5_phone3","qid":"5","text":"Contact Phone Number","type":"control_phone"},{"description":"","mde":"No","name":"q6_textarea4","qid":"6","subLabel":"Let us know what you'll bring. We'll include this in the posts we'll create for the event.","text":"What will your business bring to the event? (optional)","type":"control_textarea","wysiwyg":"Disable"},{"description":"","mde":"No","name":"q7_textarea5","qid":"7","subLabel":"","text":"What do you need us to facilitate or provide at the event?","type":"control_textarea","wysiwyg":"Disable"},null,{"name":"submit","qid":"9","text":"Submit","type":"control_button"},{"name":"divider","qid":"10","text":"Divider","type":"control_divider"},{"description":"","name":"typeA","qid":"11","text":"I am signing up as...","type":"control_radio"}]);}, 20); 
+</script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/stylebuilder/static/form-common.css?v=9622a64
+"/>
+<style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+
+      <style type="text/css">
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      </style>
+    <link id="custom-font" type="text/css" rel="stylesheet" href="//cdn.jotfor.ms/fonts/?family=Inter" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=4.1.66525&themeRevisionID=65660e4b326633110492e01a"/>
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/s/static/3011a869e03/css/styles/payment/payment_styles.css?4.1.66525" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/s/static/3011a869e03/css/styles/payment/payment_feature.css?4.1.66525" />
+<style type="text/css" id="form-designer-style">
+    /* Injected CSS Code */
+
+/*__GENERATED_FROM_LIBRARY__*/
+/*PREFERENCES STYLE*/
+.form-textbox,
+.form-textarea,
+.form-radio-other-input,
+.form-checkbox-other-input,
+.form-captcha input,
+.form-spinner input {
+  background-color: #FFFFFF;
+}
+.form-line {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.supernova .form-all,
+.supernova {
+  background: #ffffff;
+}
+.supernova body {
+  background-color: transparent;
+}
+.form-all,
+.form-label-top,
+.form-label-left,
+.form-label-right,
+.form-html,
+.form-checkbox-item label,
+.form-radio-item label,
+span.FITB .qb-checkbox-label,
+span.FITB .qb-radiobox-label,
+span.FITB .form-radio label,
+span.FITB .form-checkbox label,
+[data-blotid][data-type=checkbox] [data-labelid],
+[data-blotid][data-type=radiobox] [data-labelid],
+span.FITB-inptCont[data-type=checkbox] label,
+span.FITB-inptCont[data-type=radiobox] label,
+.form-sub-label {
+  color: #000000;
+}
+/*PREFERENCES STYLE*/
+/* 17 - INPUT WIDTHS */
+/*  20 - FORM PADDING */
+@media screen and (min-width: 768px) {
+  ul.form-section {
+    padding: 0px 38px;
+  }
+}
+.form-textbox:not(#productSearch-input),
+.form-textarea,
+li[data-type=control_fileupload] .qq-upload-button,
+.form-textbox:not(#productSearch-input):hover,
+.form-textarea:hover,
+li[data-type=control_fileupload] .qq-upload-button:hover,
+.form-textbox:not(#productSearch-input):focus,
+.form-textarea:focus,
+li[data-type=control_fileupload] .qq-upload-button:focus,
+/* Heights */
+.form-textbox {
+  height: 40px;
+}
+.form-textarea {
+  height: 163px !important;
+}
+/* 11 - LINE PADDING */
+/* LABEL STYLE */
+.form-label {
+  font-weight: normal;
+  font-size: 0.95em;
+}
+.form-dropdown {
+  margin: 0;
+  border-width: 1px;
+}
+/* 12 - ROUNDED INPUTS */
+.form-textbox:not(#productSearch-input),
+.form-radio-other-input,
+.form-checkbox-other-input,
+.form-captcha input,
+.form-spinner input,
+.form-pagebreak-back,
+.form-pagebreak-next,
+.qq-upload-button,
+.signature-wrapper,
+.form-error-message {
+  border-radius: 6px;
+}
+.form-section li:not(:first-child) .form-header-group {
+  border-radius: 6px;
+}
+.form-textarea {
+  border-radius: 6px;
+  padding: 10px;
+}
+.form-dropdown {
+  border-radius: 6px;
+  appearance: none;
+  margin: 0;
+}
+.supernova .form-all,
+.form-all {
+  border-radius: 6px;
+}
+.form-section:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.form-section:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.form-section li:first-child .form-header-group {
+  border-radius: 6px 6px 0 0;
+}
+.form-radio-item,
+.form-checkbox-item {
+  padding-bottom: 0px;
+}
+.form-radio-item:last-child,
+.form-checkbox-item:last-child {
+  padding-bottom: 0;
+}
+.form-checkbox-item .form-checkbox + label,
+.form-checkbox-item .form-checkbox + span {
+  padding-left: 30px;
+}
+.form-radio-item .form-radio + label,
+.form-radio-item .form-radio + span {
+  padding-left: 30px;
+}
+.form-single-column .form-checkbox-item,
+.form-single-column .form-radio-item {
+  width: 100%;
+}
+.form-checkbox-item .editor-container div,
+.form-radio-item .editor-container div {
+  position: relative;
+}
+.form-checkbox-item .editor-container div:before,
+.form-radio-item .editor-container div:before {
+  display: inline-block;
+  vertical-align: middle;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+.form-checkbox-item,
+.form-radio-item input {
+  margin-top: 2px;
+}
+.form-line .form-checkbox:checked + label:before,
+.form-line .form-checkbox:checked + span:before {
+  background-color: #2E69FF;
+  border-color: #2E69FF;
+}
+.form-line .form-radio:checked + label:before,
+.form-line .form-radio:checked + span:before {
+  border-color: #2E69FF;
+}
+.form-line .form-radio:checked + label:after,
+.form-line .form-radio:checked + span:after {
+  background-color: #2E69FF;
+}
+.form-line .form-checkbox:hover + label:before,
+.form-line .form-checkbox:hover + span:before,
+.form-line .form-radio:hover + label:before,
+.form-line .form-radio:hover + span:before {
+  border-color: rgba(46,105,255,0.5);
+  box-shadow: 0 0 0 2px rgba(46,105,255,0.25);
+}
+.form-line .form-checkbox:focus + label:before,
+.form-line .form-checkbox:focus + span:before,
+.form-line .form-radio:focus + label:before,
+.form-line .form-radio:focus + span:before {
+  border-color: rgba(46,105,255,1);
+  box-shadow: 0 0 0 3px rgba(46,105,255,0.25);
+}
+.submit-button {
+  font-size: 16px;
+  font-weight: bold;
+  border-color: #eeb869;
+}
+.submit-button {
+  min-width: 180px;
+}
+li[data-type="control_button"] .form-submit-button {
+  color: #000000;
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+li[data-type="control_button"] button.jf-form-buttons.form-sacl-button,
+li[data-type="control_button"] button.jf-form-buttons.form-submit-print {
+  color: #eeb869;
+  background-image: none;
+  background-color: #fff;
+}
+li[data-type="control_button"] button.jf-form-buttons.form-sacl-button:hover,
+li[data-type="control_button"] button.jf-form-buttons.form-submit-print:hover {
+  color: #fff;
+}
+li[data-type="control_button"] button.jf-form-buttons.form-pagebreak-back {
+  background-image: none;  box-shadow: none;
+  text-shadow: none;
+}
+li[data-type="control_button"] button.jf-form-buttons.form-pagebreak-back:hover {
+  color: #fff;
+}
+.form-submit-button,
+.form-submit-reset,
+.form-submit-print {
+  border-radius: 6px;
+}
+.form-all .form-pagebreak-back,
+.form-all .form-pagebreak-next {
+  min-width: 128px;
+}
+.form-buttons-wrapper, .form-pagebreak {
+  border-top: none;
+}
+li[data-type="control_image"] div {
+  text-align: left;
+}
+li[data-type="control_image"] img {
+border-width: 0px !important;
+  border-style: solid !important;
+border-color: false !important;
+}
+.supernova {
+    background-size: cover;
+
+}
+.form-all {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: cover;
+}
+.form-header-group {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+.form-header-group {
+  text-align: center;
+}
+div.form-header-group.header-large,
+div.form-header-group.hasImage {
+  margin: 0px -38px;
+}
+div.form-header-group.header-large,
+div.form-header-group.hasImage {
+  padding: 40px 52px;
+}
+.form-header-group .form-header,
+.form-header-group .form-subHeader {
+  color: #000000;
+}
+.form-header-group {
+  border-bottom: none;
+}
+.form-collapse-table {
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 1px 0 rgba(0,0,0,0.2);
+}
+.form-collapse-table .form-collapse-mid {
+  text-shadow: none;
+}
+.form-collapse-table {
+  background-color: rgba(195,202,216,.3);
+}
+.form-collapse-table {
+  color: rgb(44, 51, 69);
+}
+.form-collapse-table {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form-collapse-table .form-collapse-mid {
+  margin-right: 0;
+  margin-left: 0;
+}
+.form-collapse-table {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: auto;
+  max-height: 60px;
+  overflow: hidden;
+}
+.form-collapse-table .form-collapse-mid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.form-collapse-table .form-collapse-right {
+  height: 24px;
+  top: 50%;
+}
+.form-collapse-table .form-collapse-right-show {
+  margin-top: -15px;
+}
+.form-collapse-table .form-collapse-right-hide {
+  margin-top: -12px;
+}
+.form-collapse-table {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.form-collapse-table {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.form-line.form-line-error {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -ms-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #FFF4F4;
+}
+.form-line.form-line-error .form-error-message {
+  background-color: #F23A3C;
+  clear: both;
+  float: none;
+}
+.form-line.form-line-error .form-error-message .form-error-arrow {
+  border-bottom-color: #F23A3C;
+}
+.form-line.form-line-error input:not(#coupon-input),
+.form-line.form-line-error textarea,
+.form-line.form-line-error .form-validation-error {
+  border: 1px solid #F23A3C;
+  box-shadow: 0 0 3px #F23A3C;
+}
+.form-line-error {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -ms-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #FFF4F4;
+}
+.form-buttons-wrapper {
+  border-top: none;
+}
+li[data-type=control_fileupload] .qq-upload-button {
+  border-color: #eeb869;
+}
+li[data-type=control_fileupload] .qq-upload-button::before {
+  background-color: #eeb869;
+}
+li[data-type=control_fileupload] .qq-upload-button {
+  background-color: #FFFFFF;
+}
+
+/*__INSPECT_SEPERATOR__*/display:none;
+    /* Injected CSS Code */
+</style>
+
+<style>
+    .jotform-form.signup-form .form-all {
+        background: transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    .jotform-form.signup-form ul.form-section {
+        padding: 0 !important;
+    }
+    .jotform-form.signup-form .form-line {
+        margin: 0 0 1.25rem !important;
+    }
+    .jotform-form.signup-form .form-input-wide,
+    .jotform-form.signup-form .form-sub-label-container,
+    .jotform-form.signup-form .form-single-column {
+        width: 100% !important;
+    }
+    .jotform-form.signup-form .form-textbox,
+    .jotform-form.signup-form .form-textarea {
+        width: 100% !important;
+        height: auto !important;
+        padding: 0.9rem 1rem !important;
+        border: 2px solid var(--light-gray) !important;
+        border-radius: 12px !important;
+        font-family: 'Sansation', sans-serif !important;
+        font-size: 0.97rem !important;
+        color: var(--charcoal) !important;
+        background: var(--off-white) !important;
+        box-shadow: none !important;
+        transition: border-color 0.25s ease !important;
+    }
+    .jotform-form.signup-form .form-textbox:focus,
+    .jotform-form.signup-form .form-textarea:focus {
+        border-color: var(--green-dark) !important;
+        background: var(--white) !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    .jotform-form.signup-form .form-textarea {
+        resize: vertical !important;
+        min-height: 110px !important;
+    }
+    .jotform-form.signup-form .form-label,
+    .jotform-form.signup-form .form-label-top {
+        font-family: 'Sansation', sans-serif !important;
+        font-weight: 600 !important;
+        font-size: 0.88rem !important;
+        color: var(--charcoal) !important;
+        margin-bottom: 0.45rem !important;
+    }
+    .jotform-form.signup-form .form-sub-label {
+        font-family: 'Sansation', sans-serif !important;
+        font-size: 0.82rem !important;
+        color: var(--gray) !important;
+    }
+    .jotform-form.signup-form .form-radio-item label {
+        font-family: 'Sansation', sans-serif !important;
+        font-size: 0.97rem !important;
+        color: var(--charcoal) !important;
+    }
+    .jotform-form.signup-form .divider {
+        border-color: var(--light-gray) !important;
+        margin: 1.75rem 0 !important;
+    }
+    .jotform-form.signup-form .form-buttons-wrapper {
+        border-top: none !important;
+        padding-top: 0.5rem !important;
+    }
+    .jotform-form.signup-form #input_9,
+    .jotform-form.signup-form .form-submit-button,
+    .jotform-form.signup-form .submit-button {
+        background: var(--green-dark) !important;
+        background-image: none !important;
+        color: var(--white) !important;
+        border: none !important;
+        border-radius: 50px !important;
+        padding: 1rem 3rem !important;
+        font-family: 'Sansation', sans-serif !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+        min-width: 0 !important;
+        transition: all 0.3s ease !important;
+    }
+    .jotform-form.signup-form #input_9:hover,
+    .jotform-form.signup-form .form-submit-button:hover,
+    .jotform-form.signup-form .submit-button:hover {
+        background: var(--green-light) !important;
+        background-image: none !important;
+        color: var(--green-dark) !important;
+    }
+    .jotform-form.signup-form .form-line-error {
+        background-color: #fff4f4 !important;
+    }
+    li.form-line:not(.form-line-column)[data-type="control_fullname"] .form-input-wide [data-wrapper-react]:not(.extended) .form-sub-label-container + .form-sub-label-container {
+  margin-left: 0px;
+}
+    .jotform-form.signup-form li[data-type="control_fullname"] [data-wrapper-react="true"] {
+        margin-left: 0px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    .jotform-form.signup-form li[data-type="control_fullname"] .form-sub-label-container {
+        display: block !important;
+        width: 100% !important;
+        vertical-align: unset !important;
+    }
+</style>
+<form class="jotform-form signup-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/261335031548048" method="post" name="form_261335031548048" id="261335031548048" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="261335031548048" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1779211122959" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="submitDate" name="submitDate" value="undefined" /><input type="hidden" id="buildDate" name="buildDate" value="1779211122959" /><input type="hidden" name="uploadServerUrl" value="https://upload.jotform.com/upload" /><input type="hidden" name="eventObserver" value="1" />
+  <div role="main" class="form-all">
+    <ul class="form-section page-section" role="presentation">
+      <li class="form-line jf-required" data-type="control_radio" id="id_11">
+        <span class="form-label form-label-top form-label-auto" id="label_11"> I am signing up as...<span class="form-required" aria-hidden="true">*</span> </span>
+        <div id="cid_11" class="form-input-wide jf-required form-row" data-layout="full">
+          <div class="form-single-column form-group" role="radiogroup" aria-required="true" aria-labelledby="label_11" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" class="form-radio validate[required]" id="input_11_0" name="q11_typeA" aria-labelledby="label_input_11_0" value="Local Business" /><label aria-hidden="true" id="label_input_11_0" for="input_11_0">Local Business</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" class="form-radio validate[required]" id="input_11_1" name="q11_typeA" aria-labelledby="label_input_11_1" value="Non-Profit Association" /><label aria-hidden="true" id="label_input_11_1" for="input_11_1">Non-Profit Association</label></span></div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_divider" id="id_10">
+        <div id="cid_10" class="form-input-wide" data-layout="full">
+          <div class="divider" data-component="divider" style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px"></div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_2">
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label form-label-top form-label-auto" id="label_2" for="input_2"> Association / Business Name<span class="form-required" aria-hidden="true">*</span> </label>
+                <div id="cid_2" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_2" name="q2_q2_textbox0" data-type="input-textbox" class="form-textbox validate[required, minCharLimit]" data-defaultvalue="" style="width:310px" size="310" maxLength="255" data-minlength="1" data-component="textbox" aria-labelledby="label_2" required="" value="" /> </div>
+            </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_fullname" id="id_3">
+        <div class="form-row">
+            <div class="form-group full">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="first_3"> Point of Contact Full Name<span class="form-required" aria-hidden="true">*</span> </label>
+                <div id="cid_3" class="form-input-wide jf-required" data-layout="full">
+                <div aria-labelledby="label_3" role="group" data-wrapper-react="true"><span class="form-sub-label-container" style="vertical-align:top" data-input-type="first"><input type="text" id="first_3" name="q3_q3_fullname1[first]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_3 given-name" size="10" data-component="first" aria-labelledby="sublabel_3_first" required="" value="" /><label class="form-sub-label" for="first_3" id="sublabel_3_first" style="min-height:13px">First Name</label></span><span class="form-sub-label-container" style="vertical-align:top" data-input-type="last"><input type="text" id="last_3" name="q3_q3_fullname1[last]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_3 family-name" size="15" data-component="last" aria-labelledby="sublabel_3_last" required="" value="" /><label class="form-sub-label" for="last_3" id="sublabel_3_last" style="min-height:13px">Last Name</label></span></div>
+                </div>
+            </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_email" id="id_4">
+        <div class="form-row">
+            <div class="form-group full">
+                <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4"> Contact Email<span class="form-required" aria-hidden="true">*</span> </label>
+                <div id="cid_4" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_4" name="q4_q4_email2" class="form-textbox validate[required, Email]" data-defaultvalue="" autoComplete="section-input_4 email" style="width:318px" size="318" data-component="email" aria-labelledby="label_4 sublabel_input_4" required="" value="" /><label class="form-sub-label" for="input_4" id="sublabel_input_4" style="min-height:13px">example@example.com</label></span> </div>
+            </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_phone" id="id_5"><label class="form-label form-label-top form-label-auto" id="label_5" for="input_5_full"> Contact Phone Number<span class="form-required" aria-hidden="true">*</span> </label>
+        <div id="cid_5" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_5_full" name="q5_q5_phone3[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" autoComplete="section-input_5 tel-national" style="width:310px" data-masked="true" placeholder="(000) 000-0000" data-component="phone" aria-label="Contact Phone Number" aria-labelledby="label_5 sublabel_5_masked input_5_full_label" required="" value="" /><label class="form-sub-label" for="input_5_full" id="sublabel_5_masked" style="min-height:13px">Please enter a valid phone number.</label></span><span id="input_5_full_label" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap">Format: (000) 000-0000.</span> </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textarea" id="id_7"><label class="form-label form-label-top form-label-auto" id="label_7" for="input_7"> What do you need us to facilitate or provide at the event?<span class="form-required" aria-hidden="true">*</span> </label>
+        <div id="cid_7" class="form-input-wide jf-required" data-layout="full"> <textarea id="input_7" class="form-textarea validate[required]" name="q7_q7_textarea5" style="width:648px;height:163px" data-component="textarea" required="" aria-labelledby="label_7"></textarea> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_6"><label class="form-label form-label-top form-label-auto" id="label_6" for="input_6"> What will your business bring to the event? (optional) </label>
+        <div id="cid_6" class="form-input-wide" data-layout="full"> <span class="form-sub-label-container" style="vertical-align:top"><textarea id="input_6" class="form-textarea" name="q6_q6_textarea4" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_6 sublabel_input_6"></textarea><label class="form-sub-label" for="input_6" id="sublabel_input_6" style="min-height:13px">Let us know what you&#x27;ll bring. We&#x27;ll include this in the posts we&#x27;ll create for the event.</label></span> </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_9">
+        <div id="cid_9" class="form-input-wide" data-layout="full">
+          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_9" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField legacy-submit" data-component="button" data-content="">Submit</button></div>
+        </div>
+      </li>
+      <li style="display:none">Should be Empty: <input type="text" name="website" value="" type="hidden" /></li>
+    </ul>
+  </div>
+  <script>
+    JotForm.showJotFormPowered = "0";
+  </script>
+  <script>
+    JotForm.poweredByText = "Powered by Jotform";
+  </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="261335031548048" />
+  <script type="text/javascript">
+    var all_spc = document.querySelectorAll("form[id='261335031548048'] .si" + "mple" + "_spc");
+    for (var i = 0; i < all_spc.length; i++)
+    {
+      all_spc[i].value = "261335031548048-261335031548048";
+    }
+  </script>
+</form>
+<div id="sr-status-message" class="sr-only" role="status" aria-live="polite" style="font-size: 0;"></div><script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.isNewSACL=true;</script>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="footer-brand-name">WB Hidden Gems</span>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="../">Children's Day Event</a></li>
+                        <li><a href="../../">WB Hidden Gems Home</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--
+<script type="text/javascript">
+    (function() { includeHTML(); }())
+</script>-->
+</body>
+</html>
