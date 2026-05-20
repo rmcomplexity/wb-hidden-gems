@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Pricing — WB Hidden Gems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
+    </script>
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+            --text-dark: var(--charcoal);
+            --text-muted: var(--gray);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            background: var(--off-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navbar */
+        .navbar { background: var(--white); padding: 1rem 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo img { max-height: 3.1rem; }
+        .logo-text { font-family: 'Sansation', serif; font-size: 2rem; color: var(--charcoal); }
+        .logo-text span { color: var(--yellow-dark); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, #0a3d5c 0%, #0e5273 50%, #0a3d5c 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--white); }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-light); }
+
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Page wrapper */
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Section header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--green-dark);
+        }
+
+        .section-header h2 { font-size: 1.8rem; color: var(--green-dark); }
+
+        /* Trust banner */
+        .trust-banner {
+            background: var(--cream);
+            border: 2px solid var(--green-dark);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin: 25px 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            min-width: 160px;
+        }
+
+        .trust-item i { font-size: 1.5rem; color: var(--green-dark); }
+        .trust-item strong { font-size: 0.95rem; color: var(--charcoal); }
+        .trust-item span { font-size: 0.8rem; color: var(--gray); }
+
+        /* Pricing grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .pricing-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--green-dark);
+            background: linear-gradient(to bottom, rgba(170,214,151,0.1) 0%, white 100%);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--green-dark);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-family: 'Sansation', sans-serif;
+            font-size: 1.4rem;
+            color: var(--green-dark);
+            margin-bottom: 5px;
+        }
+
+        .plan-ad-size {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            background: var(--cream);
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .plan-discount-badge {
+            display: inline-block;
+            background: var(--red-dark);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .plan-original-price {
+            font-size: 1.1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+
+        .plan-original-price span { font-size: 0.85rem; }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin: 4px 0 10px;
+        }
+
+        .plan-price span { font-size: 1rem; font-weight: 400; color: var(--gray); }
+
+        .plan-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .plan-features li.free-item { font-weight: 600; }
+
+        .plan-features li.free-item::before {
+            content: '★';
+            color: var(--yellow-dark);
+        }
+
+        .free-tag {
+            display: inline-block;
+            background: var(--green-dark);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
+        .plan-highlight {
+            background: var(--yellow-light);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* Callout */
+        .callout {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .callout h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .callout p { opacity: 0.95; line-height: 1.7; }
+
+        /* CTA button */
+        .cta-row {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow-dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204, 128, 18, 0.4);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .cta-button:hover {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(204, 128, 18, 0.5);
+        }
+
+        /* Footer */
+        .site-footer { background: var(--charcoal); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand .logo-text { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); display: block; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: background 0.3s ease; }
+        .footer-social a:hover { background: var(--green-dark); }
+        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.5rem; }
+        .footer-column ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--white); }
+        .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page { padding: 40px 20px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .trust-banner { gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <a href="/" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <h1>Choose Your <span class="highlight">Ad Space</span></h1>
+        <p>Every plan is built around your <strong>ad space in the monthly magazine</strong>. The free landing page and free paid social ads come with all of them.</p>
+    </section>
+
+    <!-- Pricing Section -->
+    <div class="page">
+        <div class="trust-banner">
+            <div class="trust-item">
+                <i class="fas fa-newspaper"></i>
+                <strong>Magazine Ad Space</strong>
+                <span>Core of every plan</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-globe"></i>
+                <strong>Free Landing Page</strong>
+                <span>SEO + social sharing</span>
+            </div>
+            <div class="trust-item">
+                <i class="fab fa-meta"></i>
+                <strong>Free 7+ Paid Social Ads</strong>
+                <span>Facebook & Instagram</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-shield-halved"></i>
+                <strong>No Hidden Costs</strong>
+                <span>What you see is what you pay</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-calendar-check"></i>
+                <strong>3-Month Minimum</strong>
+                <span>Cancel after 3 months</span>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Ruby -->
+            <div class="pricing-card">
+                <div class="plan-name">Ruby</div>
+                <div class="plan-ad-size">📰 1/8 Page Magazine Ad</div>
+                <div class="plan-discount-badge">Save $100.00</div>
+                <div class="plan-original-price">$450<span>/month</span></div>
+                <div class="plan-price">$350<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><strong>1/8 Page ad</strong> in monthly magazine</li>
+                    <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                    <li class="free-item">7+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
+                    <li>QR code linking to your landing page</li>
+                    <li>Monthly performance metrics</li>
+                    <li>Social media reposts from our accounts</li>
+                    <li>Early access to community opportunities</li>
+                </ul>
+                <div class="plan-highlight">Best for: Testing the waters</div>
+            </div>
+
+            <!-- Sapphire -->
+            <div class="pricing-card featured">
+                <div class="plan-name">Sapphire</div>
+                <div class="plan-ad-size">📰 1/4 Page Magazine Ad</div>
+                <div class="plan-discount-badge">Save $100.00</div>
+                <div class="plan-original-price">$650<span>/month</span></div>
+                <div class="plan-price">$550<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><strong>1/4 Page ad</strong> in monthly magazine</li>
+                    <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                    <li class="free-item">10+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
+                    <li>QR code linking to your landing page</li>
+                    <li>Monthly performance metrics</li>
+                    <li>Social media reposts from our accounts</li>
+                    <li>Early access to community opportunities</li>
+                </ul>
+                <div class="plan-highlight">Best for: Building presence</div>
+            </div>
+
+            <!-- Emerald -->
+            <div class="pricing-card">
+                <div class="plan-name">Emerald</div>
+                <div class="plan-ad-size">📰 1/2 Page Magazine Ad</div>
+                <div class="plan-discount-badge">Save $100.00</div>
+                <div class="plan-original-price">$950<span>/month</span></div>
+                <div class="plan-price">$850<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><strong>1/2 Page ad</strong> in monthly magazine</li>
+                    <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                    <li class="free-item">15+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
+                    <li>QR code linking to your landing page</li>
+                    <li>Monthly performance metrics</li>
+                    <li>Social media reposts from our accounts</li>
+                    <li>Early access to community opportunities</li>
+                </ul>
+                <div class="plan-highlight">Best for: Serious growth</div>
+            </div>
+
+            <!-- Diamond -->
+            <div class="pricing-card">
+                <div class="plan-name">Diamond</div>
+                <div class="plan-ad-size">📰 Full Page Magazine Ad</div>
+                <div class="plan-discount-badge">Save $200.00</div>
+                <div class="plan-original-price">$1,350<span>/month</span></div>
+                <div class="plan-price">$1,150<span>/month</span></div>
+                <ul class="plan-features">
+                    <li><strong>Full Page ad</strong> in monthly magazine</li>
+                    <li class="free-item">Free custom landing page <span class="free-tag">FREE</span></li>
+                    <li class="free-item">20+ days paid FB/IG carousel ads <span class="free-tag">FREE</span></li>
+                    <li>QR code linking to your landing page</li>
+                    <li>Monthly performance metrics</li>
+                    <li>Social media reposts from our accounts</li>
+                    <li>Early access to community opportunities</li>
+                </ul>
+                <div class="plan-highlight">Best for: Maximum visibility</div>
+            </div>
+        </div>
+
+        <div class="callout" style="text-align: center; margin-top: 30px;">
+            <h3>Every Plan Includes</h3>
+            <p style="max-width: 600px; margin: 0 auto;">
+                ✓ Ad space in the monthly printed magazine (15,209 addresses)<br>
+                ✓ FREE custom landing page. Ready for SEO and social sharing<br>
+                ✓ FREE geo-targeted paid ads on Facebook &amp; Instagram<br>
+                ✓ QR code for print-to-digital tracking<br>
+                ✓ Monthly performance metrics<br>
+                ✓ Social media amplification through our accounts<br>
+                ✓ No hidden costs. 3-month minimum contract
+            </p>
+        </div>
+
+        <div class="cta-row">
+            <button class="cta-button" id="schedule-btn">
+                <i class="fas fa-calendar-days"></i>
+                Schedule a Call to Get Started
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">WB Hidden Gems</span>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="../media-kit/">Media Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('schedule-btn').addEventListener('click', function() {
+            Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
+        });
+    </script>
+
+</body>
+</html>
