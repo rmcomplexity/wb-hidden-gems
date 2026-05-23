@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe — WB Hidden Gems Monthly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
+    </script>
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img { max-height: 3.1rem; }
+
+        .logo-text {
+            font-family: 'Sansation', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, var(--green-dark) 0%, #2d6b12 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(170,214,151,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--white); }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-light); }
+
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Why subscribe section */
+        .why-section {
+            background: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .why-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--green-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .why-section h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: var(--charcoal);
+            margin-bottom: 2.5rem;
+        }
+
+        .why-section h2 .accent { color: var(--green-dark); }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .reason-card {
+            display: flex;
+            gap: 1.1rem;
+            padding: 1.4rem 1.5rem;
+            background: var(--cream);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .reason-card:hover { transform: translateY(-4px); }
+
+        .reason-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            background: var(--green-light);
+            color: var(--green-dark);
+        }
+
+        .reason-icon.yellow {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+        }
+
+        .reason-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--charcoal);
+            font-size: 1rem;
+        }
+
+        .reason-content p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Form section */
+        .form-section {
+            background: var(--green-dark);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(170,214,151,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-container h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-container > p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .newsletter-form {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group { text-align: left; }
+
+        .form-group.full { grid-column: span 2; }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: var(--charcoal);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--green-dark);
+        }
+
+        .form-submit {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.75rem;
+            font-family: inherit;
+        }
+
+        .form-submit:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social { display: flex; gap: 1rem; }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--green-light); color: var(--green-dark); }
+
+        .footer-column h4 { font-weight: 600; margin-bottom: 1.25rem; font-size: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+        .footer-column a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column a:hover { color: var(--green-light); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+            .newsletter-form { padding: 1.75rem 1.25rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <a href="/" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>WB Hidden Gems <span class="highlight">Monthly</span></h1>
+        <p>Your neighborhood magazine, delivered to your door and your inbox. Subscribe to stay connected with Wells Branch.</p>
+    </section>
+
+    <!-- Why subscribe -->
+    <section class="why-section">
+        <div class="why-container">
+            <span class="section-label">Why Subscribe</span>
+            <h2>Stay Connected with <span class="accent">Your Community</span></h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Stay up to date</h4>
+                        <p>Be the first to hear about magazine releases, local events, and community news as they happen.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon yellow">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Get the magazine early</h4>
+                        <p>Subscribers get a digital preview of each issue before it hits the mailboxes in your neighborhood.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Order it if you're outside 78728</h4>
+                        <p>Don't live in the 78728 zip code? You can still get a copy mailed to you — just let us know when you sign up.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon yellow">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Participate in giveaways</h4>
+                        <p>Subscribers are entered into our community giveaways. Can't make it to the event? We'll deliver your prize in person if you win.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Send us your feedback</h4>
+                        <p>Help shape what goes in future issues. Tell us what stories, activities, and local businesses you'd love to see featured.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Form -->
+    <section class="form-section" id="signup">
+        <div class="form-container">
+            <h2>Subscribe to the Newsletter</h2>
+            <p>No spam — just community updates, magazine previews, and the occasional giveaway. Unsubscribe anytime.</p>
+
+            <div class="newsletter-form">
+                <div id="mc_embed_shell">
+                    <div id="mc_embed_signup">
+                        <form action="https://wbhiddengems.us4.list-manage.com/subscribe/post?u=4afa4faf1eb9cb36e169f2752&amp;id=51c814c687&amp;f_id=008374eaf0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                            <div id="mc_embed_signup_scroll">
+                                <div class="indicates-required">
+                                    <span class="asterisk">*</span> indicates required
+                                </div>
+                                <div class="form-row">
+                                    <div class="mc-field-group form-group">
+                                        <label for="mce-FNAME">First Name</label>
+                                        <input type="text" name="FNAME" class="text" id="mce-FNAME" value="">
+                                    </div>
+                                    <div class="mc-field-group form-group">
+                                        <label for="mce-LNAME">Last Name</label>
+                                        <input type="text" name="LNAME" class="text" id="mce-LNAME" value="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="mc-field-group form-group full">
+                                        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                                    </div>
+                                </div>
+                                <div hidden=""><input type="hidden" name="tags" value="8032573"></div>
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                                </div>
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="b_4afa4faf1eb9cb36e169f2752_51c814c687" tabindex="-1" value="">
+                                </div>
+                                <div class="clear">
+                                    <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button form-submit" value="&#128232; Subscribe">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+                    <script type="text/javascript">
+                    (function($) {
+                        window.fnames = new Array();
+                        window.ftypes = new Array();
+                        fnames[0]='EMAIL'; ftypes[0]='email';
+                        fnames[1]='FNAME'; ftypes[1]='text';
+                        fnames[2]='LNAME'; ftypes[2]='text';
+                    }(jQuery));
+                    var $mcj = jQuery.noConflict(true);
+                    </script>
+                </div>
+                <p class="form-note">We respect your privacy. No spam — just community updates. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">WB Hidden Gems</span>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693 8679</a></li>
+                        <li><a href="#">Wells Branch, TX</a></li>
+                        <li><a href="/kids-day/">Children's Day Event</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
