@@ -508,11 +508,27 @@
             min-width: 220px;
         }
 
-        .prize-card i {
-            font-size: 2.5rem;
-            color: var(--yellow-light);
+        .prize-card img {
+            width: 160px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
             margin-bottom: 1rem;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .prize-time {
+            display: inline-block;
+            background: var(--yellow-dark);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.2rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
         }
 
         .prize-card h3 {
@@ -1040,13 +1056,13 @@
 
             <div class="magazine-grid">
                 <div class="magazine-text">
-                    <p>Children's Day is also the launch event for something we've been working on for the Wells Branch community — <strong>WB Hidden Gems Monthly</strong>, our new community magazine. Come meet us, flip through a copy, and tell us what you think!</p>
-                    <p>WB Hidden Gems Monthly is made for this neighborhood, by people who live here. Every issue celebrates the creativity, businesses, and energy that make Wells Branch special — with something inside for everyone in the family.</p>
+                    <p>Children's Day is also the launch event for something we've been working on for the Wells Branch community: <strong>WB Hidden Gems Monthly</strong>, our new community magazine. Come meet us, flip through a copy, and tell us what you think!</p>
+                    <p>WB Hidden Gems Monthly is made for this neighborhood, by people who live here. Every issue celebrates the creativity, businesses, and energy that make Wells Branch special with something inside for everyone in the family.</p>
                     <p>This event is your chance to shape what goes into it. Stop by our booth to share your feedback and let us know what you'd love to see in future issues.</p>
 
                     <div class="magazine-feedback-nudge">
                         <i class="fas fa-comment-dots"></i>
-                        <span>Can't make it on June 14th? <a href="#newsletter">Leave your feedback below</a> and we'll make sure your voice is heard.</span>
+                        <span>Can't make it on June 14th? <a href="#newsletter">Signup to our newsletter</a> to participate in the giveaway. We'll send you a message if you win!</span>
                     </div>
                 </div>
 
@@ -1088,25 +1104,31 @@
         <div class="giveaway-banner-container">
             <span class="section-label">Don't Miss Out</span>
             <h2>Two Amazing Giveaways</h2>
-            <p>Attend the event for a chance to win one of two fantastic prizes. Two winners, two prizes!</p>
+            <p>Two drawings, two winners — one prize each. Drawings happen on-site at <strong>4:30 PM</strong> and <strong>5:30 PM</strong>. You must be present to win in person, or enter via our newsletter and we'll deliver your prize to you!</p>
+            <p>Giveaway participation is limited to Austin residents, only.</p>
             <div class="giveaway-prizes">
                 <div class="prize-card">
-                    <i class="fas fa-box-open"></i>
-                    <h3>Coleman Marine Cooler</h3>
-                    <p>Keep your drinks cold all summer long</p>
+                    <img src="../assets/images/coleman_cooler.jpeg" alt="Coleman Marine 52-Quart Hard Cooler">
+                    <span class="prize-time">Giveaway prize!</span>
+                    <h3>Coleman Marine 52-Quart Hard Cooler</h3>
+                    <p>Each Giveaway winner gets one cooler! Keep your drinks cold all summer long</p>
                 </div>
                 <div class="prize-card">
-                    <i class="fas fa-chair"></i>
-                    <h3>Set of 4 Beach Chairs</h3>
-                    <p>Perfect for family outings and park days</p>
+                    <img src="../assets/images/coleman_cart.jpg" alt="Coleman XL Wagon">
+                    <span class="prize-time">Giveaway prize!</span>
+                    <h3>Coleman XL Wagon</h3>
+                    <p>Each Giveaway winner gets one Wagon! Perfect for hauling gear to the park</p>
                 </div>
             </div>
-            <p style="color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 2rem; margin-bottom: 1.25rem;">
-                You can also enter on-site the day of the event — just stop by our booth on June 14th!
+            <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; margin-top: 2rem; margin-bottom: 0.5rem;">
+                <i class="fas fa-map-marker-alt"></i> Attend on June 14th and enter on-site at our booth.
+            </p>
+            <p style="color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Can't make it? Subscribe below — if you win we'll deliver the prize to you in person.
             </p>
             <a href="#newsletter" class="cta-button yellow">
                 <i class="fas fa-envelope"></i>
-                Subscribe to Enter the Giveaway Early
+                Subscribe to Enter the Giveaway
             </a>
         </div>
     </section>
