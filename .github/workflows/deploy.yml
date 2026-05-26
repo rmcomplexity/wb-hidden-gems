@@ -1,0 +1,49 @@
+name: Deploy to Linode Object Storage
+
+on:
+  push:
+    branches:
+      - website
+
+jobs:
+  deploy:
+    name: Sync to Object Storage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website branch
+        uses: actions/checkout@v4
+
+      - name: Install AWS CLI
+        run: |
+          pip install awscli --quiet
+
+      - name: Sync files to Linode Object Storage
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_KEY }}
+        run: |
+          aws s3 sync . s3://${{ secrets.BUCKET_OBJ_BUCKET }} \
+            --endpoint-url https://${{ secrets.BUCKET_OBJ_ENDPOINT }} \
+            --acl public-read \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.py" \
+            --exclude "node_modules/*" \
+            --exclude "vendor/optimize_imgs.py" \
+            --exclude "vendor/README.md" \
+            --cache-control "public, max-age=3600" \
+            --no-progress
+
+      # Images and fonts rarely change — cache them longer
+      - name: Set long cache on static assets
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.LINODE_OBJ_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.LINODE_OBJ_SECRET_KEY }}
+        run: |
+          aws s3 sync assets/ s3://${{ secrets.LINODE_OBJ_BUCKET }}/assets/ \
+            --endpoint-url https://${{ secrets.LINODE_OBJ_ENDPOINT }} \
+            --acl public-read \
+            --cache-control "public, max-age=2592000, immutable" \
+            --no-progress
