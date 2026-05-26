@@ -22,8 +22,7 @@ jobs:
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
           BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
         run: |
-          ls -lah .
-          echo "${{env.BUCKET_NAME}} : ${{env.BUCKET_ENDPOINT}}"
+          aws s3 ls s3://${{ env.BUCKET_NAME }}
           aws s3 sync . s3://${{ env.BUCKET_NAME }} \
             --endpoint-url https://${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
