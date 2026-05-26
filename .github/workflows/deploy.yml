@@ -22,9 +22,11 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_KEY }}
+          BUCKET_NAME: ${{ secrets.BUCKET_SECRET_KEY }}
+          BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
         run: |
-          aws s3 sync . s3://${{ secrets.BUCKET_NAME }} \
-            --endpoint-url https://${{ secrets.BUCKET_ENDPOINT }} \
+          aws s3 sync . s3://${{ env.BUCKET_NAME }} \
+            --endpoint-url https://${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
             --delete \
             --exclude ".git/*" \
@@ -41,9 +43,11 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.LINODE_OBJ_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.LINODE_OBJ_SECRET_KEY }}
+          BUCKET_NAME: ${{ secrets.BUCKET_SECRET_KEY }}
+          BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
         run: |
-          aws s3 sync assets/ s3://${{ secrets.LINODE_OBJ_BUCKET }}/assets/ \
-            --endpoint-url https://${{ secrets.LINODE_OBJ_ENDPOINT }} \
+          aws s3 sync assets/ s3://${{ env.BUCKET_NAME }}/assets/ \
+            --endpoint-url https://${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
             --cache-control "public, max-age=2592000, immutable" \
             --no-progress
