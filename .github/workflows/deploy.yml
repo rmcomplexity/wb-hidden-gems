@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    environment: prod
     name: Sync to Object Storage
     runs-on: ubuntu-latest
 
