@@ -23,8 +23,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_KEY }}
         run: |
-          aws s3 sync . s3://${{ secrets.BUCKET_OBJ_BUCKET }} \
-            --endpoint-url https://${{ secrets.BUCKET_OBJ_ENDPOINT }} \
+          aws s3 sync . s3://${{ secrets.BUCKET_NAME }} \
+            --endpoint-url https://${{ secrets.BUCKET_ENDPOINT }} \
             --acl public-read \
             --delete \
             --exclude ".git/*" \
