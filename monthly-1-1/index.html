@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../vendor/pdf-js/pdf_viewer.css">
+
+    <script src="../vendor/pdf-js/pdf.mjs" type="module"></script>
+    <script src="../vendor/pdf-js/pdf_viewer.mjs" type="module"></script>
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
     <script>
@@ -145,40 +149,130 @@
             letter-spacing: 1px;
         }
 
-        /* Content placeholder */
-        .content {
-            max-width: 900px;
-            margin: 5rem auto;
-            padding: 0 2rem 6rem;
+        /* PDF viewer section */
+        .pdf-section {
+            background: var(--off-white);
+            padding: 4rem 2rem 6rem;
+        }
+
+        .pdf-section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pdf-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pdf-section-header h2 {
+            font-size: 1.75rem;
+            color: var(--charcoal);
+        }
+
+        .pdf-section-header h2 .accent { color: var(--green-dark); }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(32,80,12,0.3);
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: var(--green-light);
+            color: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Viewer toolbar */
+        .pdf-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: var(--charcoal);
+            border-radius: 12px 12px 0 0;
+            padding: 0.75rem 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .pdf-toolbar button {
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .pdf-toolbar button:hover { background: rgba(255,255,255,0.25); }
+        .pdf-toolbar button:disabled { opacity: 0.35; cursor: default; }
+
+        .pdf-page-info {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            min-width: 90px;
             text-align: center;
         }
 
-        .coming-soon {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 4rem 3rem;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+        .pdf-toolbar .separator {
+            width: 1px;
+            height: 24px;
+            background: rgba(255,255,255,0.2);
         }
 
-        .coming-soon i {
-            font-size: 3rem;
-            color: var(--green-light);
-            margin-bottom: 1.5rem;
+        /* Canvas wrapper */
+        .pdf-canvas-wrapper {
+            background: #525659;
+            border-radius: 0 0 12px 12px;
+            overflow: auto;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            gap: 1rem;
+        }
+
+        .pdf-canvas-wrapper canvas {
             display: block;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            border-radius: 4px;
+            max-width: 100%;
         }
 
-        .coming-soon h2 {
-            font-size: 1.75rem;
-            color: var(--charcoal);
-            margin-bottom: 0.75rem;
+        .pdf-loading {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            padding: 3rem;
+            text-align: center;
         }
 
-        .coming-soon p {
-            color: var(--gray);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
+        .pdf-error {
+            color: #ffb3b3;
+            font-size: 1rem;
+            padding: 3rem;
+            text-align: center;
         }
 
         .cta-button {
@@ -299,18 +393,44 @@
         <p class="hero-subtitle">Volume 1. Issue 1</p>
     </section>
 
-    <!-- Content -->
-    <div class="content">
-        <div class="coming-soon">
-            <i class="fas fa-newspaper"></i>
-            <h2>Coming Soon</h2>
-            <p>The first issue of WB Hidden Gems Monthly is on its way. Subscribe to get notified the moment it drops — and to get your digital copy before it hits the mailboxes.</p>
-            <a href="/newsletter/" class="cta-button">
-                <i class="fas fa-envelope"></i>
-                Subscribe to the Newsletter
-            </a>
+    <!-- PDF Viewer -->
+    <section class="pdf-section">
+        <div class="pdf-section-inner">
+            <div class="pdf-section-header">
+                <h2>Read the <span class="accent">Magazine</span></h2>
+                <a href="../assets/monthly/v1i1/WBHG_Monthly_V1S1-10x12in.pdf"
+                   download
+                   class="download-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+<!--
+            <div class="pdf-toolbar">
+                <button id="pdf-prev" title="Previous page" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="pdf-page-info" id="pdf-page-info">— / —</span>
+                <button id="pdf-next" title="Next page" disabled>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="separator"></div>
+                <button id="pdf-zoom-out" title="Zoom out">
+                    <i class="fas fa-magnifying-glass-minus"></i>
+                </button>
+                <button id="pdf-zoom-in" title="Zoom in">
+                    <i class="fas fa-magnifying-glass-plus"></i>
+                </button>
+                <button id="pdf-zoom-fit" title="Fit to width">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+            <div class="pdf-canvas-wrapper" id="pdf-canvas-wrapper">
+                <p class="pdf-loading"><i class="fas fa-spinner fa-spin"></i>&nbsp; Loading magazine…</p>
+            </div>
+-->
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -345,5 +465,86 @@
         </div>
     </footer>
 
+    <script src="../vendor/wbhg/pdf_viewer.mjs" type="module"></script>
+
+    <script type="module">
+        import { getDocument } from '../vendor/pdf-js/pdf_viewer.mjs';
+        import {  } from '../vendor/pdf-js/pdf_viewer.mjs';
+
+
+        const PDF_URL  = '../assets/monthly/v1i1/WBHG_Monthly_V1S1-10x12in.pdf';
+        const WORKER   = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.7.284/build/pdf.worker.min.mjs';
+
+        GlobalWorkerOptions.workerSrc = WORKER;
+
+        const wrapper  = document.getElementById('pdf-canvas-wrapper');
+        const pageInfo = document.getElementById('pdf-page-info');
+        const btnPrev  = document.getElementById('pdf-prev');
+        const btnNext  = document.getElementById('pdf-next');
+        const btnZoomIn  = document.getElementById('pdf-zoom-in');
+        const btnZoomOut = document.getElementById('pdf-zoom-out');
+        const btnFit     = document.getElementById('pdf-zoom-fit');
+
+        let pdfDoc    = null;
+        let pageNum   = 1;
+        let scale     = 1.5;
+        let rendering = false;
+
+        async function renderPage(num) {
+            if (rendering) return;
+            rendering = true;
+
+            const page     = await pdfDoc.getPage(num);
+            const viewport = page.getViewport({ scale });
+
+            let canvas = wrapper.querySelector('canvas');
+            if (!canvas) {
+                canvas = document.createElement('canvas');
+                wrapper.innerHTML = '';
+                wrapper.appendChild(canvas);
+            }
+
+            const ctx = canvas.getContext('2d');
+            canvas.width  = viewport.width;
+            canvas.height = viewport.height;
+
+            await page.render({ canvasContext: ctx, viewport }).promise;
+
+            pageInfo.textContent = `${num} / ${pdfDoc.numPages}`;
+            btnPrev.disabled = num <= 1;
+            btnNext.disabled = num >= pdfDoc.numPages;
+            rendering = false;
+        }
+
+        function fitToWidth() {
+            const available = wrapper.clientWidth - 32;
+            pdfDoc.getPage(pageNum).then(page => {
+                const base = page.getViewport({ scale: 1 });
+                scale = available / base.width;
+                renderPage(pageNum);
+            });
+        }
+
+        try {
+            pdfDoc = await getDocument(PDF_URL).promise;
+            btnPrev.disabled = false;
+            btnNext.disabled = false;
+            fitToWidth();
+        } catch (e) {
+            wrapper.innerHTML = `<p class="pdf-error"><i class="fas fa-circle-exclamation"></i>&nbsp; Could not load the PDF. <a href="${PDF_URL}" style="color:var(--yellow-light)">Download it instead.</a></p>`;
+        }
+
+        btnPrev.addEventListener('click', () => {
+            if (pageNum > 1) { pageNum--; renderPage(pageNum); }
+        });
+
+        btnNext.addEventListener('click', () => {
+            if (pageNum < pdfDoc.numPages) { pageNum++; renderPage(pageNum); }
+        });
+
+        btnZoomIn.addEventListener('click',  () => { scale = Math.min(scale + 0.25, 4); renderPage(pageNum); });
+        btnZoomOut.addEventListener('click', () => { scale = Math.max(scale - 0.25, 0.5); renderPage(pageNum); });
+        btnFit.addEventListener('click', fitToWidth);
+    </script>
 </body>
 </html>
