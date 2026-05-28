@@ -369,6 +369,11 @@
             .footer-social { justify-content: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
+
+        div.hidden {
+            display:none;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -405,8 +410,7 @@
                 </a>
             </div>
 
-<!--
-            <div class="pdf-toolbar">
+            <div id="pdfToolbar" class="pdf-toolbar hidden">
                 <button id="pdf-prev" title="Previous page" disabled>
                     <i class="fas fa-chevron-left"></i>
                 </button>
@@ -425,10 +429,9 @@
                     <i class="fas fa-expand"></i>
                 </button>
             </div>
-            <div class="pdf-canvas-wrapper" id="pdf-canvas-wrapper">
+            <div class="pdf-canvas-wrapper hidden" id="pdf-canvas-wrapper">
                 <p class="pdf-loading"><i class="fas fa-spinner fa-spin"></i>&nbsp; Loading magazine…</p>
             </div>
--->
         </div>
     </section>
 
@@ -466,7 +469,7 @@
     </footer>
 
     <script src="../vendor/wbhg/pdf_viewer.mjs" type="module"></script>
-
+<!--
     <script type="module">
         import { getDocument } from '../vendor/pdf-js/pdf_viewer.mjs';
         import {  } from '../vendor/pdf-js/pdf_viewer.mjs';
@@ -545,6 +548,6 @@
         btnZoomIn.addEventListener('click',  () => { scale = Math.min(scale + 0.25, 4); renderPage(pageNum); });
         btnZoomOut.addEventListener('click', () => { scale = Math.max(scale - 0.25, 0.5); renderPage(pageNum); });
         btnFit.addEventListener('click', fitToWidth);
-    </script>
+    </script>-->
 </body>
 </html>
