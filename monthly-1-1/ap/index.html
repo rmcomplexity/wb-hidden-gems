@@ -241,6 +241,25 @@
             transform: translateY(-2px);
         }
 
+        .preview-link {
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .preview-link img {
+            max-width: 700px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .preview-link:hover img {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
         @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-social { justify-content: center; }
@@ -272,6 +291,12 @@
 
     <!-- Content -->
     <div class="content">
+        <a href="../../assets/monthly/v1i1/ActivityPage_USLetter.pdf"
+           download
+           class="preview-link">
+            <img src="../../assets/monthly/v1i1/ActivityPage_USLetter-page001.png"
+                 alt="Activity Page preview — click to download">
+        </a>
         <a href="../../assets/monthly/v1i1/ActivityPage_USLetter.pdf"
            download
            class="download-btn">
