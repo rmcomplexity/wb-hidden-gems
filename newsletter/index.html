@@ -388,6 +388,96 @@
         .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
         .footer-legal a:hover { color: var(--white); }
 
+        /* Giveaway Banner */
+        .giveaway-banner {
+            background: linear-gradient(135deg, var(--blue-dark, #08137a), #1522a8);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .giveaway-banner-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .giveaway-banner .section-label { color: var(--yellow-light, #eec993); }
+
+        .giveaway-banner h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .giveaway-banner p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .giveaway-prizes {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .prize-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            color: var(--white);
+            text-align: center;
+            min-width: 220px;
+        }
+
+        .prize-card img {
+            width: 160px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .prize-time {
+            display: inline-block;
+            background: var(--yellow-dark, #cc8012);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.2rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .prize-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .prize-card p  { font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0; }
+
+        .cta-button-yellow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--yellow-dark, #cc8012);
+            color: var(--white);
+            padding: 1rem 2.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(204,128,18,0.4);
+        }
+
+        .cta-button-yellow:hover {
+            background: var(--yellow-light, #eec993);
+            color: var(--yellow-dark, #cc8012);
+            transform: translateY(-3px);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 1rem; }
@@ -397,6 +487,7 @@
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-social { justify-content: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
+            .giveaway-prizes { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -421,58 +512,41 @@
         <p>Your neighborhood magazine, delivered to your door and your inbox. Subscribe to stay connected with WB Hidden Gems.</p>
     </section>
 
-    <!-- Why subscribe -->
-    <section class="why-section">
-        <div class="why-container">
-            <span class="section-label">Why Subscribe</span>
-            <h2>Stay Connected with <span class="accent">Your Community</span></h2>
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <div class="reason-icon">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Stay up to date</h4>
-                        <p>Be the first to hear about magazine releases, and local events.</p>
-                    </div>
+    <!-- Giveaway Banner -->
+    <section class="giveaway-banner">
+        <div class="giveaway-banner-container">
+            <span class="section-label">Don't Miss Out</span>
+            <h2>Two Amazing Giveaways + 100 FREE activity packages!</h2>
+            <p>Two drawings, two winners <strong>Sign up before June 22nd</strong> to be entered. Winners will be announced on June 22nd and we'll deliver the prize to you in person!</p>
+            <p>Giveaway participation is limited to Austin residents only.</p>
+            <div class="giveaway-prizes">
+                <div class="prize-card">
+                    <img src="/assets/images/coleman_cooler.jpeg" alt="Coleman Marine 52-Quart Hard Cooler">
+                    <span class="prize-time">Giveaway prize!</span>
+                    <h3>Coleman Marine 52-Quart Hard Cooler</h3>
+                    <p>Keep your drinks cold all summer long</p>
                 </div>
-                <div class="reason-card">
-                    <div class="reason-icon yellow">
-                        <i class="fas fa-envelope-open-text"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Get the magazine early</h4>
-                        <p>Subscribers get a digital preview of each issue before it hits the mailboxes in your neighborhood.</p>
-                    </div>
+                <div class="prize-card">
+                    <img src="/assets/images/coleman_cart.jpg" alt="Coleman XL Wagon">
+                    <span class="prize-time">Giveaway prize!</span>
+                    <h3>Coleman XL Wagon</h3>
+                    <p>Perfect for hauling gear to the park</p>
                 </div>
-                <div class="reason-card">
-                    <div class="reason-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Order it if you're outside 78728</h4>
-                        <p>Don't live in the 78728 zip code? You can still get a copy mailed to you, just let us know when you sign up.</p>
-                    </div>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon yellow">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Participate in giveaways</h4>
-                        <p>Subscribers are entered into our community giveaways. Can't make it to the event? We'll deliver your prize in person if you win.</p>
-                    </div>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Send us your feedback</h4>
-                        <p>Help shape what goes in future issues. Tell us what stories, activities, and local businesses you'd love to see featured.</p>
-                    </div>
+                <div class="prize-card">
+                    <i class="fas fa-paint-brush" style="font-size:2.5rem; color:var(--yellow-light,#eec993); margin-bottom:1rem; display:block;"></i>
+                    <span class="prize-time">100 Winners!</span>
+                    <h3>Summer Activity Package</h3>
+                    <p>100 subscribers will win a paint supplies kit, a coloring page, and WB Hidden Gems Swag!
+                        Go outside, get creative, and support your local community this summer!</p>
                 </div>
             </div>
+            <p style="color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Subscribe below before <strong style="color:var(--white);">June 22nd</strong> for your chance to win!
+            </p>
+            <a href="#signup" class="cta-button-yellow">
+                <i class="fas fa-envelope"></i>
+                Subscribe to Enter the Giveaway
+            </a>
         </div>
     </section>
 
@@ -521,6 +595,8 @@
               <label for="mce-ADDRESS-city">City</label>
               <input type="text" maxlength="40" name="ADDRESS[city]" id="mce-ADDRESS-city" class="" value="">
             </div>
+          </div>
+          <div class="mc-address-fields-group">
             <div class="mc-field-group">
               <label for="mce-ADDRESS-state">State/Province/Region</label>
               <input type="text" maxlength="20" name="ADDRESS[state]" id="mce-ADDRESS-state" class="" value="">
@@ -807,6 +883,61 @@
                     </script>
                 </div>
                 <p class="form-note">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why subscribe -->
+    <section class="why-section">
+        <div class="why-container">
+            <span class="section-label">Why Subscribe</span>
+            <h2>Stay Connected with <span class="accent">Your Community</span></h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Stay up to date</h4>
+                        <p>Be the first to hear about magazine releases, and local events.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon yellow">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Get the magazine early</h4>
+                        <p>Subscribers get a digital preview of each issue before it hits the mailboxes in your neighborhood.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Order it if you're outside 78728</h4>
+                        <p>Don't live in the 78728 zip code? You can still get a copy mailed to you, just let us know when you sign up.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon yellow">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Participate in giveaways</h4>
+                        <p>Subscribers are entered into our community giveaways. Can't make it to the event? We'll deliver your prize in person if you win.</p>
+                    </div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="reason-content">
+                        <h4>Send us your feedback</h4>
+                        <p>Help shape what goes in future issues. Tell us what stories, activities, and local businesses you'd love to see featured.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
