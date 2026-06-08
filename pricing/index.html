@@ -542,6 +542,31 @@
             color: white;
         }
 
+        .offer-badge.affordable {
+            background: var(--green-dark);
+            color: white;
+        }
+
+        .offer-card-wide {
+            grid-column: 1 / -1;
+        }
+
+        .offer-card-wide .offer-card-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .offer-card-wide .offer-meta {
+            margin-top: 0;
+        }
+
+        .offer-details li.free-item::before {
+            content: '★';
+            color: var(--yellow-dark);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page { padding: 40px 20px; }
@@ -551,6 +576,7 @@
             .footer-bottom { flex-direction: column; text-align: center; }
             .footer-social { justify-content: center; }
             .offers-grid { grid-template-columns: 1fr; }
+            .offer-card-wide .offer-card-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -579,8 +605,50 @@
     <section class="limited-offers">
         <div class="limited-offers-inner">
             <p class="limited-offers-label">Limited-Time Offers</p>
-            <h2 class="limited-offers-title">Two Ways to Get More Visibility Right Now</h2>
+            <h2 class="limited-offers-title">Special Offers to Get Visibility Right Now</h2>
             <div class="offers-grid">
+
+                <!-- Offer 0: Affordable Ad Space -->
+                <div class="offer-card offer-card-wide">
+                    <div class="offer-card-header">
+                        <span class="offer-badge affordable">Limited Offer — Valid Until July 20</span>
+                        <h3>Get Your Business in 15,000+ Mailboxes for $150</h3>
+                        <p>No one gets left behind. This affordable Ad space plan is perfect to join our business community and grow together. This plan only includes printed ad space and online listing.</p>
+                    </div>
+                    <div class="offer-card-body">
+                        <ul class="offer-details">
+                            <li>Your ad or coupon printed in full color</li>
+                            <li>Delivered to 15,000+ homes in North-central Austin (78728 zip code) via USPS</li>
+                            <li>Plus everyone in the greater Austin area who signs up to receive the magazine</li>
+                            <li class="free-item">Your logo in online monthly listing <span class="free-tag">FREE</span></li>
+                            <li>We'll help you design your Ad, just send us your offer</li>
+                            <li>Cancel any time, after first 3 months</li>
+                        </ul>
+                        <div>
+                            <div class="offer-meta">
+                                <div class="offer-meta-row">
+                                    <span class="label">Price</span>
+                                    <span class="price-value">$150</span>
+                                </div>
+                                <div class="offer-meta-row">
+                                    <span class="label">Deadline to submit</span>
+                                    <span class="value">July 20</span>
+                                </div>
+                                <div class="offer-meta-row">
+                                    <span class="label">Delivery</span>
+                                    <span class="value">Aug</span>
+                                </div>
+                            </div>
+                            <div class="offer-spots" style="margin-top: 12px;">Limited Offer. First come, first served.</div>
+                        </div>
+                    </div>
+                    <div class="offer-card-footer">
+                        <button class="offer-cta" id="affordable-btn">
+                            <i class="fas fa-envelope-open-text"></i>
+                            Reserve My Spot
+                        </button>
+                    </div>
+                </div>
 
                 <!-- Offer 1: Flyer Insert -->
                 <div class="offer-card">
@@ -827,6 +895,9 @@
             Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
         });
         document.getElementById('scavenger-btn').addEventListener('click', function() {
+            Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
+        });
+        document.getElementById('affordable-btn').addEventListener('click', function() {
             Calendly.initPopupWidget({url: 'https://calendly.com/contact-calendly-wbhiddengems/30min'});
         });
     </script>
