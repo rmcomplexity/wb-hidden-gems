@@ -567,6 +567,46 @@
             color: var(--yellow-dark);
         }
 
+        /* Distribution Map */
+        .distribution-map-section {
+            background: var(--off-white);
+            padding: 3rem 2rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .distribution-map-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .distribution-map-figure {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .distribution-map-title {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--green-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .distribution-map-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .distribution-map-caption {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page { padding: 40px 20px; }
@@ -599,6 +639,17 @@
         </a>
         <h1>Choose Your <span class="highlight">Ad Space</span></h1>
         <p>Every plan is built around your <strong>ad space in the monthly magazine</strong>. The free landing page and free paid social ads come with all of them.</p>
+    </section>
+
+    <!-- Distribution Map -->
+    <section class="distribution-map-section">
+        <div class="distribution-map-inner">
+            <figure class="distribution-map-figure">
+                <h2 class="distribution-map-title">Your Ad can reach all of these zip codes!</h2>
+                <img src="../assets/images/distribution_zipcodes_map.png" alt="Map showing distribution zip codes" class="distribution-map-img">
+                <figcaption class="distribution-map-caption">78728: Wells Branch, 78660: Pflugerville, 78728: Jollyville, 78664: Round Rock, 78681: Brushy Creek, 78613: Cedar Park</figcaption>
+            </figure>
+        </div>
     </section>
 
     <!-- Limited-Time Offers -->
