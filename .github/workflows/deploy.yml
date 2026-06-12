@@ -25,7 +25,6 @@ jobs:
           aws s3 ls s3://${{ env.BUCKET_NAME }} \
             --endpoint-url ${{ env.BUCKET_ENDPOINT }} \
             --region=us-east-1 \
-            --debug
           aws s3 sync . s3://${{ env.BUCKET_NAME }} \
             --endpoint-url ${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
