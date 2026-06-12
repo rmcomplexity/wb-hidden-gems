@@ -24,6 +24,12 @@ jobs:
         run: |
           aws s3 sync . s3://${{ env.BUCKET_NAME }}/ \
             --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
+            --delete
+            --exclude ".python-version" \
+            --exclude "LICENSE" \
+            --exclude "package.json" \
+            --exclude "package-lock.json" \
+            --exclude "README.md" \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude "*.py" \
