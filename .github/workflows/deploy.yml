@@ -23,10 +23,10 @@ jobs:
           BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
         run: |
           aws s3 ls s3://${{ env.BUCKET_NAME }} \
-            --endpoint-url ${{ env.BUCKET_ENDPOINT }} \
+            --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
             --region=us-east-1 \
-          aws s3 sync . s3://${{ env.BUCKET_NAME }} \
-            --endpoint-url ${{ env.BUCKET_ENDPOINT }} \
+          aws s3 sync . s3://${{ env.BUCKET_NAME }}/ \
+            --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
             --delete \
             --exclude ".git/*" \
@@ -37,8 +37,7 @@ jobs:
             --exclude "vendor/README.md" \
             --exclude ".env/*" \
             --cache-control "public, max-age=3600" \
-            --no-progress \
-            --region=us-east-1
+            --no-progress
 
       # Images and fonts rarely change — cache them longer
       - name: Set long cache on static assets
