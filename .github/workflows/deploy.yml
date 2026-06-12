@@ -24,7 +24,6 @@ jobs:
         run: |
           aws s3 sync . s3://${{ env.BUCKET_NAME }}/ \
             --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
-            --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude "*.py" \
