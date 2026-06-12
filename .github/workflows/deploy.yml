@@ -36,6 +36,7 @@ jobs:
             --exclude "node_modules/*" \
             --exclude "vendor/optimize_imgs.py" \
             --exclude "vendor/README.md" \
+            --exclude ".env/*" \
             --cache-control "public, max-age=3600" \
             --no-progress \
             --region=us-east-1
@@ -43,9 +44,9 @@ jobs:
       # Images and fonts rarely change — cache them longer
       - name: Set long cache on static assets
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.LINODE_OBJ_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.LINODE_OBJ_SECRET_KEY }}
-          BUCKET_NAME: ${{ secrets.BUCKET_SECRET_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_KEY }}
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
           BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
         run: |
           aws s3 sync assets/ s3://${{ env.BUCKET_NAME }}/assets/ \
