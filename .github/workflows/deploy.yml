@@ -24,7 +24,7 @@ jobs:
         run: |
           aws s3 ls s3://${{ env.BUCKET_NAME }} \
             --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
-            --region=us-east-1 \
+            --region=us-east-1
           aws s3 sync . s3://${{ env.BUCKET_NAME }}/ \
             --endpoint-url=${{ env.BUCKET_ENDPOINT }} \
             --acl public-read \
