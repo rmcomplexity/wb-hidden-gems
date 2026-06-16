@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — WB Hidden Gems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-5D0OvPwsnogFkFXv5P9Eq.js"></script>
+    <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        const hn = window.location.hostname;
+        if (
+            hn.startsWith('wbhiddengems.com') ||
+            hn.startsWith('wbhg.ink')
+        ){
+            console.log('plausible view event triggered.')
+            plausible.init()
+        }
+    </script>
+    <style>
+        :root {
+            --green-dark: #20500c;
+            --green-light: #aad697;
+            --yellow-dark: #cc8012;
+            --yellow-light: #eec993;
+            --red-dark: #8a0d1a;
+            --blue-dark: #08137a;
+            --blue-light: #1522a8;
+            --white: #fefefe;
+            --off-white: #f8f6f3;
+            --cream: #f5f2eb;
+            --charcoal: #2d2d2d;
+            --gray: #6b6b6b;
+            --light-gray: #e8e8e8;
+            --text-dark: var(--charcoal);
+            --text-muted: var(--gray);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sansation', sans-serif;
+            color: var(--charcoal);
+            background: var(--off-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Sansation', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navbar */
+        .navbar { background: var(--white); padding: 1rem 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo img { max-height: 3.1rem; }
+        .logo-text { font-family: 'Sansation', serif; font-size: 2rem; color: var(--charcoal); }
+        .logo-text span { color: var(--yellow-dark); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(160deg, #0a3d5c 0%, #0e5273 50%, #0a3d5c 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--white); }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight { color: var(--yellow-light); }
+
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Page wrapper */
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Section header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--green-dark);
+        }
+
+        .section-header h2 { font-size: 1.8rem; color: var(--green-dark); }
+
+        /* Contact list */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--green-dark);
+            box-shadow: 0 4px 20px rgba(32, 80, 12, 0.1);
+        }
+
+        .contact-item a,
+        .contact-item .contact-item-inner {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-icon.phone   { background: rgba(32, 80, 12, 0.12); color: var(--green-dark); }
+        .contact-icon.email   { background: rgba(32, 80, 12, 0.12); color: var(--green-dark); }
+        .contact-icon.instagram { background: rgba(193, 53, 132, 0.1); color: #c13584; }
+        .contact-icon.facebook  { background: rgba(24, 119, 242, 0.1); color: #1877f2; }
+        .contact-icon.pobox   { background: rgba(204, 128, 18, 0.12); color: var(--yellow-dark); }
+
+        .contact-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 2px;
+        }
+
+        .contact-value {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .contact-item a:hover .contact-value {
+            color: var(--green-dark);
+        }
+
+        /* Submission callout */
+        .submit-callout {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #2d6a10 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            margin-top: 1rem;
+        }
+
+        .submit-callout h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--yellow-light);
+        }
+
+        .submit-callout p {
+            opacity: 0.95;
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 640px;
+        }
+
+        .submit-callout p + p {
+            margin-top: 1rem;
+        }
+
+        .submit-callout .submit-methods {
+            list-style: none;
+            margin-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .submit-callout .submit-methods li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .submit-callout .submit-methods li i {
+            color: var(--yellow-light);
+            width: 18px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .site-footer { background: var(--charcoal); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand .logo-text { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); display: block; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: background 0.3s ease; }
+        .footer-social a:hover { background: var(--green-dark); }
+        .footer-column h4 { color: var(--white); font-size: 1rem; margin-bottom: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.5rem; }
+        .footer-column ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--white); }
+        .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-legal a:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page { padding: 40px 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-social { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo_gems.png" alt="WB Hidden Gems"/>
+                <span class="logo-text">WB HIDDEN GEMS</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>Get in <span class="highlight">Touch</span></h1>
+        <p>We'd love to hear from you. Whether you have a question, a story to share, or something beautiful to submit — we're all ears.</p>
+    </section>
+
+    <div class="page">
+
+        <!-- Contact links -->
+        <div class="section-header">
+            <h2>Ways to Reach Us</h2>
+        </div>
+
+        <ul class="contact-list">
+            <li class="contact-item">
+                <a href="tel:+15126938679">
+                    <div class="contact-icon phone"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+1 (512) 693-8679</div>
+                    </div>
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="mailto:contact@wbhiddengems.com">
+                    <div class="contact-icon email"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">contact@wbhiddengems.com</div>
+                    </div>
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://www.instagram.com/wbhiddengems/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon instagram"><i class="fab fa-instagram"></i></div>
+                    <div>
+                        <div class="contact-label">Instagram</div>
+                        <div class="contact-value">@wbhiddengems</div>
+                    </div>
+                </a>
+            </li>
+            <li class="contact-item">
+                <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon facebook"><i class="fab fa-facebook-f"></i></div>
+                    <div>
+                        <div class="contact-label">Facebook</div>
+                        <div class="contact-value">WB Hidden Gems</div>
+                    </div>
+                </a>
+            </li>
+        <!--
+            <li class="contact-item">
+                <div class="contact-item-inner">
+                    <div class="contact-icon pobox"><i class="fas fa-mailbox"></i></div>
+                    <div>
+                        <div class="contact-label">Mailing Address</div>
+                        <div class="contact-value">P.O. Box 1325, Austin, TX 78660</div>
+                    </div>
+                </div>
+            </li>
+        -->
+        </ul>
+
+        <!-- Submissions callout -->
+        <div class="submit-callout">
+            <h3>Share Your Work With Our Community</h3>
+            <p>
+                WB Hidden Gems is more than a magazine — it's a community-built publication. We warmly invite you to submit your creative work for a chance to be featured in an upcoming issue.
+            </p>
+            <p>
+                Are you a writer, poet, illustrator, photographer, or visual artist? Send us your pieces. We celebrate the talent right here in our neighborhood and love giving local voices a platform to shine.
+            </p>
+            <p>
+                We also want to hear what <em>you</em> want to see more of. Tell us what topics, stories, or features would make this magazine feel like home to you.
+            </p>
+            <ul class="submit-methods">
+                <li><i class="fas fa-paint-brush"></i> Art projects — illustrations, photography, mixed media, and more</li>
+                <li><i class="fas fa-pen-nib"></i> Writings — short stories, poems, essays, community spotlights</li>
+                <li><i class="fas fa-comment-dots"></i> Feedback — ideas, suggestions, and anything you'd love to read</li>
+            </ul>
+            <p style="margin-top: 1.5rem;">
+                Reach out by email at <strong>contact@wbhiddengems.com</strong>, through our social media, or drop something in the mail to our P.O. Box. We read everything and can't wait to hear from you.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">WB Hidden Gems</span>
+                    <p>Helping Wells Branch businesses grow by sharing their stories and strengthening their roots in our community. We believe every local business is a hidden gem waiting to shine.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/WB-Hidden-Gems/61587618905482/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/wbhiddengems/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@wbhiddengems.com">contact@wbhiddengems.com</a></li>
+                        <li><a href="tel:+15126938679">+1 (512) 693-8679</a></li>
+                        <li><a href="#">P.O. Box 1325, Austin, TX 78660</a></li>
+                        <li><a href="../media-kit/">Media Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WB Hidden Gems. Made with ❤️ in Wells Branch, Texas.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
